@@ -136,13 +136,13 @@ export default function PaymentsPage() {
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-white/[0.06] px-6 lg:px-10">
-        <div className="flex gap-0">
+      <div className="border-b border-white/[0.06] px-4 sm:px-6 lg:px-10 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-0 min-w-max">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-3 text-[10px] uppercase tracking-[0.2em] transition-colors border-b-2 -mb-px ${
+              className={`px-4 sm:px-5 py-3 text-[11px] uppercase tracking-[0.2em] transition-colors border-b-2 -mb-px whitespace-nowrap ${
                 activeTab === tab.id
                   ? 'text-white border-white'
                   : 'text-white/60 border-transparent hover:text-white/50'
@@ -154,7 +154,7 @@ export default function PaymentsPage() {
         </div>
       </div>
 
-      <div className="px-6 lg:px-10 py-8">
+      <div className="px-4 sm:px-6 lg:px-10 py-6 sm:py-8">
 
         {/* ═══ OVERVIEW ═══ */}
         {activeTab === 'overview' && (
@@ -213,7 +213,7 @@ export default function PaymentsPage() {
             )}
 
             {/* Revenue by Month */}
-            <div className="grid md:grid-cols-2 gap-px bg-white/[0.06]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-6">
                 <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-5">Entrate Mensili</h3>
                 <div className="space-y-3">
@@ -244,8 +244,8 @@ export default function PaymentsPage() {
                     const sportInfo = SPORTS[sport as Sport];
                     const pct = totalRevenue > 0 ? Math.round((revenue / totalRevenue) * 100) : 0;
                     return (
-                      <div key={sport} className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-white/[0.04] flex items-center justify-center text-[11px] uppercase tracking-wider text-white/60 shrink-0">
+                      <div key={sport} className="flex items-center gap-3 sm:gap-4">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/[0.04] flex items-center justify-center text-[10px] sm:text-[11px] uppercase tracking-wider text-white/60 shrink-0">
                           {sportInfo?.label.substring(0, 2)}
                         </div>
                         <div className="flex-1">
@@ -287,12 +287,12 @@ export default function PaymentsPage() {
         {activeTab === 'transactions' && (
           <div className="space-y-4">
             {/* Filters */}
-            <div className="flex items-center gap-px bg-white/[0.06] w-fit">
+            <div className="flex items-center gap-px bg-white/[0.06] w-full sm:w-fit overflow-x-auto scrollbar-hide">
               {['all', 'paid', 'pending', 'overdue', 'cancelled'].map((s) => (
                 <button
                   key={s}
                   onClick={() => setFilterStatus(s)}
-                  className={`px-4 py-2 text-[10px] uppercase tracking-[0.15em] transition-colors ${
+                  className={`px-3 sm:px-4 py-2 text-[11px] uppercase tracking-[0.15em] transition-colors whitespace-nowrap ${
                     filterStatus === s ? 'bg-white text-black' : 'bg-[#0A0A0A] text-white/60 hover:text-white/50'
                   }`}
                 >
@@ -377,31 +377,35 @@ export default function PaymentsPage() {
                   <Link
                     key={sub.id}
                     href={`/dashboard/athletes/${sub.athleteId}`}
-                    className="flex items-center gap-5 px-5 py-4 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group"
+                    className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 px-4 sm:px-5 py-4 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group"
                   >
-                    <span className={`w-1.5 h-1.5 shrink-0 ${statusStyles[sub.status]}`} />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[13px] text-white/70 group-hover:text-white transition-colors">{sub.athleteName}</p>
-                      <p className="text-[10px] text-white/55 mt-0.5">{sub.planName} &middot; {sport?.label}</p>
+                    <div className="flex items-center gap-3 flex-1 min-w-0">
+                      <span className={`w-1.5 h-1.5 shrink-0 ${statusStyles[sub.status]}`} />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[13px] text-white/70 group-hover:text-white transition-colors">{sub.athleteName}</p>
+                        <p className="text-[11px] text-white/55 mt-0.5">{sub.planName} &middot; {sport?.label}</p>
+                      </div>
                     </div>
-                    <div className="text-right shrink-0">
-                      <p className="text-[13px] text-white/50 tabular-nums">€{sub.amount}<span className="text-white/50 text-[10px]">/mese</span></p>
+                    <div className="flex items-center gap-3 sm:gap-5 pl-5 sm:pl-0">
+                      <div className="shrink-0">
+                        <p className="text-[13px] text-white/50 tabular-nums">€{sub.amount}<span className="text-white/50 text-[10px]">/mese</span></p>
+                      </div>
+                      <div className="shrink-0">
+                        <p className="text-[10px] text-white/60">Prossimo</p>
+                        <p className="text-[11px] text-white/70 tabular-nums">{sub.nextPayment}</p>
+                      </div>
+                      <div className="shrink-0">
+                        <span className={`text-[11px] uppercase tracking-[0.1em] px-2 py-0.5 ${
+                          sub.status === 'active' ? 'text-white/50 bg-white/[0.04]' :
+                          sub.status === 'paused' ? 'text-yellow-400/50 bg-yellow-400/[0.04]' :
+                          'text-white/55 bg-white/[0.02]'
+                        }`}>
+                          {sub.status === 'active' ? 'Attivo' : sub.status === 'paused' ? 'Pausa' : 'Stop'}
+                        </span>
+                      </div>
+                      {sub.autoRenew && <Repeat size={10} className="text-white/50 shrink-0" />}
+                      <ChevronRight size={12} className="text-white/50 group-hover:text-white/60 transition-colors shrink-0" />
                     </div>
-                    <div className="text-right shrink-0 w-24">
-                      <p className="text-[10px] text-white/60">Prossimo</p>
-                      <p className="text-[11px] text-white/70 tabular-nums">{sub.nextPayment}</p>
-                    </div>
-                    <div className="shrink-0 w-16 text-right">
-                      <span className={`text-[11px] uppercase tracking-[0.1em] px-2 py-0.5 ${
-                        sub.status === 'active' ? 'text-white/50 bg-white/[0.04]' :
-                        sub.status === 'paused' ? 'text-yellow-400/50 bg-yellow-400/[0.04]' :
-                        'text-white/55 bg-white/[0.02]'
-                      }`}>
-                        {sub.status === 'active' ? 'Attivo' : sub.status === 'paused' ? 'Pausa' : 'Stop'}
-                      </span>
-                    </div>
-                    {sub.autoRenew && <Repeat size={10} className="text-white/50 shrink-0" />}
-                    <ChevronRight size={12} className="text-white/50 group-hover:text-white/60 transition-colors shrink-0" />
                   </Link>
                 );
               })}

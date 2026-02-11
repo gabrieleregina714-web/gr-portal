@@ -99,37 +99,37 @@ export default function DashboardPage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* HEADER */}
-      <div className="relative overflow-hidden" style={{ height: '260px' }}>
+      <div className="relative overflow-hidden" style={{ height: '380px' }}>
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="https://cdn.shopify.com/videos/c/o/v/4e1c6acfb7834b46aea4d169fd262d61.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 to-[#0A0A0A]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-[#0A0A0A]/10" />
 
-        <div className="absolute bottom-8 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">
+        <div className="absolute bottom-10 left-6 lg:left-10 z-10">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-3">
             {format(new Date(2026, 1, 10), 'EEEE d MMMM yyyy', { locale: it }).toUpperCase()}
           </p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px] md:text-[42px]">
-            <span className="text-white/60">{greeting},</span> COACH
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 0.95, letterSpacing: '3px' }} className="text-white text-[36px] sm:text-[48px] md:text-[56px]">
+            <span className="text-white/60">{greeting},</span><br className="sm:hidden" /> COACH
           </h1>
-          <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{todayAppointments.length} sessioni oggi</span>
+          <div className="flex items-center gap-3 sm:gap-5 mt-4 flex-wrap">
+            <span className="text-[12px] uppercase tracking-[0.15em] text-white/70">{todayAppointments.length} sessioni oggi</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{activeAthletes.length} atleti attivi</span>
+            <span className="text-[12px] uppercase tracking-[0.15em] text-white/70">{activeAthletes.length} atleti attivi</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">Day {daysSinceStart}</span>
+            <span className="text-[12px] uppercase tracking-[0.15em] text-white/70">Day {daysSinceStart}</span>
           </div>
         </div>
 
-        <div className="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-1.5">
-          <Link href="/dashboard/calendar" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
-            <CalendarDays size={13} />
+        <div className="absolute bottom-10 right-6 lg:right-10 z-10 flex items-center gap-2">
+          <Link href="/dashboard/calendar" className="w-9 h-9 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
+            <CalendarDays size={15} />
           </Link>
-          <Link href="/dashboard/athletes/new" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
-            <Plus size={13} />
+          <Link href="/dashboard/athletes/new" className="w-9 h-9 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
+            <Plus size={15} />
           </Link>
-          <Link href="/dashboard/analytics" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
-            <TrendingUp size={13} />
+          <Link href="/dashboard/analytics" className="w-9 h-9 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
+            <TrendingUp size={15} />
           </Link>
         </div>
       </div>
