@@ -19,7 +19,7 @@ export default function AthleteProgressiPage() {
   const athlete = athletes.find((a: Athlete) => a.id === athleteId);
 
   if (!athlete) {
-    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/55 text-sm">Caricamento...</p></div>;
+    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/70 text-sm">Caricamento...</p></div>;
   }
 
   const sport = SPORTS[athlete.sport];
@@ -49,11 +49,16 @@ export default function AthleteProgressiPage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* Header */}
-      <div className="relative overflow-hidden" style={{ height: '180px' }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
-        <div className="absolute bottom-6 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">{sport.label}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
+      <div className="relative overflow-hidden h-[220px] sm:h-[280px] md:h-[380px]">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0969/1801/2243/files/renith-r-MLU_X1d3ofQ-unsplash.jpg?v=1768050398"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-[#0A0A0A]/10" />
+        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 lg:left-10 z-10">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-white/70 mb-2">{sport.label}</p>
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[36px] sm:text-[48px] md:text-[56px]">
             I TUOI PROGRESSI
           </h1>
         </div>
@@ -103,7 +108,7 @@ export default function AthleteProgressiPage() {
                       {current}{metric.unit}
                     </p>
                     {delta !== null && delta !== 0 && (
-                      <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/60' : 'text-white/50'}`}>
+                      <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/60' : 'text-white/70'}`}>
                         {positive ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                         {delta > 0 ? '+' : ''}{delta}{metric.unit}
                       </span>

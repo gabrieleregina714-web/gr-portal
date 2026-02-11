@@ -19,7 +19,7 @@ export default function AthleteSchedaPage() {
   const athlete = athletes.find((a: Athlete) => a.id === athleteId);
 
   if (!athlete) {
-    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/55 text-sm">Caricamento...</p></div>;
+    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/70 text-sm">Caricamento...</p></div>;
   }
 
   const currentPlan = plans.find(p => athlete.assignedPlans.includes(p.id));
@@ -37,11 +37,16 @@ export default function AthleteSchedaPage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* Header */}
-      <div className="relative overflow-hidden" style={{ height: '180px' }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
-        <div className="absolute bottom-6 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">{sport.label}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
+      <div className="relative overflow-hidden h-[220px] sm:h-[280px] md:h-[380px]">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0969/1801/2243/files/renith-r-MLU_X1d3ofQ-unsplash.jpg?v=1768050398"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-[#0A0A0A]/10" />
+        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 lg:left-10 z-10">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-white/70 mb-2">{sport.label}</p>
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[36px] sm:text-[48px] md:text-[56px]">
             LA TUA SCHEDA
           </h1>
         </div>
@@ -59,15 +64,15 @@ export default function AthleteSchedaPage() {
               </div>
               <div className="bg-[#0A0A0A] p-5">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Categoria</p>
-                <p className="text-[14px] text-white/50">{currentPlan.category}</p>
+                <p className="text-[14px] text-white/70">{currentPlan.category}</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Durata</p>
-                <p className="text-[14px] text-white/50">{currentPlan.duration}</p>
+                <p className="text-[14px] text-white/70">{currentPlan.duration}</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Difficoltà</p>
-                <p className="text-[14px] text-white/50">{difficultyLabels[currentPlan.difficulty]}</p>
+                <p className="text-[14px] text-white/70">{difficultyLabels[currentPlan.difficulty]}</p>
               </div>
             </div>
 
@@ -88,14 +93,14 @@ export default function AthleteSchedaPage() {
                     >
                       <div className="flex items-center gap-4">
                         <div className="w-8 h-8 bg-white/[0.04] flex items-center justify-center shrink-0">
-                          <Dumbbell size={14} className="text-white/55" />
+                          <Dumbbell size={14} className="text-white/70" />
                         </div>
                         <div className="text-left">
                           <p className="text-[13px] text-white/60">{s.name}</p>
-                          <p className="text-[10px] text-white/55">{s.day} · {s.exercises.length} esercizi</p>
+                          <p className="text-[10px] text-white/70">{s.day} · {s.exercises.length} esercizi</p>
                         </div>
                       </div>
-                      {isExpanded ? <ChevronUp size={14} className="text-white/50" /> : <ChevronDown size={14} className="text-white/50" />}
+                      {isExpanded ? <ChevronUp size={14} className="text-white/70" /> : <ChevronDown size={14} className="text-white/70" />}
                     </button>
                     {isExpanded && (
                       <div className="border-t border-white/[0.04] overflow-x-auto scrollbar-hide">
@@ -113,8 +118,8 @@ export default function AthleteSchedaPage() {
                             {s.exercises.map((ex, j) => (
                               <tr key={j} className="border-b border-white/[0.02] last:border-b-0">
                                 <td className="px-4 sm:px-6 py-3 text-[12px] text-white/60">{ex.name}</td>
-                                <td className="px-2 sm:px-3 py-3 text-[12px] text-white/45 text-center">{ex.sets}</td>
-                                <td className="px-2 sm:px-3 py-3 text-[12px] text-white/45 text-center">{ex.reps}</td>
+                                <td className="px-2 sm:px-3 py-3 text-[12px] text-white/65 text-center">{ex.sets}</td>
+                                <td className="px-2 sm:px-3 py-3 text-[12px] text-white/65 text-center">{ex.reps}</td>
                                 <td className="px-2 sm:px-3 py-3 text-[12px] text-white/60 text-center">{ex.rest}</td>
                                 <td className="px-2 sm:px-3 py-3 text-[10px] text-white/60 italic">{ex.notes || '–'}</td>
                               </tr>
@@ -130,9 +135,9 @@ export default function AthleteSchedaPage() {
           </>
         ) : (
           <div className="border border-white/[0.06] py-16 flex flex-col items-center justify-center gap-2">
-            <Dumbbell size={24} className="text-white/50" />
-            <p className="text-[13px] text-white/55">Nessuna scheda assegnata</p>
-            <p className="text-[10px] text-white/50">Il tuo coach ti assegnerà presto un programma</p>
+            <Dumbbell size={24} className="text-white/70" />
+            <p className="text-[13px] text-white/70">Nessuna scheda assegnata</p>
+            <p className="text-[10px] text-white/70">Il tuo coach ti assegnerà presto un programma</p>
           </div>
         )}
 
@@ -145,12 +150,12 @@ export default function AthleteSchedaPage() {
             <div className="divide-y divide-white/[0.03]">
               {schemaDocs.map(doc => (
                 <div key={doc.id} className="px-5 py-3 flex items-center gap-4 hover:bg-white/[0.015] transition-colors">
-                  <FileText size={14} className="text-white/50 shrink-0" />
+                  <FileText size={14} className="text-white/70 shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-[12px] text-white/50 truncate">{doc.name}</p>
-                    <p className="text-[11px] text-white/50">{doc.size} · {doc.uploadedAt}</p>
+                    <p className="text-[12px] text-white/70 truncate">{doc.name}</p>
+                    <p className="text-[11px] text-white/70">{doc.size} · {doc.uploadedAt}</p>
                   </div>
-                  <button className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/55 hover:text-white/50 transition-colors shrink-0">
+                  <button className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/70 hover:text-white/70 transition-colors shrink-0">
                     <Download size={11} />
                   </button>
                 </div>
