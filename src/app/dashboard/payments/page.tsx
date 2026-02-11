@@ -120,18 +120,23 @@ export default function PaymentsPage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* Header */}
-      <div className="relative overflow-hidden" style={{ height: '180px' }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
-        <div className="absolute bottom-6 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">Gestione finanziaria</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
-            PAGAMENTI
-          </h1>
-        </div>
-        <div className="absolute bottom-6 right-6 lg:right-10 z-10 flex items-center gap-3">
-          <span className="text-[10px] text-white/50 uppercase tracking-[0.15em]">
+      <div className="relative overflow-hidden" style={{ height: '380px' }}>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0969/1801/2243/files/renith-r-MLU_X1d3ofQ-unsplash.jpg?v=1768050398"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-[#0A0A0A]/10" />
+        <div className="absolute top-6 right-6 lg:right-10 z-10 flex items-center gap-3">
+          <span className="text-[10px] text-white/70 uppercase tracking-[0.15em]">
             MRR €{MRR}
           </span>
+        </div>
+        <div className="absolute bottom-8 left-6 lg:left-10 z-10">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-white/70 mb-2">Gestione finanziaria</p>
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[36px] sm:text-[48px] md:text-[56px]">
+            PAGAMENTI
+          </h1>
         </div>
       </div>
 
