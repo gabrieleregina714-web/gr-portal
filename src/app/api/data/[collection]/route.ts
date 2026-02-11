@@ -7,8 +7,8 @@ const ALLOWED = [
   'athleteNotes', 'athleteDocuments', 'notifications',
 ];
 
-export async function GET(req: NextRequest, { params }: { params: { collection: string } }) {
-  const col = params.collection;
+export async function GET(req: NextRequest, { params }: { params: Promise<{ collection: string }> }) {
+  const { collection: col } = await params;
   if (!ALLOWED.includes(col)) {
     return NextResponse.json({ error: 'Invalid collection' }, { status: 400 });
   }
@@ -20,8 +20,8 @@ export async function GET(req: NextRequest, { params }: { params: { collection: 
   return NextResponse.json(data);
 }
 
-export async function POST(req: NextRequest, { params }: { params: { collection: string } }) {
-  const col = params.collection;
+export async function POST(req: NextRequest, { params }: { params: Promise<{ collection: string }> }) {
+  const { collection: col } = await params;
   if (!ALLOWED.includes(col)) {
     return NextResponse.json({ error: 'Invalid collection' }, { status: 400 });
   }
@@ -31,8 +31,8 @@ export async function POST(req: NextRequest, { params }: { params: { collection:
   return NextResponse.json(result, { status: 201 });
 }
 
-export async function PUT(req: NextRequest, { params }: { params: { collection: string } }) {
-  const col = params.collection;
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ collection: string }> }) {
+  const { collection: col } = await params;
   if (!ALLOWED.includes(col)) {
     return NextResponse.json({ error: 'Invalid collection' }, { status: 400 });
   }
@@ -48,8 +48,8 @@ export async function PUT(req: NextRequest, { params }: { params: { collection: 
   return NextResponse.json(result);
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { collection: string } }) {
-  const col = params.collection;
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ collection: string }> }) {
+  const { collection: col } = await params;
   if (!ALLOWED.includes(col)) {
     return NextResponse.json({ error: 'Invalid collection' }, { status: 400 });
   }
