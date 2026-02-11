@@ -299,15 +299,15 @@ export default function AthleteProfilePage() {
             <img src={athlete.avatar} alt="" className="w-14 h-14 object-cover border border-white/10" />
           )}
           <div>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '42px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+            <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[24px] sm:text-[32px] md:text-[42px]">
               {athlete.name.toUpperCase()} {athlete.surname.toUpperCase()}
             </h1>
-            <div className="flex items-center gap-4 mt-2">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{sport.label}</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{athlete.goal}</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Day {daysSinceStart}</span>
+            <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{sport.label}</span>
+            <span className="w-px h-3 bg-white/10 hidden sm:block" />
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{athlete.goal}</span>
+            <span className="w-px h-3 bg-white/10 hidden sm:block" />
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">Day {daysSinceStart}</span>
           </div>
           </div>
         </div>
@@ -329,8 +329,8 @@ export default function AthleteProfilePage() {
       </div>
 
       {/* TAB NAV */}
-      <div className="px-6 lg:px-10 border-b border-white/[0.06]">
-        <div className="flex gap-0">
+      <div className="px-4 sm:px-6 lg:px-10 border-b border-white/[0.06] overflow-x-auto scrollbar-hide">
+        <div className="flex gap-0 min-w-max">
           {tabs.map((tab) => (
             <button
               key={tab.key}
@@ -348,7 +348,7 @@ export default function AthleteProfilePage() {
       </div>
 
       {/* CONTENT */}
-      <div className="px-6 lg:px-10 py-8">
+      <div className="px-4 sm:px-6 lg:px-10 py-6 sm:py-8">
 
         {/* OVERVIEW */}
         {activeTab === 'overview' && (
@@ -578,7 +578,7 @@ export default function AthleteProfilePage() {
                       </div>
                       {isExpanded && (
                         <div className="px-6 pb-6 border-t border-white/[0.04] pt-5 space-y-5">
-                          <div className="grid grid-cols-3 gap-px bg-white/[0.06]">
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.06]">
                             <div className="bg-[#0A0A0A] p-4 text-center">
                               <p className="text-[8px] uppercase tracking-[0.2em] text-white/15">Partenza</p>
                               <p className="text-lg text-white/30 mt-1" style={{ fontFamily: 'var(--font-heading)' }}>{sg.startValue}</p>
@@ -679,7 +679,7 @@ export default function AthleteProfilePage() {
                     <div className="px-6 py-3 border-b border-white/[0.04] flex items-center justify-between">
                       <p className="text-[9px] uppercase tracking-[0.2em] text-white/15">Ultimo check-in &mdash; {latest.date}</p>
                     </div>
-                    <div className="grid grid-cols-5">
+                    <div className="grid grid-cols-3 sm:grid-cols-5">
                       {[
                         { label: 'Umore', value: latest.mood },
                         { label: 'Energia', value: latest.energy },

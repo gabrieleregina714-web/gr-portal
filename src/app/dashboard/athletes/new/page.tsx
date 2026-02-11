@@ -128,7 +128,7 @@ export default function NewAthletePage() {
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
                 Età

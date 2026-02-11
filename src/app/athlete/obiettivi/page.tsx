@@ -49,7 +49,7 @@ export default function AthleteObiettiviPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             OBIETTIVI
           </h1>
         </div>
@@ -174,7 +174,7 @@ export default function AthleteObiettiviPage() {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-white/25">Settimana del {ci.date}</p>
                   {ci.wins && <p className="text-[10px] text-white/15 italic max-w-[50%] truncate">{ci.wins}</p>}
                 </div>
-                <div className="grid grid-cols-5 gap-px bg-white/[0.04]">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-px bg-white/[0.04]">
                   {[
                     { label: 'Umore', value: ci.mood },
                     { label: 'Energia', value: ci.energy },

@@ -117,7 +117,7 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Right side */}
+          {/* Right side - desktop */}
           <div className="hidden md:flex items-center gap-3">
             {/* Search */}
             <div ref={searchRef} className="relative">
@@ -226,13 +226,52 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile: notifications + toggle */}
+          <div className="flex items-center gap-1 md:hidden">
+            <div ref={notiRef} className="relative">
+              <button
+                onClick={() => setNotiOpen(!notiOpen)}
+                className="relative p-2 text-white/40 hover:text-white/70 transition-all"
+              >
+                <Bell size={18} />
+                {unreadCount > 0 && (
+                  <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[7px] font-bold flex items-center justify-center">{unreadCount}</span>
+                )}
+              </button>
+              {notiOpen && (
+                <div className="absolute right-0 top-12 w-[300px] bg-[#141414] border border-white/[0.08] shadow-2xl overflow-hidden z-50">
+                  <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/40">Notifiche</p>
+                    <span className="text-[10px] text-white/30">{unreadCount} nuove</span>
+                  </div>
+                  <div className="max-h-[320px] overflow-y-auto">
+                    {notifications.slice(0, 8).map(n => (
+                      <div key={n.id} className={`px-4 py-3 border-b border-white/[0.02] ${!n.read ? 'bg-white/[0.015]' : ''}`}>
+                        <p className="text-xs text-white/60 leading-relaxed">{n.message}</p>
+                        <p className="text-[10px] text-white/25 mt-1">{n.createdAt}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            <button
+              onClick={() => setOpen(!open)}
+              className="p-2 text-white"
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+
+          {/* Mobile toggle - hidden, handled above */}
+          {false && (
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden p-2 text-white"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
+          )}
         </div>
       </div>
 
@@ -261,7 +300,12 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="pt-4 border-t border-white/5 mt-4">
+            <div className="pt-4 border-t border-white/5 mt-4 space-y-1">
+              {session?.user?.name && (
+                <div className="px-4 py-2 text-xs uppercase tracking-wider text-white/30">
+                  {session.user.name}
+                </div>
+              )}
               <button
                 onClick={() => signOut({ callbackUrl: '/login' })}
                 className="flex items-center gap-2 px-4 py-3 text-sm uppercase tracking-wider text-white/30 w-full text-left"

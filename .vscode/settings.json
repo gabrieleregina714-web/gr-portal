@@ -1,6 +1,7 @@
 {
   "chat.tools.autoApprove": true,
+  "chat.tools.terminal.ignoreDefaultAutoApproveRules": true,
   "chat.tools.terminal.autoApprove": {
-    "/./": true
+    "/^.+$/": true
   }
 }

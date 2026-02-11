@@ -213,22 +213,22 @@ export default function AnalyticsPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-white/[0.02] to-transparent" />
 
         <div className="absolute bottom-8 left-6 lg:left-10 z-10">
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '42px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px] md:text-[42px]">
             ANALYTICS
           </h1>
-          <div className="flex items-center gap-4 mt-2">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{athletes.length} atleti</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{totalSmartGoals} obiettivi</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{totalMeasurements} misurazioni</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Score {healthScore}</span>
+          <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{athletes.length} atleti</span>
+            <span className="w-px h-3 bg-white/10 hidden sm:block" />
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{totalSmartGoals} obiettivi</span>
+            <span className="w-px h-3 bg-white/10 hidden sm:block" />
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{totalMeasurements} misurazioni</span>
+            <span className="w-px h-3 bg-white/10 hidden sm:block" />
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">Score {healthScore}</span>
           </div>
         </div>
 
         {/* Sport filter */}
-        <div className="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-0">
+        <div className="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-0 overflow-x-auto scrollbar-hide max-w-[60%] sm:max-w-none">
           <button
             onClick={() => setSelectedSport('all')}
             className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-colors border border-white/[0.06] ${
@@ -248,8 +248,8 @@ export default function AnalyticsPage() {
       </div>
 
       {/* TAB NAV */}
-      <div className="px-6 lg:px-10 border-b border-white/[0.06]">
-        <div className="flex gap-0">
+      <div className="px-4 sm:px-6 lg:px-10 border-b border-white/[0.06] overflow-x-auto scrollbar-hide">
+        <div className="flex gap-0 min-w-max">
           {tabs.map((tab) => (
             <button
               key={tab.key}

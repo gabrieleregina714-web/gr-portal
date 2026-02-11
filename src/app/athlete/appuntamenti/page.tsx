@@ -55,7 +55,7 @@ export default function AthleteAppuntamentiPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             APPUNTAMENTI
           </h1>
         </div>

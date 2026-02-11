@@ -109,15 +109,15 @@ export default function DashboardPage() {
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2">
             {format(new Date(2026, 1, 10), 'EEEE d MMMM yyyy', { locale: it }).toUpperCase()}
           </p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '42px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px] md:text-[42px]">
             <span className="text-white/30">{greeting},</span> COACH
           </h1>
-          <div className="flex items-center gap-4 mt-2">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{todayAppointments.length} sessioni oggi</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{activeAthletes.length} atleti attivi</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Day {daysSinceStart}</span>
+          <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{todayAppointments.length} sessioni oggi</span>
+            <span className="w-px h-3 bg-white/10 hidden sm:block" />
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{activeAthletes.length} atleti attivi</span>
+            <span className="w-px h-3 bg-white/10 hidden sm:block" />
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">Day {daysSinceStart}</span>
           </div>
         </div>
 
@@ -135,7 +135,7 @@ export default function DashboardPage() {
       </div>
 
       {/* CONTENT */}
-      <div className="px-6 lg:px-10 py-8">
+      <div className="px-4 sm:px-6 lg:px-10 py-6 sm:py-8">
 
         {/* KPI Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-white/[0.06] mb-8">
@@ -147,8 +147,8 @@ export default function DashboardPage() {
             { label: 'Febbraio', value: `${monthHours}`, unit: 'h' },
             { label: 'Progresso', value: `${avgProgress}`, unit: '%' },
           ].map((s) => (
-            <div key={s.label} className="bg-[#0A0A0A] p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{s.label}</p>
+            <div key={s.label} className="bg-[#0A0A0A] p-3 sm:p-5">
+              <p className="text-[11px] uppercase tracking-[0.15em] text-white/40 mb-2">{s.label}</p>
               <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                 {s.value}
                 {s.unit && <span className="text-xs text-white/20 ml-1 font-normal">{s.unit}</span>}
@@ -322,12 +322,12 @@ export default function DashboardPage() {
             });
             const avgGoal = sportGoals.length ? Math.round(sportGoals.reduce((sum, g) => sum + g.progress, 0) / sportGoals.length) : 0;
             return (
-              <Link key={s} href={`/dashboard/athletes/sport/${s}`} className="bg-[#0A0A0A] p-5 hover:bg-white/[0.02] transition-colors group">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{sport.label}</p>
+              <Link key={s} href={`/dashboard/athletes/sport/${s}`} className="bg-[#0A0A0A] p-4 sm:p-5 hover:bg-white/[0.02] transition-colors group">
+                <p className="text-[11px] uppercase tracking-[0.15em] text-white/40 mb-2">{sport.label}</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{count}</p>
                 <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-[9px] text-white/15">{active} attivi</span>
-                  <span className="text-[9px] text-white/15">Avg {avgGoal}%</span>
+                  <span className="text-[10px] text-white/30">{active} attivi</span>
+                  <span className="text-[10px] text-white/30">Avg {avgGoal}%</span>
                 </div>
                 <ChevronRight size={11} className="text-white/0 group-hover:text-white/20 transition-colors mt-2" />
               </Link>
@@ -337,7 +337,7 @@ export default function DashboardPage() {
 
         {/* Roster */}
         <div className="border border-white/[0.06]">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/[0.06]">
             <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Roster</h3>
             <Link href="/dashboard/athletes" className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">
               Tutti <ArrowRight size={9} />
@@ -357,7 +357,7 @@ export default function DashboardPage() {
                 <Link
                   key={athlete.id}
                   href={`/dashboard/athletes/${athlete.id}`}
-                  className="flex items-center gap-6 px-6 py-4 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group"
+                  className="flex items-center gap-3 sm:gap-6 px-4 sm:px-6 py-4 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group"
                 >
                   <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center text-[11px] text-white/40 shrink-0">
                     {athlete.name[0]}{athlete.surname[0]}
@@ -366,7 +366,7 @@ export default function DashboardPage() {
                     <p className="text-[13px] text-white/80 group-hover:text-white transition-colors truncate">
                       {athlete.name} {athlete.surname}
                     </p>
-                    <p className="text-[10px] text-white/20 mt-0.5 truncate">
+                    <p className="text-[11px] text-white/30 mt-0.5 truncate">
                       {sport.label} &middot; {athlete.goal}
                     </p>
                   </div>

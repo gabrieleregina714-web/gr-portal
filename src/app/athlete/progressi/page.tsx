@@ -53,7 +53,7 @@ export default function AthleteProgressiPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             I TUOI PROGRESSI
           </h1>
         </div>
@@ -62,7 +62,7 @@ export default function AthleteProgressiPage() {
       <div className="px-6 lg:px-10 py-8 space-y-8">
 
         {/* KPI Cards */}
-        <div className={`grid gap-px bg-white/[0.06]`} style={{ gridTemplateColumns: `repeat(${Math.min(metricConfigs.length, 4)}, 1fr)` }}>
+        <div className="grid gap-px bg-white/[0.06] grid-cols-2 sm:grid-cols-4">
           {metricConfigs.slice(0, 4).map(metric => {
             const current = (lastM as any)[metric.key];
             const first = (firstM as any)[metric.key];
@@ -70,13 +70,13 @@ export default function AthleteProgressiPage() {
             const positive = metric.lowerIsBetter ? (delta !== null && delta < 0) : (delta !== null && delta > 0);
             return (
               <div key={metric.key} className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{metric.label}</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/40 mb-2">{metric.label}</p>
                 <div className="flex items-end gap-2">
                   <p className="text-3xl font-bold text-white/70" style={{ fontFamily: 'var(--font-heading)' }}>
                     {current}{metric.unit}
                   </p>
                   {delta !== null && delta !== 0 && (
-                    <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/30' : 'text-white/15'}`}>
+                    <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/40' : 'text-white/25'}`}>
                       {positive ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                       {delta > 0 ? '+' : ''}{delta}{metric.unit}
                     </span>
@@ -89,7 +89,7 @@ export default function AthleteProgressiPage() {
 
         {/* Additional metrics if more than 4 */}
         {metricConfigs.length > 4 && (
-          <div className={`grid gap-px bg-white/[0.06]`} style={{ gridTemplateColumns: `repeat(${Math.min(metricConfigs.length - 4, 4)}, 1fr)` }}>
+          <div className="grid gap-px bg-white/[0.06] grid-cols-2 sm:grid-cols-4">
             {metricConfigs.slice(4).map(metric => {
               const current = (lastM as any)[metric.key];
               const first = (firstM as any)[metric.key];
@@ -97,7 +97,7 @@ export default function AthleteProgressiPage() {
               const positive = metric.lowerIsBetter ? (delta !== null && delta < 0) : (delta !== null && delta > 0);
               return (
                 <div key={metric.key} className="bg-[#0A0A0A] p-5">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{metric.label}</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/40 mb-2">{metric.label}</p>
                   <div className="flex items-end gap-2">
                     <p className="text-3xl font-bold text-white/70" style={{ fontFamily: 'var(--font-heading)' }}>
                       {current}{metric.unit}
@@ -164,9 +164,9 @@ export default function AthleteProgressiPage() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/[0.06]">
-                  <th className="text-left px-5 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Data</th>
+                  <th className="text-left px-5 py-3 text-[9px] uppercase tracking-[0.15em] text-white/30">Data</th>
                   {metricConfigs.map(m => (
-                    <th key={m.key} className="text-center px-3 py-3 text-[8px] uppercase tracking-[0.15em] text-white/15">{m.label}</th>
+                    <th key={m.key} className="text-center px-3 py-3 text-[9px] uppercase tracking-[0.15em] text-white/25">{m.label}</th>
                   ))}
                 </tr>
               </thead>

@@ -302,15 +302,16 @@ export default function PaymentsPage() {
             </div>
 
             {/* Table */}
-            <div className="border border-white/[0.06]">
+            <div className="border border-white/[0.06] overflow-x-auto scrollbar-hide">
+              <div className="min-w-[700px]">
               <div className="grid grid-cols-12 gap-4 px-5 py-3 border-b border-white/[0.06]">
-                <span className="col-span-3 text-[9px] uppercase tracking-[0.15em] text-white/20">Atleta</span>
-                <span className="col-span-3 text-[9px] uppercase tracking-[0.15em] text-white/20">Piano</span>
-                <span className="col-span-2 text-[9px] uppercase tracking-[0.15em] text-white/20">Data</span>
-                <span className="col-span-1 text-[9px] uppercase tracking-[0.15em] text-white/20">Importo</span>
-                <span className="col-span-1 text-[9px] uppercase tracking-[0.15em] text-white/20">Metodo</span>
-                <span className="col-span-1 text-[9px] uppercase tracking-[0.15em] text-white/20">Stato</span>
-                <span className="col-span-1 text-[9px] uppercase tracking-[0.15em] text-white/20">Ordine</span>
+                <span className="col-span-3 text-[10px] uppercase tracking-[0.15em] text-white/30">Atleta</span>
+                <span className="col-span-3 text-[10px] uppercase tracking-[0.15em] text-white/30">Piano</span>
+                <span className="col-span-2 text-[10px] uppercase tracking-[0.15em] text-white/30">Data</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Importo</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Metodo</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Stato</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Ordine</span>
               </div>
               {filteredPayments.map((p) => (
                 <Link
@@ -335,6 +336,7 @@ export default function PaymentsPage() {
                   </span>
                 </Link>
               ))}
+              </div>
             </div>
           </div>
         )}
@@ -342,7 +344,7 @@ export default function PaymentsPage() {
         {/* ═══ SUBSCRIPTIONS ═══ */}
         {activeTab === 'subscriptions' && (
           <div className="space-y-6">
-            <div className="grid grid-cols-3 gap-px bg-white/[0.06]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-5">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Attivi</p>
                 <p className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{activeSubs.length}</p>
@@ -502,7 +504,7 @@ export default function PaymentsPage() {
             {/* Projections */}
             <div className="border border-white/[0.06] p-6">
               <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-4">Proiezioni</h3>
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {[
                   { label: 'Con +1 cliente/mese', value: `€${(MRR + avgRevenuePerAthlete * 3) * 12}`, desc: 'ARR tra 3 mesi' },
                   { label: 'Con retention 100%', value: `€${MRR * 12}`, desc: 'ARR stabile' },

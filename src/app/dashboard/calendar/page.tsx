@@ -90,33 +90,33 @@ export default function CalendarPage() {
 
       {/* ═══════════ HERO HEADER ═══════════ */}
       <div className="relative mb-6 sm:mb-8 lg:mb-10">
-        <div className="flex items-end justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.35em] text-white/20 mb-3 font-medium">Pianificazione</p>
-            <h1 className="nike-h1 leading-[0.85]">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-white/30 mb-3 font-medium">Pianificazione</p>
+            <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 0.85, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px] md:text-[42px]">
               <span className="text-white/20">YOUR</span><br />
               SCHEDULE
             </h1>
           </div>
-          <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 pb-2">
+          <div className="flex items-center gap-3 sm:gap-6 lg:gap-8 pb-2">
             {/* Stats pills */}
             <div className="text-right">
-              <p className="nike-stat-value text-3xl">{todayTotal}</p>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mt-0.5">Oggi</p>
+              <p className="nike-stat-value text-2xl sm:text-3xl">{todayTotal}</p>
+              <p className="text-[9px] uppercase tracking-[0.2em] text-white/30 mt-0.5">Oggi</p>
             </div>
             <div className="w-px h-8 bg-white/[0.06]" />
             <div className="text-right">
-              <p className="nike-stat-value text-3xl">{monthTotal}</p>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mt-0.5">Questo mese</p>
+              <p className="nike-stat-value text-2xl sm:text-3xl">{monthTotal}</p>
+              <p className="text-[9px] uppercase tracking-[0.2em] text-white/30 mt-0.5">Questo mese</p>
             </div>
             <div className="w-px h-8 bg-white/[0.06]" />
             <button
               onClick={() => { if (selectedDate) setShowNewModal(true); }}
-              className="group flex items-center gap-2 px-5 py-3 rounded-full bg-white text-black text-[11px] uppercase tracking-wider font-semibold hover:bg-white/90 transition-all"
+              className="group flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-white text-black text-[11px] uppercase tracking-wider font-semibold hover:bg-white/90 transition-all"
             >
               <Plus size={13} strokeWidth={2.5} />
-              <span>Nuovo</span>
-              <ArrowRight size={12} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+              <span className="hidden sm:inline">Nuovo</span>
+              <ArrowRight size={12} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all hidden sm:block" />
             </button>
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function CalendarPage() {
             >
               <ChevronLeft size={15} className="text-white/40" />
             </button>
-            <h2 className="nike-h3 min-w-[220px]">
+            <h2 className="nike-h3 min-w-[140px] sm:min-w-[220px] text-sm sm:text-base">
               {format(currentMonth, 'MMMM yyyy', { locale: it }).toUpperCase()}
             </h2>
             <button
@@ -295,7 +295,7 @@ export default function CalendarPage() {
                           </div>
                           {apt.notes && <p className="text-[11px] text-white/20 mt-1.5 leading-relaxed">{apt.notes}</p>}
                           {/* Action buttons */}
-                          <div className="flex items-center gap-1.5 mt-2.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="flex items-center gap-1.5 mt-2.5 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                             <a href="https://zoom.us/j/new" target="_blank" rel="noopener noreferrer"
                               className="px-2 py-0.5 rounded bg-[#2D8CFF]/10 text-[#2D8CFF] text-[9px] font-semibold uppercase tracking-wider hover:bg-[#2D8CFF]/20 transition-colors flex items-center gap-1">
                               <Video size={8} /> Zoom
@@ -394,7 +394,7 @@ export default function CalendarPage() {
             {/* Modal form */}
             <div className="px-4 sm:px-5 md:px-7 pb-2 space-y-5">
               <div>
-                <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-2 block font-medium">Atleta</label>
+                <label className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2 block font-medium">Atleta</label>
                 <select value={newApt.athleteId} onChange={(e) => setNewApt({ ...newApt, athleteId: e.target.value })} className="nike-input !rounded-xl !bg-white/[0.03] !border-white/[0.06] focus:!border-white/[0.12]">
                   <option value="">Seleziona...</option>
                   {athletes.map((a: Athlete) => (
@@ -403,8 +403,8 @@ export default function CalendarPage() {
                 </select>
               </div>
               <div>
-                <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-2 block font-medium">Tipo</label>
-                <div className="flex gap-2">
+                <label className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2 block font-medium">Tipo</label>
+                <div className="grid grid-cols-2 sm:flex gap-2">
                   {(['training', 'call', 'assessment', 'review'] as const).map((t) => {
                     const apt_type = APPOINTMENT_TYPES[t];
                     const active = newApt.type === t;
@@ -412,7 +412,7 @@ export default function CalendarPage() {
                       <button
                         key={t}
                         onClick={() => setNewApt({ ...newApt, type: t })}
-                        className={`flex-1 py-2.5 rounded-xl text-[10px] uppercase tracking-wider font-semibold transition-all border ${
+                        className={`sm:flex-1 py-2.5 rounded-xl text-[10px] uppercase tracking-wider font-semibold transition-all border ${
                           active
                             ? 'border-white/20 bg-white/[0.06] text-white'
                             : 'border-white/[0.04] bg-transparent text-white/25 hover:text-white/40 hover:border-white/[0.08]'
@@ -426,11 +426,11 @@ export default function CalendarPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-2 block font-medium">Ora</label>
+                  <label className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2 block font-medium">Ora</label>
                   <input type="time" value={newApt.time} onChange={(e) => setNewApt({ ...newApt, time: e.target.value })} className="nike-input !rounded-xl !bg-white/[0.03] !border-white/[0.06] focus:!border-white/[0.12]" />
                 </div>
                 <div>
-                  <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-2 block font-medium">Durata</label>
+                  <label className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2 block font-medium">Durata</label>
                   <div className="flex gap-1.5">
                     {[30, 45, 60, 90].map((d) => (
                       <button
@@ -449,7 +449,7 @@ export default function CalendarPage() {
                 </div>
               </div>
               <div>
-                <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-2 block font-medium">Note</label>
+                <label className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2 block font-medium">Note</label>
                 <textarea rows={2} value={newApt.notes} onChange={(e) => setNewApt({ ...newApt, notes: e.target.value })} placeholder="Opzionale..." className="nike-input !rounded-xl !bg-white/[0.03] !border-white/[0.06] focus:!border-white/[0.12] resize-none" />
               </div>
             </div>

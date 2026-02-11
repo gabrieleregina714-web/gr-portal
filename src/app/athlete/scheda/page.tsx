@@ -41,7 +41,7 @@ export default function AthleteSchedaPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             LA TUA SCHEDA
           </h1>
         </div>
@@ -98,25 +98,25 @@ export default function AthleteSchedaPage() {
                       {isExpanded ? <ChevronUp size={14} className="text-white/15" /> : <ChevronDown size={14} className="text-white/15" />}
                     </button>
                     {isExpanded && (
-                      <div className="border-t border-white/[0.04]">
-                        <table className="w-full">
+                      <div className="border-t border-white/[0.04] overflow-x-auto scrollbar-hide">
+                        <table className="w-full min-w-[500px]">
                           <thead>
                             <tr className="border-b border-white/[0.04]">
-                              <th className="text-left px-6 py-2.5 text-[8px] uppercase tracking-[0.15em] text-white/15 w-[35%]">Esercizio</th>
-                              <th className="text-center px-3 py-2.5 text-[8px] uppercase tracking-[0.15em] text-white/15">Serie</th>
-                              <th className="text-center px-3 py-2.5 text-[8px] uppercase tracking-[0.15em] text-white/15">Reps</th>
-                              <th className="text-center px-3 py-2.5 text-[8px] uppercase tracking-[0.15em] text-white/15">Recupero</th>
-                              <th className="text-left px-3 py-2.5 text-[8px] uppercase tracking-[0.15em] text-white/15">Note</th>
+                              <th className="text-left px-4 sm:px-6 py-2.5 text-[9px] uppercase tracking-[0.15em] text-white/25 w-[35%]">Esercizio</th>
+                              <th className="text-center px-2 sm:px-3 py-2.5 text-[9px] uppercase tracking-[0.15em] text-white/25">Serie</th>
+                              <th className="text-center px-2 sm:px-3 py-2.5 text-[9px] uppercase tracking-[0.15em] text-white/25">Reps</th>
+                              <th className="text-center px-2 sm:px-3 py-2.5 text-[9px] uppercase tracking-[0.15em] text-white/25">Recupero</th>
+                              <th className="text-left px-2 sm:px-3 py-2.5 text-[9px] uppercase tracking-[0.15em] text-white/25">Note</th>
                             </tr>
                           </thead>
                           <tbody>
                             {s.exercises.map((ex, j) => (
                               <tr key={j} className="border-b border-white/[0.02] last:border-b-0">
-                                <td className="px-6 py-3 text-[12px] text-white/50">{ex.name}</td>
-                                <td className="px-3 py-3 text-[12px] text-white/35 text-center">{ex.sets}</td>
-                                <td className="px-3 py-3 text-[12px] text-white/35 text-center">{ex.reps}</td>
-                                <td className="px-3 py-3 text-[12px] text-white/20 text-center">{ex.rest}</td>
-                                <td className="px-3 py-3 text-[10px] text-white/15 italic">{ex.notes || '–'}</td>
+                                <td className="px-4 sm:px-6 py-3 text-[12px] text-white/60">{ex.name}</td>
+                                <td className="px-2 sm:px-3 py-3 text-[12px] text-white/45 text-center">{ex.sets}</td>
+                                <td className="px-2 sm:px-3 py-3 text-[12px] text-white/45 text-center">{ex.reps}</td>
+                                <td className="px-2 sm:px-3 py-3 text-[12px] text-white/30 text-center">{ex.rest}</td>
+                                <td className="px-2 sm:px-3 py-3 text-[10px] text-white/25 italic">{ex.notes || '–'}</td>
                               </tr>
                             ))}
                           </tbody>

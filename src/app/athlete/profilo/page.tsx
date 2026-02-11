@@ -72,7 +72,7 @@ export default function AthleteProfiloPage() {
           <input ref={avatarInputRef} type="file" accept="image/*" className="hidden" onChange={(e) => handlePhotoUpload(e, 'avatar')} />
           <div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label} · Giorno {daysSinceStart}</p>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+            <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[24px] sm:text-[30px] md:text-[36px]">
               {athlete.name.toUpperCase()} {athlete.surname.toUpperCase()}
             </h1>
           </div>

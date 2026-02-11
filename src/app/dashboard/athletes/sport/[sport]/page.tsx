@@ -69,7 +69,7 @@ export default function SportAthletesPage() {
         </Link>
 
         <div className="absolute bottom-8 left-6 lg:left-10 z-10">
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '42px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px] md:text-[42px]">
             {sport.label.toUpperCase()}
           </h1>
           <div className="flex items-center gap-4 mt-2">
@@ -92,9 +92,9 @@ export default function SportAthletesPage() {
       </div>
 
       {/* TOOLBAR */}
-      <div className="px-6 lg:px-10 border-b border-white/[0.06]">
-        <div className="flex items-center justify-between py-3">
-          <div className="flex gap-0">
+      <div className="px-4 sm:px-6 lg:px-10 border-b border-white/[0.06]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-3 gap-3">
+          <div className="flex gap-0 overflow-x-auto scrollbar-hide">
             {(['all', 'active', 'paused'] as const).map((s) => (
               <button
                 key={s}
@@ -110,7 +110,7 @@ export default function SportAthletesPage() {
             ))}
           </div>
 
-          <div className="relative max-w-[220px]">
+          <div className="relative w-full sm:max-w-[220px]">
             <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/15" />
             <input
               type="text"
@@ -127,7 +127,7 @@ export default function SportAthletesPage() {
       <div className="px-6 lg:px-10 py-8">
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-px bg-white/[0.06] mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.06] mb-8">
           {[
             { label: 'Totale atleti', value: `${allSportAthletes.length}`, icon: <Users size={14} className="text-white/15" /> },
             { label: 'Attivi', value: `${activeCount}`, icon: <UserCheck size={14} className="text-white/15" /> },

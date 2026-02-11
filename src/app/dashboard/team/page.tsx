@@ -65,7 +65,7 @@ export default function TeamPage() {
       <div className="px-6 lg:px-10 py-8">
 
         {/* KPI */}
-        <div className="grid grid-cols-3 gap-px bg-white/[0.06] mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.06] mb-8">
           <div className="bg-[#0A0A0A] p-5">
             <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Totale membri</p>
             <p className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{staffUsers.length}</p>
@@ -90,7 +90,7 @@ export default function TeamPage() {
             <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Membri del team</p>
           </div>
           {staffUsers.map((user) => (
-            <div key={user.id} className="flex items-center gap-6 px-6 py-5 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group">
+            <div key={user.id} className="flex items-center gap-3 sm:gap-6 px-4 sm:px-6 py-4 sm:py-5 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group">
               <div className="w-12 h-12 bg-white/[0.06] flex items-center justify-center text-[13px] text-white/40 shrink-0">
                 {user.name[0]}{user.surname[0]}
               </div>
@@ -108,7 +108,7 @@ export default function TeamPage() {
                     <span className="px-2 py-0.5 text-[8px] uppercase tracking-[0.15em] bg-red-400/10 text-red-400/50">Sospeso</span>
                   )}
                 </div>
-                <div className="flex items-center gap-4 text-[10px] text-white/20">
+                <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-[11px] text-white/30 flex-wrap">
                   <span className="flex items-center gap-1"><Mail size={9} /> {user.email}</span>
                   {user.phone && <span className="flex items-center gap-1"><Phone size={9} /> {user.phone}</span>}
                   <span className="flex items-center gap-1"><Calendar size={9} /> Dal {user.hireDate}</span>

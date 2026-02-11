@@ -51,7 +51,7 @@ export default function AthleteDocumentiPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             DOCUMENTI
           </h1>
         </div>
@@ -99,7 +99,7 @@ export default function AthleteDocumentiPage() {
                     {doc.size} &middot; {doc.uploadedAt}
                   </p>
                 </div>
-                <div className="flex items-center gap-px opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                <div className="flex items-center gap-px sm:opacity-0 sm:group-hover:opacity-100 transition-opacity shrink-0">
                   <button className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-white/50 transition-colors"><Eye size={11} /></button>
                   <button className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-white/50 transition-colors"><Download size={11} /></button>
                 </div>

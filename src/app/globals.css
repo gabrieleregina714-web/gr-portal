@@ -102,7 +102,13 @@ body {
 .nike-table td { padding: 14px 16px; font-size: 14px; color: var(--text-secondary); border-bottom: 1px solid #1A1A1A; }
 .nike-table tr:hover td { background: var(--bg-elevated); }
 
-.nike-stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; color: var(--text-muted); }
+.nike-stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; color: var(--text-secondary); }
+
+@media (max-width: 639px) {
+  .nike-table th { padding: 8px 10px; font-size: 10px; }
+  .nike-table td { padding: 10px; font-size: 13px; }
+  .nike-btn { padding: 10px 18px; font-size: 13px; }
+}
 
 .wa-btn {
   display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px;

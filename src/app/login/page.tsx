@@ -89,25 +89,25 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="text-[10px] uppercase tracking-[0.2em] text-white/25 block mb-2">Email</label>
+              <label className="text-xs uppercase tracking-[0.2em] text-white/50 block mb-2">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-transparent border border-white/[0.08] px-4 py-3 text-[13px] text-white placeholder-white/15 focus:border-white/25 focus:outline-none transition-colors"
+                className="w-full bg-transparent border border-white/[0.12] px-4 py-3.5 text-sm text-white placeholder-white/25 focus:border-white/30 focus:outline-none transition-colors"
                 placeholder="coach@grperform.com"
                 required
               />
             </div>
 
             <div>
-              <label className="text-[10px] uppercase tracking-[0.2em] text-white/25 block mb-2">Password</label>
+              <label className="text-xs uppercase tracking-[0.2em] text-white/50 block mb-2">Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-transparent border border-white/[0.08] px-4 py-3 text-[13px] text-white placeholder-white/15 focus:border-white/25 focus:outline-none transition-colors pr-10"
+                  className="w-full bg-transparent border border-white/[0.12] px-4 py-3.5 text-sm text-white placeholder-white/25 focus:border-white/30 focus:outline-none transition-colors pr-10"
                   placeholder="••••••••"
                   required
                 />
@@ -124,7 +124,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 bg-white text-black text-[11px] uppercase tracking-[0.2em] font-medium hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full py-4 bg-white text-black text-xs uppercase tracking-[0.2em] font-semibold hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (
                 <div className="w-4 h-4 border-2 border-black/20 border-t-black animate-spin" />
@@ -135,7 +135,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-8 pt-6 border-t border-white/[0.04]">
-            <p className="text-[9px] text-white/10 text-center uppercase tracking-[0.2em]">
+            <p className="text-[10px] text-white/30 text-center uppercase tracking-[0.2em]">
               GR Perform &copy; 2026 — Tutti i diritti riservati
             </p>
           </div>

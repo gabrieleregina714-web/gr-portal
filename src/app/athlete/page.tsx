@@ -57,7 +57,7 @@ export default function AthleteHomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
         <div className="absolute bottom-8 left-6 lg:left-10 z-10">
           <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label} · Giorno {daysSinceStart}</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '48px', lineHeight: 1, letterSpacing: '2px' }} className="text-white mb-3">
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white mb-3 text-[30px] sm:text-[40px] md:text-[48px]">
             CIAO, {athlete.name.toUpperCase()}
           </h1>
           <p className="text-[12px] text-white/25 max-w-md italic">&ldquo;{sportQuote}&rdquo;</p>
@@ -192,7 +192,7 @@ export default function AthleteHomePage() {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Ultimo check-in · {lastCheckIn.date}</p>
                 </div>
                 <div className="p-5">
-                  <div className="grid grid-cols-5 gap-px bg-white/[0.04]">
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-px bg-white/[0.04]">
                     {[
                       { label: 'Umore', value: lastCheckIn.mood },
                       { label: 'Energia', value: lastCheckIn.energy },
