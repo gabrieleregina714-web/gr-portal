@@ -121,7 +121,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 right-6 lg:right-10 z-10 flex items-center gap-2">
+        <div className="absolute top-6 right-6 lg:right-10 z-10 flex items-center gap-2">
           <Link href="/dashboard/calendar" className="w-9 h-9 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <CalendarDays size={15} />
           </Link>
