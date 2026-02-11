@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-heading: 'Bebas Neue', 'Impact', sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --bg: #0A0A0A;
+  --bg-card: #141414;
+  --bg-card-hover: #1A1A1A;
+  --bg-elevated: #1E1E1E;
+  --border: #222222;
+  --border-hover: #333333;
+  --text: #F5F5F5;
+  --text-secondary: #8A8A8A;
+  --text-muted: #555555;
+  --accent: #C8102E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* ===== DARK DESIGN SYSTEM ===== */
+
+.nike-h1 { font-family: var(--font-heading); font-size: 36px; line-height: 0.95; letter-spacing: 1px; text-transform: uppercase; }
+.nike-h2 { font-family: var(--font-heading); font-size: 30px; line-height: 1; letter-spacing: 0.5px; text-transform: uppercase; }
+.nike-h3 { font-family: var(--font-heading); font-size: 24px; line-height: 1.1; letter-spacing: 0.5px; text-transform: uppercase; }
+.nike-h4 { font-family: var(--font-heading); font-size: 19px; line-height: 1.2; text-transform: uppercase; }
+
+.nike-stat-value { font-family: var(--font-heading); font-size: 32px; line-height: 1; letter-spacing: 0.5px; color: var(--text); }
+
+@media (min-width: 640px) {
+  .nike-h1 { font-size: 48px; }
+  .nike-h2 { font-size: 36px; }
+  .nike-h3 { font-size: 27px; }
+  .nike-h4 { font-size: 20px; }
+  .nike-stat-value { font-size: 36px; }
+}
+@media (min-width: 768px) {
+  .nike-h1 { font-size: 56px; }
+  .nike-h2 { font-size: 40px; }
+  .nike-h3 { font-size: 30px; }
+  .nike-h4 { font-size: 22px; }
+  .nike-stat-value { font-size: 40px; }
+}
+@media (min-width: 1024px) {
+  .nike-h1 { font-size: 64px; }
+  .nike-h2 { font-size: 44px; }
+}
+
+.nike-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 24px; border-radius: 0; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all 0.15s; border: none; text-decoration: none; white-space: nowrap;
+}
+.nike-btn-white { background: #fff; color: #0A0A0A; }
+.nike-btn-white:hover { background: #E5E5E5; }
+.nike-btn-dark { background: var(--bg-elevated); color: #fff; border: 1px solid var(--border); }
+.nike-btn-dark:hover { border-color: var(--border-hover); background: #252525; }
+.nike-btn-accent { background: var(--accent); color: #fff; }
+.nike-btn-accent:hover { background: #a00d24; }
+
+.nike-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  transition: all 0.2s;
+}
+.nike-card:hover { border-color: var(--border-hover); }
+
+.nike-input {
+  width: 100%; padding: 13px 16px; background: var(--bg-elevated); border: 1.5px solid var(--border);
+  border-radius: 0; font-size: 14px; font-family: var(--font-body); color: var(--text); outline: none; transition: border-color 0.15s;
+}
+.nike-input:focus { border-color: #555; }
+.nike-input::placeholder { color: var(--text-muted); }
+
+.nike-tag {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px;
+  border-radius: 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px;
+  background: var(--bg-elevated); color: var(--text-secondary);
+}
+
+.nike-table { width: 100%; border-collapse: collapse; }
+.nike-table th {
+  text-align: left; padding: 10px 16px; font-size: 11px; text-transform: uppercase;
+  letter-spacing: 1.5px; font-weight: 600; color: var(--text-muted); border-bottom: 1px solid var(--border);
+}
+.nike-table td { padding: 14px 16px; font-size: 14px; color: var(--text-secondary); border-bottom: 1px solid #1A1A1A; }
+.nike-table tr:hover td { background: var(--bg-elevated); }
+
+.nike-stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; color: var(--text-muted); }
+
+.wa-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px;
+  background: #25D366; color: #fff; border-radius: 0; font-size: 13px;
+  font-weight: 600; border: none; cursor: pointer; transition: background 0.2s;
+}
+.wa-btn:hover { background: #1DA851; }
+
+.zoom-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px;
+  background: #2D8CFF; color: #fff; border-radius: 0; font-size: 13px;
+  font-weight: 600; border: none; cursor: pointer; transition: background 0.2s;
+}
+.zoom-btn:hover { background: #1A6FD4; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.anim-in { animation: fadeUp 0.4s ease both; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+
+.page-enter { animation: fadeIn 0.3s ease both; }
+.stagger-1 { animation: slideUp 0.4s ease both; animation-delay: 0.05s; }
+.stagger-2 { animation: slideUp 0.4s ease both; animation-delay: 0.1s; }
+.stagger-3 { animation: slideUp 0.4s ease both; animation-delay: 0.15s; }
+.stagger-4 { animation: slideUp 0.4s ease both; animation-delay: 0.2s; }
+.stagger-5 { animation: slideUp 0.4s ease both; animation-delay: 0.25s; }
+.card-enter { animation: scaleIn 0.3s ease both; }
+
+.dot-review { background: #10B981; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
