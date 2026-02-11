@@ -19,7 +19,7 @@ import {
 import { it } from 'date-fns/locale';
 
 export default function CalendarPage() {
-  const { athletes, appointments, addAppointment, fetchAthletes } = useStore();
+  const { athletes, appointments, addAppointment, addNotification, fetchAthletes } = useStore();
   useEffect(() => { fetchAthletes(); }, []);
 
   const [currentMonth, setCurrentMonth] = useState(new Date(2026, 1, 1));
@@ -63,11 +63,11 @@ export default function CalendarPage() {
 
   const weekDays = ['L', 'M', 'M', 'G', 'V', 'S', 'D'];
 
-  const handleCreateAppointment = () => {
+  const handleCreateAppointment = async () => {
     if (!newApt.athleteId || !newApt.time || !selectedDate) return;
     const ath = athletes.find((a: Athlete) => a.id === newApt.athleteId);
     if (!ath) return;
-    addAppointment({
+    await addAppointment({
       athleteId: ath.id,
       athleteName: `${ath.name} ${ath.surname}`,
       type: newApt.type,
@@ -77,6 +77,16 @@ export default function CalendarPage() {
       notes: newApt.notes,
       status: 'scheduled',
       sport: ath.sport,
+    });
+    await addNotification({
+      athleteId: ath.id,
+      athleteName: ath.name,
+      athleteEmail: ath.email,
+      type: 'appointment',
+      title: 'Nuovo appuntamento',
+      message: `${newApt.type === 'training' ? 'Allenamento' : newApt.type === 'assessment' ? 'Valutazione' : newApt.type === 'call' ? 'Chiamata' : 'Review'} programmato per il ${format(selectedDate, 'dd/MM/yyyy')} alle ${newApt.time}`,
+      link: '/athlete/appuntamenti',
+      sendEmail: true,
     });
     setNewApt({ athleteId: '', type: 'training', time: '', duration: 60, notes: '' });
     setShowNewModal(false);

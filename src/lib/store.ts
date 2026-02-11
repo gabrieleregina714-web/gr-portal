@@ -4,6 +4,18 @@ import type { AthleteNote, AthleteDocument } from './auth-data';
 
 const api = (col: string) => `/api/data/${col}`;
 
+export interface AppNotification {
+  id: string;
+  userId: string;
+  athleteId?: string;
+  type: string;
+  title: string;
+  message: string;
+  read: boolean;
+  createdAt: string;
+  link?: string;
+}
+
 interface AppState {
   // Data
   athletes: Athlete[];
@@ -13,6 +25,7 @@ interface AppState {
   weeklyCheckIns: WeeklyCheckIn[];
   athleteNotes: AthleteNote[];
   athleteDocuments: AthleteDocument[];
+  notifications: AppNotification[];
   loading: boolean;
 
   // Fetch
@@ -23,6 +36,7 @@ interface AppState {
   fetchWeeklyCheckIns: () => Promise<void>;
   fetchAthleteNotes: (athleteId?: string) => Promise<void>;
   fetchAthleteDocuments: (athleteId?: string) => Promise<void>;
+  fetchNotifications: (userId?: string) => Promise<void>;
   fetchAll: () => Promise<void>;
 
   // Appointments
@@ -55,6 +69,11 @@ interface AppState {
 
   // Measurements (on athlete)
   addMeasurement: (athleteId: string, measurement: any) => Promise<void>;
+
+  // Notifications
+  addNotification: (notif: { athleteId: string; athleteName: string; athleteEmail?: string; type: string; title: string; message: string; link?: string; sendEmail?: boolean }) => Promise<void>;
+  markNotificationRead: (id: string) => Promise<void>;
+  markAllNotificationsRead: (userId: string) => Promise<void>;
 }
 
 export const useStore = create<AppState>((set, get) => ({
@@ -65,6 +84,7 @@ export const useStore = create<AppState>((set, get) => ({
   weeklyCheckIns: [],
   athleteNotes: [],
   athleteDocuments: [],
+  notifications: [],
   loading: false,
 
   fetchAthletes: async () => {
@@ -111,6 +131,16 @@ export const useStore = create<AppState>((set, get) => ({
     set({ athleteDocuments: data });
   },
 
+  fetchNotifications: async (userId?: string) => {
+    const res = await fetch(api('notifications'));
+    const data = await res.json();
+    if (userId) {
+      set({ notifications: data.filter((n: AppNotification) => n.userId === userId) });
+    } else {
+      set({ notifications: data });
+    }
+  },
+
   fetchAll: async () => {
     set({ loading: true });
     await Promise.all([
@@ -121,6 +151,7 @@ export const useStore = create<AppState>((set, get) => ({
       get().fetchWeeklyCheckIns(),
       get().fetchAthleteNotes(),
       get().fetchAthleteDocuments(),
+      get().fetchNotifications(),
     ]);
     set({ loading: false });
   },
@@ -269,6 +300,48 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => ({
       athletes: s.athletes.map((a) =>
         a.id === athleteId ? { ...a, measurements: updatedMeasurements } : a
+      ),
+    }));
+  },
+
+  // Notifications
+  addNotification: async (notif) => {
+    const res = await fetch('/api/notifications/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(notif),
+    });
+    const { notification } = await res.json();
+    if (notification) {
+      set((s) => ({ notifications: [notification, ...s.notifications] }));
+    }
+  },
+
+  markNotificationRead: async (id) => {
+    await fetch(api('notifications'), {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, read: true }),
+    });
+    set((s) => ({
+      notifications: s.notifications.map((n) => (n.id === id ? { ...n, read: true } : n)),
+    }));
+  },
+
+  markAllNotificationsRead: async (userId) => {
+    const unread = get().notifications.filter((n) => n.userId === userId && !n.read);
+    await Promise.all(
+      unread.map((n) =>
+        fetch(api('notifications'), {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: n.id, read: true }),
+        })
+      )
+    );
+    set((s) => ({
+      notifications: s.notifications.map((n) =>
+        n.userId === userId ? { ...n, read: true } : n
       ),
     }));
   },

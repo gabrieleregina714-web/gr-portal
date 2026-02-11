@@ -55,7 +55,7 @@ export default function AthleteProfilePage() {
     athletes, appointments, smartGoals, achievements, weeklyCheckIns, athleteNotes, athleteDocuments,
     fetchAll, addAppointment, updateAthlete, addSmartGoal, updateSmartGoal, deleteSmartGoal,
     addAchievement, deleteAchievement, addCheckIn, addNote, updateNote, deleteNote,
-    addDocument, deleteDocument, addMeasurement,
+    addDocument, deleteDocument, addMeasurement, addNotification,
   } = useStore();
   const athlete = athletes.find((a) => a.id === params.id);
   const [activeTab, setActiveTab] = useState<Tab>('overview');
@@ -190,6 +190,17 @@ export default function AthleteProfilePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ athleteId: athlete.id, ...editingGoal }),
       });
+      // Notify athlete about new goal
+      await addNotification({
+        athleteId: athlete.id,
+        athleteName: athlete.name,
+        athleteEmail: athlete.email,
+        type: 'goal',
+        title: 'Nuovo obiettivo assegnato',
+        message: `Il coach ha impostato un nuovo obiettivo: ${editingGoal.title}`,
+        link: '/athlete/obiettivi',
+        sendEmail: true,
+      });
     }
     setShowGoalModal(false);
     setEditingGoal(null);
@@ -235,6 +246,17 @@ export default function AthleteProfilePage() {
       uploadedAt: new Date().toISOString().split('T')[0],
       uploadedBy: 'Gabriele R.',
       size,
+    });
+    // Send notification to athlete
+    await addNotification({
+      athleteId: athlete.id,
+      athleteName: athlete.name,
+      athleteEmail: athlete.email,
+      type: 'document',
+      title: 'Nuovo documento caricato',
+      message: `Il coach ha caricato un nuovo documento: ${name}`,
+      link: '/athlete/documenti',
+      sendEmail: true,
     });
     if (docInputRef.current) docInputRef.current.value = '';
   };
@@ -1385,7 +1407,7 @@ export default function AthleteProfilePage() {
             </div>
             <div className="px-6 py-5 border-t border-white/[0.06] flex items-center justify-end gap-3">
               <button onClick={() => setShowNewAppointment(false)} className="px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors">Annulla</button>
-              <button onClick={() => { if (!newApt.date || !newApt.time) return; addAppointment({ athleteId: athlete.id, athleteName: `${athlete.name} ${athlete.surname}`, type: newApt.type, date: newApt.date, time: newApt.time, duration: newApt.duration, notes: newApt.notes, status: 'scheduled', sport: athlete.sport }); setNewApt({ type: 'training', date: '', time: '', duration: 60, notes: '' }); setShowNewAppointment(false); }}
+              <button onClick={async () => { if (!newApt.date || !newApt.time) return; await addAppointment({ athleteId: athlete.id, athleteName: `${athlete.name} ${athlete.surname}`, type: newApt.type, date: newApt.date, time: newApt.time, duration: newApt.duration, notes: newApt.notes, status: 'scheduled', sport: athlete.sport }); await addNotification({ athleteId: athlete.id, athleteName: athlete.name, athleteEmail: athlete.email, type: 'appointment', title: 'Nuovo appuntamento', message: `${newApt.type === 'training' ? 'Allenamento' : newApt.type === 'assessment' ? 'Valutazione' : newApt.type === 'call' ? 'Chiamata' : 'Review'} programmato per il ${newApt.date} alle ${newApt.time}`, link: '/athlete/appuntamenti', sendEmail: true }); setNewApt({ type: 'training', date: '', time: '', duration: 60, notes: '' }); setShowNewAppointment(false); }}
                 className="px-5 py-2.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium">Crea</button>
             </div>
           </div>
