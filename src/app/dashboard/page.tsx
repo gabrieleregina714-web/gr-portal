@@ -99,13 +99,13 @@ export default function DashboardPage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* HEADER */}
-      <div className="relative overflow-hidden" style={{ height: '380px' }}>
+      <div className="relative overflow-hidden h-[220px] sm:h-[280px] md:h-[380px]">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="https://cdn.shopify.com/videos/c/o/v/4e1c6acfb7834b46aea4d169fd262d61.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-[#0A0A0A]/10" />
 
-        <div className="absolute bottom-10 left-6 lg:left-10 z-10">
+        <div className="absolute bottom-4 sm:bottom-8 md:bottom-10 left-4 sm:left-6 lg:left-10 z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-3">
             {format(new Date(2026, 1, 10), 'EEEE d MMMM yyyy', { locale: it }).toUpperCase()}
           </p>
