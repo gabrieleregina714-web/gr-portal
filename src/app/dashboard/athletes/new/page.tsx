@@ -34,13 +34,13 @@ export default function NewAthletePage() {
     <div className="space-y-8 max-w-2xl">
       <Link
         href="/dashboard/athletes"
-        className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-white/40 hover:text-white transition-colors"
+        className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-white/70 hover:text-white transition-colors"
       >
         <ArrowLeft size={14} /> Tutti gli atleti
       </Link>
 
       <div>
-        <p className="text-xs uppercase tracking-[0.25em] text-white/30 mb-1">
+        <p className="text-xs uppercase tracking-[0.25em] text-white/60 mb-1">
           Nuovo
         </p>
         <h1 className="nike-h2">AGGIUNGI ATLETA</h1>
@@ -51,7 +51,7 @@ export default function NewAthletePage() {
           <h3 className="nike-h4">DATI PERSONALI</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
                 Nome *
               </label>
               <input
@@ -64,7 +64,7 @@ export default function NewAthletePage() {
               />
             </div>
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
                 Cognome *
               </label>
               <input
@@ -79,7 +79,7 @@ export default function NewAthletePage() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
                 Email
               </label>
               <input
@@ -91,7 +91,7 @@ export default function NewAthletePage() {
               />
             </div>
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
                 Telefono (WhatsApp)
               </label>
               <input
@@ -108,7 +108,7 @@ export default function NewAthletePage() {
         <div className="nike-card p-4 sm:p-5 md:p-6 space-y-5">
           <h3 className="nike-h4">SPORT & FISICO</h3>
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Sport *
             </label>
             <div className="flex gap-2 flex-wrap">
@@ -120,7 +120,7 @@ export default function NewAthletePage() {
                   className={`px-4 py-2.5 text-xs uppercase tracking-wider rounded-full border transition-colors ${
                     form.sport === s
                       ? 'bg-white text-black border-white'
-                      : 'border-white/10 text-white/40 hover:border-white/30'
+                      : 'border-white/10 text-white/70 hover:border-white/30'
                   }`}
                 >
                   {SPORTS[s].label}
@@ -130,7 +130,7 @@ export default function NewAthletePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
                 Età
               </label>
               <input
@@ -142,7 +142,7 @@ export default function NewAthletePage() {
               />
             </div>
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
                 Altezza (cm)
               </label>
               <input
@@ -154,7 +154,7 @@ export default function NewAthletePage() {
               />
             </div>
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
                 Peso (kg)
               </label>
               <input
@@ -171,7 +171,7 @@ export default function NewAthletePage() {
         <div className="nike-card p-4 sm:p-5 md:p-6 space-y-5">
           <h3 className="nike-h4">OBIETTIVO</h3>
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Obiettivo principale
             </label>
             <input
@@ -183,7 +183,7 @@ export default function NewAthletePage() {
             />
           </div>
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Note
             </label>
             <textarea

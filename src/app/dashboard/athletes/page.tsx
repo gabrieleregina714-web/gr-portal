@@ -16,11 +16,11 @@ export default function AthletesPage() {
     <div className="space-y-10">
       {/* Header */}
       <div className="text-center pt-4">
-        <p className="text-xs uppercase tracking-[0.3em] text-white/30 mb-2">
+        <p className="text-xs uppercase tracking-[0.3em] text-white/60 mb-2">
           Gestione
         </p>
         <h1 className="nike-h1">I TUOI ATLETI</h1>
-        <p className="text-white/40 text-sm mt-3 max-w-md mx-auto">
+        <p className="text-white/70 text-sm mt-3 max-w-md mx-auto">
           Seleziona una disciplina per visualizzare gli atleti, i loro progressi e le analitiche.
         </p>
       </div>
@@ -72,7 +72,7 @@ export default function AthletesPage() {
 
       {/* Total */}
       <div className="text-center pb-4">
-        <p className="text-white/20 text-xs uppercase tracking-[0.2em]">
+        <p className="text-white/55 text-xs uppercase tracking-[0.2em]">
           Totale atleti: {athletes.length}
         </p>
       </div>

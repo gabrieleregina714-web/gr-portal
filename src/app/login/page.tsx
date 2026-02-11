@@ -51,8 +51,8 @@ export default function LoginPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A0A0A]" />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute bottom-12 left-12 z-10">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-white/30 mb-3">Athlete Management System</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '56px', lineHeight: 0.9, letterSpacing: '3px' }} className="text-white">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-white/60 mb-3">Athlete Management System</p>
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 0.9, letterSpacing: '3px' }} className="text-white text-[36px] sm:text-[48px] lg:text-[56px]">
             GR<br />PERFORM
           </h1>
         </div>
@@ -73,8 +73,8 @@ export default function LoginPage() {
           </div>
 
           <div className="hidden lg:block mb-10">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">Accedi al portale</p>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">Accedi al portale</p>
+            <h2 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
               LOGIN
             </h2>
           </div>
@@ -114,7 +114,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/40 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/55 hover:text-white/70 transition-colors"
                 >
                   {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
                 </button>
@@ -135,7 +135,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-8 pt-6 border-t border-white/[0.04]">
-            <p className="text-[10px] text-white/30 text-center uppercase tracking-[0.2em]">
+            <p className="text-[10px] text-white/60 text-center uppercase tracking-[0.2em]">
               GR Perform &copy; 2026 — Tutti i diritti riservati
             </p>
           </div>

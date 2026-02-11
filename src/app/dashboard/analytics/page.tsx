@@ -217,13 +217,13 @@ export default function AnalyticsPage() {
             ANALYTICS
           </h1>
           <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{athletes.length} atleti</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{athletes.length} atleti</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{totalSmartGoals} obiettivi</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{totalSmartGoals} obiettivi</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{totalMeasurements} misurazioni</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{totalMeasurements} misurazioni</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">Score {healthScore}</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">Score {healthScore}</span>
           </div>
         </div>
 
@@ -232,7 +232,7 @@ export default function AnalyticsPage() {
           <button
             onClick={() => setSelectedSport('all')}
             className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-colors border border-white/[0.06] ${
-              selectedSport === 'all' ? 'bg-white text-black border-white' : 'text-white/20 hover:text-white/40'
+              selectedSport === 'all' ? 'bg-white text-black border-white' : 'text-white/55 hover:text-white/70'
             }`}
           >Tutti</button>
           {(Object.keys(SPORTS) as Sport[]).map((s) => (
@@ -240,7 +240,7 @@ export default function AnalyticsPage() {
               key={s}
               onClick={() => setSelectedSport(s)}
               className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-colors border border-white/[0.06] border-l-0 ${
-                selectedSport === s ? 'bg-white text-black border-white' : 'text-white/20 hover:text-white/40'
+                selectedSport === s ? 'bg-white text-black border-white' : 'text-white/55 hover:text-white/70'
               }`}
             >{SPORTS[s].label}</button>
           ))}
@@ -257,7 +257,7 @@ export default function AnalyticsPage() {
               className={`px-5 py-3.5 text-[10px] uppercase tracking-[0.2em] transition-colors border-b ${
                 activeSection === tab.key
                   ? 'text-white border-white'
-                  : 'text-white/20 border-transparent hover:text-white/40'
+                  : 'text-white/55 border-transparent hover:text-white/70'
               }`}
             >
               {tab.label}
@@ -284,10 +284,10 @@ export default function AnalyticsPage() {
                 { label: 'Traguardi', value: `${totalAchievements}`, unit: '' },
               ].map((s) => (
                 <div key={s.label} className="bg-[#0A0A0A] p-5">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{s.label}</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">{s.label}</p>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                     {s.value}
-                    {s.unit && <span className="text-xs text-white/20 ml-1 font-normal">{s.unit}</span>}
+                    {s.unit && <span className="text-xs text-white/55 ml-1 font-normal">{s.unit}</span>}
                   </p>
                 </div>
               ))}
@@ -297,12 +297,12 @@ export default function AnalyticsPage() {
             <div className="grid md:grid-cols-3 gap-px bg-white/[0.06]">
               <div className="md:col-span-2 bg-[#0A0A0A] p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Crescita</h3>
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Crescita</h3>
                   <div className="flex items-center gap-5">
-                    <div className="flex items-center gap-1.5 text-[9px] text-white/20 uppercase tracking-wider">
+                    <div className="flex items-center gap-1.5 text-[11px] text-white/55 uppercase tracking-wider">
                       <span className="w-3 h-px bg-white" /> Sessioni
                     </div>
-                    <div className="flex items-center gap-1.5 text-[9px] text-white/20 uppercase tracking-wider">
+                    <div className="flex items-center gap-1.5 text-[11px] text-white/55 uppercase tracking-wider">
                       <span className="w-3 h-px bg-white/40" /> Atleti
                     </div>
                   </div>
@@ -317,8 +317,8 @@ export default function AnalyticsPage() {
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
-                      <XAxis dataKey="month" tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} />
-                      <YAxis tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} />
+                      <XAxis dataKey="month" tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} />
+                      <YAxis tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} />
                       <Tooltip contentStyle={tooltipStyle} />
                       <Area type="monotone" dataKey="sessioni" stroke="#fff" strokeWidth={1.5} fill="url(#gradW)" dot={{ fill: '#fff', r: 2.5, strokeWidth: 0 }} />
                       <Area type="monotone" dataKey="atleti" stroke="rgba(255,255,255,0.4)" strokeWidth={1} fill="none" strokeDasharray="4 4" />
@@ -328,12 +328,12 @@ export default function AnalyticsPage() {
               </div>
 
               <div className="bg-[#0A0A0A] p-6">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-4">Health Score</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-4">Health Score</h3>
                 <div className="h-[180px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
                       <PolarGrid stroke="rgba(255,255,255,0.06)" />
-                      <PolarAngleAxis dataKey="metric" tick={{ fontSize: 8, fill: 'rgba(255,255,255,0.25)' }} />
+                      <PolarAngleAxis dataKey="metric" tick={{ fontSize: 10, fill: 'rgba(255,255,255,0.25)' }} />
                       <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />
                       <Radar name="Score" dataKey="value" stroke="#fff" fill="#fff" fillOpacity={0.06} strokeWidth={1.5} />
                     </RadarChart>
@@ -341,7 +341,7 @@ export default function AnalyticsPage() {
                 </div>
                 <div className="text-center mt-2">
                   <p className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{healthScore}</p>
-                  <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mt-1">Score complessivo</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mt-1">Score complessivo</p>
                 </div>
               </div>
             </div>
@@ -349,7 +349,7 @@ export default function AnalyticsPage() {
             {/* Sport Distribution + Session Types */}
             <div className="grid md:grid-cols-2 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-6">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">Distribuzione sport</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-5">Distribuzione sport</h3>
                 <div className="space-y-4">
                   {sportCounts.map((s) => {
                     const pct = Math.round((s.count / athletes.length) * 100);
@@ -358,8 +358,8 @@ export default function AnalyticsPage() {
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="text-[11px] text-white/60">{s.label}</span>
                           <div className="flex items-center gap-3">
-                            <span className="text-[9px] text-white/15">{s.active}/{s.count} attivi</span>
-                            <span className="text-[11px] text-white/40 tabular-nums w-8 text-right">{pct}%</span>
+                            <span className="text-[11px] text-white/50">{s.active}/{s.count} attivi</span>
+                            <span className="text-[11px] text-white/70 tabular-nums w-8 text-right">{pct}%</span>
                           </div>
                         </div>
                         <div className="h-[2px] bg-white/[0.06] overflow-hidden">
@@ -372,7 +372,7 @@ export default function AnalyticsPage() {
               </div>
 
               <div className="bg-[#0A0A0A] p-6">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">Tipologia sessioni</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-5">Tipologia sessioni</h3>
                 <div className="space-y-4">
                   {(['training', 'assessment', 'call', 'review'] as const).map((type) => {
                     const t = APPOINTMENT_TYPES[type];
@@ -383,8 +383,8 @@ export default function AnalyticsPage() {
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="text-[11px] text-white/60">{t.label}</span>
                           <div className="flex items-center gap-3">
-                            <span className="text-[11px] text-white/40 tabular-nums">{count}</span>
-                            <span className="text-[9px] text-white/15 w-8 text-right">{pct}%</span>
+                            <span className="text-[11px] text-white/70 tabular-nums">{count}</span>
+                            <span className="text-[11px] text-white/50 w-8 text-right">{pct}%</span>
                           </div>
                         </div>
                         <div className="h-[2px] bg-white/[0.06] overflow-hidden">
@@ -400,20 +400,20 @@ export default function AnalyticsPage() {
             {/* Heatmap */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Mappa sessioni</h3>
-                <p className="text-[9px] text-white/15 mt-0.5">Distribuzione settimanale appuntamenti</p>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Mappa sessioni</h3>
+                <p className="text-[11px] text-white/50 mt-0.5">Distribuzione settimanale appuntamenti</p>
               </div>
               <div className="p-6">
                 <div className="space-y-1">
                   <div className="flex gap-1 mb-1">
                     <div className="w-9" />
                     {hours.map((h) => (
-                      <div key={h} className="flex-1 text-center text-[8px] text-white/15">{h}:00</div>
+                      <div key={h} className="flex-1 text-center text-[10px] text-white/50">{h}:00</div>
                     ))}
                   </div>
                   {weeklyHeatmap.map((row) => (
                     <div key={row.day} className="flex gap-1 items-center">
-                      <span className="w-9 text-[9px] text-white/20 shrink-0">{row.day}</span>
+                      <span className="w-9 text-[11px] text-white/55 shrink-0">{row.day}</span>
                       {hours.map((h) => {
                         const val = (row as any)[`h${h}`] as number;
                         const opacity = val === 0 ? 0.03 : val === 1 ? 0.12 : val === 2 ? 0.25 : 0.5;
@@ -430,11 +430,11 @@ export default function AnalyticsPage() {
                   ))}
                 </div>
                 <div className="flex items-center gap-2 mt-4 justify-end">
-                  <span className="text-[8px] text-white/15">Meno</span>
+                  <span className="text-[10px] text-white/50">Meno</span>
                   {[0.03, 0.12, 0.25, 0.5].map((o, i) => (
                     <div key={i} className="w-3 h-3" style={{ backgroundColor: `rgba(255, 255, 255, ${o})` }} />
                   ))}
-                  <span className="text-[8px] text-white/15">Più</span>
+                  <span className="text-[10px] text-white/50">Più</span>
                 </div>
               </div>
             </div>
@@ -442,28 +442,28 @@ export default function AnalyticsPage() {
             {/* Quick Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-2">Media sessioni/atleta</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-2">Media sessioni/atleta</p>
                 <p className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                   {(totalSessions / Math.max(athletes.length, 1)).toFixed(1)}
                 </p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-2">In pausa</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-2">In pausa</p>
                 <p className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                   {pausedAthletes.length}
-                  <span className="text-xs text-white/15 ml-1 font-normal">atleti</span>
+                  <span className="text-xs text-white/50 ml-1 font-normal">atleti</span>
                 </p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-2">Misurazioni totali</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-2">Misurazioni totali</p>
                 <p className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{totalMeasurements}</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-2">Prossimo traguardo</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-2">Prossimo traguardo</p>
                 <p className="text-[11px] text-white/60 leading-tight">
                   {goals.filter(g => g.status === 'in-progress').sort((a, b) => b.progress - a.progress)[0]?.title ?? '—'}
                 </p>
-                <p className="text-[9px] text-white/20 mt-1">
+                <p className="text-[11px] text-white/55 mt-1">
                   {goals.filter(g => g.status === 'in-progress').sort((a, b) => b.progress - a.progress)[0]?.progress ?? 0}%
                 </p>
               </div>
@@ -478,15 +478,15 @@ export default function AnalyticsPage() {
             {/* Performance Table */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06] flex items-center justify-between">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Performance atleti</h3>
-                <p className="text-[9px] text-white/15">Variazioni ultimo mese</p>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Performance atleti</h3>
+                <p className="text-[11px] text-white/50">Variazioni ultimo mese</p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[700px]">
                   <thead>
                     <tr className="border-b border-white/[0.06]">
                       {['Atleta', 'Sport', 'Peso', 'Body Fat', 'KPI Sport', 'Trend'].map((h) => (
-                        <th key={h} className="text-left px-6 py-3 text-[9px] uppercase tracking-[0.2em] text-white/15 font-medium">{h}</th>
+                        <th key={h} className="text-left px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white/50 font-medium">{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -499,34 +499,34 @@ export default function AnalyticsPage() {
                           </Link>
                         </td>
                         <td className="px-6">
-                          <span className="text-[10px] uppercase tracking-[0.15em] text-white/25">{SPORTS[a.sport].label}</span>
+                          <span className="text-[10px] uppercase tracking-[0.15em] text-white/60">{SPORTS[a.sport].label}</span>
                         </td>
                         <td className="px-6">
                           <div className="flex items-center gap-1.5">
                             <span className="text-[12px] tabular-nums text-white/50">{a.weightDelta > 0 ? '+' : ''}{a.weightDelta} kg</span>
-                            {a.weightDelta < 0 ? <ArrowDownRight size={11} className="text-white/40" /> : a.weightDelta > 0 ? <ArrowUpRight size={11} className="text-white/25" /> : <Minus size={11} className="text-white/10" />}
+                            {a.weightDelta < 0 ? <ArrowDownRight size={11} className="text-white/70" /> : a.weightDelta > 0 ? <ArrowUpRight size={11} className="text-white/60" /> : <Minus size={11} className="text-white/50" />}
                           </div>
                         </td>
                         <td className="px-6">
                           {a.bfDelta !== null ? (
                             <div className="flex items-center gap-1.5">
                               <span className="text-[12px] tabular-nums text-white/50">{a.bfDelta > 0 ? '+' : ''}{a.bfDelta}%</span>
-                              {a.bfDelta < 0 ? <ArrowDownRight size={11} className="text-white/40" /> : <ArrowUpRight size={11} className="text-white/25" />}
+                              {a.bfDelta < 0 ? <ArrowDownRight size={11} className="text-white/70" /> : <ArrowUpRight size={11} className="text-white/60" />}
                             </div>
                           ) : (
-                            <span className="text-[10px] text-white/10">—</span>
+                            <span className="text-[10px] text-white/50">—</span>
                           )}
                         </td>
                         <td className="px-6">
                           {a.kpiDelta !== null ? (
                             <div className="flex items-center gap-2">
-                              <span className="text-[9px] text-white/15 uppercase tracking-wider">{a.kpiLabel}</span>
+                              <span className="text-[11px] text-white/50 uppercase tracking-wider">{a.kpiLabel}</span>
                               <span className="text-[12px] tabular-nums text-white/50">
                                 {a.kpiDelta > 0 ? '+' : ''}{a.kpiDelta} {a.kpiUnit}
                               </span>
                             </div>
                           ) : (
-                            <span className="text-[10px] text-white/10">—</span>
+                            <span className="text-[10px] text-white/50">—</span>
                           )}
                         </td>
                         <td className="px-6">
@@ -550,15 +550,15 @@ export default function AnalyticsPage() {
             {/* Athlete Goal Ranking */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Ranking progresso obiettivi</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Ranking progresso obiettivi</h3>
               </div>
               <div>
                 {goalData.map((g, i) => (
                   <Link key={g.id} href={`/dashboard/athletes/${g.id}`} className="flex items-center gap-6 px-6 py-3.5 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group">
-                    <span className="text-[10px] tabular-nums text-white/15 font-bold w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="text-[10px] tabular-nums text-white/50 font-bold w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
                     <div className="flex-1 min-w-0">
                       <p className="text-[12px] text-white/60 group-hover:text-white transition-colors">{g.fullName}</p>
-                      <p className="text-[9px] text-white/15 mt-0.5">{SPORTS[g.sport].label} &middot; {g.goalCount} obiettivi</p>
+                      <p className="text-[11px] text-white/50 mt-0.5">{SPORTS[g.sport].label} &middot; {g.goalCount} obiettivi</p>
                     </div>
                     <div className="flex items-center gap-3 shrink-0">
                       <div className="w-20">
@@ -566,9 +566,9 @@ export default function AnalyticsPage() {
                           <div className="h-full bg-white/50 transition-all" style={{ width: `${g.progresso}%` }} />
                         </div>
                       </div>
-                      <span className="text-[11px] text-white/40 tabular-nums w-8 text-right">{g.progresso}%</span>
+                      <span className="text-[11px] text-white/70 tabular-nums w-8 text-right">{g.progresso}%</span>
                     </div>
-                    <ChevronRight size={13} className="text-white/10 group-hover:text-white/30 transition-colors shrink-0" />
+                    <ChevronRight size={13} className="text-white/50 group-hover:text-white/60 transition-colors shrink-0" />
                   </Link>
                 ))}
               </div>
@@ -578,11 +578,11 @@ export default function AnalyticsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06]">
               {sportCounts.map((s) => (
                 <Link key={s.sport} href={`/dashboard/athletes/sport/${s.sport}`} className="bg-[#0A0A0A] p-5 hover:bg-white/[0.02] transition-colors group">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{s.label}</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">{s.label}</p>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                     {s.count}
                   </p>
-                  <p className="text-[9px] text-white/15 mt-1">{s.active} attivi</p>
+                  <p className="text-[11px] text-white/50 mt-1">{s.active} attivi</p>
                 </Link>
               ))}
             </div>
@@ -602,7 +602,7 @@ export default function AnalyticsPage() {
                 { label: 'Progresso medio', value: `${avgProgress}%` },
               ].map((s) => (
                 <div key={s.label} className="bg-[#0A0A0A] p-5">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{s.label}</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">{s.label}</p>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{s.value}</p>
                 </div>
               ))}
@@ -611,20 +611,20 @@ export default function AnalyticsPage() {
             {/* SMART Goals Detail */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Obiettivi S.M.A.R.T.</h3>
-                <p className="text-[9px] text-white/15 mt-0.5">{totalSmartGoals} obiettivi tracciati</p>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Obiettivi S.M.A.R.T.</h3>
+                <p className="text-[11px] text-white/50 mt-0.5">{totalSmartGoals} obiettivi tracciati</p>
               </div>
               <div>
                 {smartGoalProgress.map((sg) => (
                   <div key={sg.id} className="px-6 py-4 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-3">
-                        <div className="text-white/15">
+                        <div className="text-white/50">
                           {sg.metric === 'punchPower' ? <Zap size={13} /> : sg.metric === 'vo2max' ? <Heart size={13} /> : <Target size={13} />}
                         </div>
                         <div>
                           <p className="text-[12px] text-white/70">{sg.title}</p>
-                          <p className="text-[9px] text-white/15 mt-0.5">{sg.athleteName} &middot; {sg.daysLeft > 0 ? `${sg.daysLeft}g rimanenti` : 'Scaduto'}</p>
+                          <p className="text-[11px] text-white/50 mt-0.5">{sg.athleteName} &middot; {sg.daysLeft > 0 ? `${sg.daysLeft}g rimanenti` : 'Scaduto'}</p>
                         </div>
                       </div>
                       <span className="text-lg text-white/80 tabular-nums" style={{ fontFamily: 'var(--font-heading)' }}>
@@ -634,9 +634,9 @@ export default function AnalyticsPage() {
                     <div className="h-[2px] bg-white/[0.06] overflow-hidden">
                       <div className="h-full bg-white/50 transition-all" style={{ width: `${sg.progress}%` }} />
                     </div>
-                    <div className="flex items-center justify-between text-[9px] text-white/15 mt-1.5">
+                    <div className="flex items-center justify-between text-[11px] text-white/50 mt-1.5">
                       <span>{sg.startValue} {sg.unit}</span>
-                      <span className="text-white/30">{sg.currentValue} {sg.unit}</span>
+                      <span className="text-white/60">{sg.currentValue} {sg.unit}</span>
                       <span>{sg.targetValue} {sg.unit}</span>
                     </div>
                   </div>
@@ -647,7 +647,7 @@ export default function AnalyticsPage() {
             {/* Basic Goals */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Obiettivi per atleta</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Obiettivi per atleta</h3>
               </div>
               <div>
                 {goals.map((g) => {
@@ -656,7 +656,7 @@ export default function AnalyticsPage() {
                     <div key={g.id} className="flex items-center gap-6 px-6 py-3.5 border-b border-white/[0.03] last:border-b-0">
                       <div className="flex-1 min-w-0">
                         <p className="text-[12px] text-white/60">{g.title}</p>
-                        <p className="text-[9px] text-white/15 mt-0.5">{athlete ? `${athlete.name} ${athlete.surname}` : ''} &middot; Scadenza {g.deadline}</p>
+                        <p className="text-[11px] text-white/50 mt-0.5">{athlete ? `${athlete.name} ${athlete.surname}` : ''} &middot; Scadenza {g.deadline}</p>
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
                         <div className="w-16">
@@ -664,7 +664,7 @@ export default function AnalyticsPage() {
                             <div className="h-full bg-white/50 transition-all" style={{ width: `${g.progress}%` }} />
                           </div>
                         </div>
-                        <span className="text-[11px] text-white/40 tabular-nums w-8 text-right">{g.progress}%</span>
+                        <span className="text-[11px] text-white/70 tabular-nums w-8 text-right">{g.progress}%</span>
                       </div>
                     </div>
                   );
@@ -675,18 +675,18 @@ export default function AnalyticsPage() {
             {/* Achievements */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Traguardi sbloccati</h3>
-                <p className="text-[9px] text-white/15 mt-0.5">{totalAchievements} totali</p>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Traguardi sbloccati</h3>
+                <p className="text-[11px] text-white/50 mt-0.5">{totalAchievements} totali</p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-white/[0.04]">
                 {achievements.map((ach) => {
                   const athlete = athletes.find(a => a.id === ach.athleteId);
                   return (
                     <div key={ach.id} className="bg-[#0A0A0A] p-4">
-                      <div className="text-white/15 mb-2"><Award size={13} /></div>
+                      <div className="text-white/50 mb-2"><Award size={13} /></div>
                       <p className="text-[11px] text-white/60">{ach.title}</p>
-                      <p className="text-[9px] text-white/15 mt-0.5">{ach.description}</p>
-                      <p className="text-[8px] text-white/10 mt-2">{athlete ? `${athlete.name} ${athlete.surname[0]}.` : ''} &middot; {ach.unlockedAt}</p>
+                      <p className="text-[11px] text-white/50 mt-0.5">{ach.description}</p>
+                      <p className="text-[10px] text-white/50 mt-2">{athlete ? `${athlete.name} ${athlete.surname[0]}.` : ''} &middot; {ach.unlockedAt}</p>
                     </div>
                   );
                 })}
@@ -710,11 +710,11 @@ export default function AnalyticsPage() {
               ].map((s) => (
                 <div key={s.label} className="bg-[#0A0A0A] p-5">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/25">{s.label}</p>
-                    <div className="text-white/15">{s.icon}</div>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">{s.label}</p>
+                    <div className="text-white/50">{s.icon}</div>
                   </div>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
-                    {s.value}<span className="text-xs text-white/20 ml-1 font-normal">/10</span>
+                    {s.value}<span className="text-xs text-white/55 ml-1 font-normal">/10</span>
                   </p>
                 </div>
               ))}
@@ -724,8 +724,8 @@ export default function AnalyticsPage() {
             {wellbeingTrend.length > 1 && (
               <div className="border border-white/[0.06]">
                 <div className="px-6 py-4 border-b border-white/[0.06]">
-                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Andamento benessere</h3>
-                  <p className="text-[9px] text-white/15 mt-0.5">Media settimanale di tutti gli atleti</p>
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Andamento benessere</h3>
+                  <p className="text-[11px] text-white/50 mt-0.5">Media settimanale di tutti gli atleti</p>
                 </div>
                 <div className="p-6">
                   <ResponsiveContainer width="100%" height={200}>
@@ -737,15 +737,15 @@ export default function AnalyticsPage() {
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" />
-                      <XAxis dataKey="date" tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
-                      <YAxis domain={[0, 10]} tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
+                      <XAxis dataKey="date" tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
+                      <YAxis domain={[0, 10]} tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
                       <Tooltip contentStyle={tooltipStyle} />
                       <Area type="monotone" dataKey="Umore" stroke="#fff" fill="url(#gradMood)" strokeWidth={1.5} />
                       <Area type="monotone" dataKey="Energia" stroke="rgba(255,255,255,0.4)" fill="none" strokeWidth={1} strokeDasharray="4 4" />
                       <Area type="monotone" dataKey="Motivazione" stroke="rgba(255,255,255,0.25)" fill="none" strokeWidth={1} strokeDasharray="2 2" />
                     </AreaChart>
                   </ResponsiveContainer>
-                  <div className="flex items-center justify-center gap-6 mt-3 text-[9px] text-white/20">
+                  <div className="flex items-center justify-center gap-6 mt-3 text-[11px] text-white/55">
                     <span className="flex items-center gap-1.5"><span className="w-3 h-px bg-white" /> Umore</span>
                     <span className="flex items-center gap-1.5"><span className="w-3 h-px bg-white/40" /> Energia</span>
                     <span className="flex items-center gap-1.5"><span className="w-3 h-px bg-white/25" /> Motivazione</span>
@@ -757,8 +757,8 @@ export default function AnalyticsPage() {
             {/* Recent Check-ins */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Ultimi check-in</h3>
-                <p className="text-[9px] text-white/15 mt-0.5">{totalCheckIns} check-in totali</p>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Ultimi check-in</h3>
+                <p className="text-[11px] text-white/50 mt-0.5">{totalCheckIns} check-in totali</p>
               </div>
               <div>
                 {weeklyCheckIns.slice(-10).reverse().map((ci) => {
@@ -766,15 +766,15 @@ export default function AnalyticsPage() {
                   return (
                     <div key={ci.id} className="flex items-center gap-6 px-6 py-3.5 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors">
                       <div className="w-10 text-center shrink-0">
-                        <p className="text-sm text-white/40" style={{ fontFamily: 'var(--font-heading)' }}>{new Date(ci.date).getDate()}</p>
-                        <p className="text-[8px] text-white/15">{new Date(ci.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
+                        <p className="text-sm text-white/70" style={{ fontFamily: 'var(--font-heading)' }}>{new Date(ci.date).getDate()}</p>
+                        <p className="text-[10px] text-white/50">{new Date(ci.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
                       </div>
                       <div className="w-px h-6 bg-white/[0.06]" />
                       <div className="flex-1 min-w-0">
                         <p className="text-[12px] text-white/60">{athlete ? `${athlete.name} ${athlete.surname}` : ''}</p>
-                        {ci.wins && <p className="text-[9px] text-white/20 mt-0.5 truncate">{ci.wins}</p>}
+                        {ci.wins && <p className="text-[11px] text-white/55 mt-0.5 truncate">{ci.wins}</p>}
                       </div>
-                      <div className="hidden sm:flex items-center gap-4 shrink-0 text-[10px] text-white/30 tabular-nums">
+                      <div className="hidden sm:flex items-center gap-4 shrink-0 text-[10px] text-white/60 tabular-nums">
                         <span>Umore {ci.mood}</span>
                         <span>Energia {ci.energy}</span>
                         <span>Motivazione {ci.motivation}</span>
@@ -788,7 +788,7 @@ export default function AnalyticsPage() {
             {/* Per-athlete wellbeing summary */}
             <div className="border border-white/[0.06]">
               <div className="px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Benessere per atleta</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Benessere per atleta</h3>
               </div>
               <div>
                 {athletes.filter(a => weeklyCheckIns.some(ci => ci.athleteId === a.id)).map((athlete) => {
@@ -798,28 +798,28 @@ export default function AnalyticsPage() {
                   const avgEnergy = +(aCIs.reduce((s, c) => s + c.energy, 0) / aCIs.length).toFixed(1);
                   return (
                     <Link key={athlete.id} href={`/dashboard/athletes/${athlete.id}`} className="flex items-center gap-6 px-6 py-4 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group">
-                      <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center text-[11px] text-white/40 shrink-0">
+                      <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center text-[11px] text-white/70 shrink-0">
                         {athlete.name[0]}{athlete.surname[0]}
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-[12px] text-white/60 group-hover:text-white transition-colors">{athlete.name} {athlete.surname}</p>
-                        <p className="text-[9px] text-white/15 mt-0.5">{aCIs.length} check-in &middot; Ultimo: {latest.date}</p>
+                        <p className="text-[11px] text-white/50 mt-0.5">{aCIs.length} check-in &middot; Ultimo: {latest.date}</p>
                       </div>
                       <div className="hidden sm:flex items-center gap-6 shrink-0">
                         <div className="text-center">
                           <p className="text-sm text-white/50 tabular-nums" style={{ fontFamily: 'var(--font-heading)' }}>{avgMood}</p>
-                          <p className="text-[8px] text-white/15 mt-0.5">Umore</p>
+                          <p className="text-[10px] text-white/50 mt-0.5">Umore</p>
                         </div>
                         <div className="text-center">
                           <p className="text-sm text-white/50 tabular-nums" style={{ fontFamily: 'var(--font-heading)' }}>{avgEnergy}</p>
-                          <p className="text-[8px] text-white/15 mt-0.5">Energia</p>
+                          <p className="text-[10px] text-white/50 mt-0.5">Energia</p>
                         </div>
                         <div className="text-center">
                           <p className="text-sm text-white/50 tabular-nums" style={{ fontFamily: 'var(--font-heading)' }}>{latest.mood}</p>
-                          <p className="text-[8px] text-white/15 mt-0.5">Ultimo</p>
+                          <p className="text-[10px] text-white/50 mt-0.5">Ultimo</p>
                         </div>
                       </div>
-                      <ChevronRight size={13} className="text-white/10 group-hover:text-white/30 transition-colors shrink-0" />
+                      <ChevronRight size={13} className="text-white/50 group-hover:text-white/60 transition-colors shrink-0" />
                     </Link>
                   );
                 })}

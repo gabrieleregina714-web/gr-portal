@@ -106,29 +106,29 @@ export default function DashboardPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 to-[#0A0A0A]/20" />
 
         <div className="absolute bottom-8 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">
             {format(new Date(2026, 1, 10), 'EEEE d MMMM yyyy', { locale: it }).toUpperCase()}
           </p>
           <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px] md:text-[42px]">
-            <span className="text-white/30">{greeting},</span> COACH
+            <span className="text-white/60">{greeting},</span> COACH
           </h1>
           <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{todayAppointments.length} sessioni oggi</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{todayAppointments.length} sessioni oggi</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{activeAthletes.length} atleti attivi</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{activeAthletes.length} atleti attivi</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">Day {daysSinceStart}</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">Day {daysSinceStart}</span>
           </div>
         </div>
 
         <div className="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-1.5">
-          <Link href="/dashboard/calendar" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
+          <Link href="/dashboard/calendar" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <CalendarDays size={13} />
           </Link>
-          <Link href="/dashboard/athletes/new" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
+          <Link href="/dashboard/athletes/new" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <Plus size={13} />
           </Link>
-          <Link href="/dashboard/analytics" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
+          <Link href="/dashboard/analytics" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <TrendingUp size={13} />
           </Link>
         </div>
@@ -148,10 +148,10 @@ export default function DashboardPage() {
             { label: 'Progresso', value: `${avgProgress}`, unit: '%' },
           ].map((s) => (
             <div key={s.label} className="bg-[#0A0A0A] p-3 sm:p-5">
-              <p className="text-[11px] uppercase tracking-[0.15em] text-white/40 mb-2">{s.label}</p>
+              <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-2">{s.label}</p>
               <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                 {s.value}
-                {s.unit && <span className="text-xs text-white/20 ml-1 font-normal">{s.unit}</span>}
+                {s.unit && <span className="text-xs text-white/55 ml-1 font-normal">{s.unit}</span>}
               </p>
             </div>
           ))}
@@ -163,8 +163,8 @@ export default function DashboardPage() {
           {/* Today's Timeline */}
           <div className="md:col-span-2 bg-[#0A0A0A] p-6">
             <div className="flex items-center justify-between mb-5">
-              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Oggi &mdash; 10 Febbraio</h3>
-              <Link href="/dashboard/calendar" className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Oggi &mdash; 10 Febbraio</h3>
+              <Link href="/dashboard/calendar" className="text-[11px] uppercase tracking-[0.15em] text-white/50 hover:text-white/70 transition-colors flex items-center gap-1">
                 Calendario <ArrowRight size={9} />
               </Link>
             </div>
@@ -192,23 +192,23 @@ export default function DashboardPage() {
                       <Link href={`/dashboard/athletes/${apt.athleteId}`} className={`flex-1 ${isLast ? 'pb-0' : 'pb-5'}`}>
                         <div className="flex items-center gap-3 mb-1">
                           <span className="text-[11px] tabular-nums text-white/50">{apt.time}</span>
-                          <span className="text-[9px] uppercase tracking-[0.15em] text-white/20">{type.label}</span>
+                          <span className="text-[11px] uppercase tracking-[0.15em] text-white/55">{type.label}</span>
                         </div>
                         <p className={`text-[13px] text-white/80 group-hover/item:text-white transition-colors ${isCompleted ? 'line-through' : ''}`}>
                           {apt.athleteName}
                         </p>
-                        <div className="flex items-center gap-3 text-[10px] text-white/15 mt-0.5">
+                        <div className="flex items-center gap-3 text-[10px] text-white/50 mt-0.5">
                           <span className="flex items-center gap-1"><Clock size={9} /> {apt.duration} min</span>
                           {sport && <span>{sport.label}</span>}
                         </div>
-                        {apt.notes && <p className="text-[10px] text-white/10 mt-1.5 leading-relaxed">{apt.notes}</p>}
+                        {apt.notes && <p className="text-[10px] text-white/50 mt-1.5 leading-relaxed">{apt.notes}</p>}
                         {/* Action buttons on hover */}
                         <div className="flex items-center gap-1 mt-2 opacity-0 group-hover/item:opacity-100 transition-opacity">
-                          <span className="px-2 py-0.5 bg-white/[0.04] text-white/20 text-[8px] uppercase tracking-wider flex items-center gap-1 hover:text-white/40 transition-colors">
+                          <span className="px-2 py-0.5 bg-white/[0.04] text-white/55 text-[10px] uppercase tracking-wider flex items-center gap-1 hover:text-white/70 transition-colors">
                             <Video size={8} /> Zoom
                           </span>
                           {athlete?.phone && (
-                            <span className="px-2 py-0.5 bg-white/[0.04] text-white/20 text-[8px] uppercase tracking-wider flex items-center gap-1 hover:text-white/40 transition-colors">
+                            <span className="px-2 py-0.5 bg-white/[0.04] text-white/55 text-[10px] uppercase tracking-wider flex items-center gap-1 hover:text-white/70 transition-colors">
                               <MessageCircle size={8} /> WA
                             </span>
                           )}
@@ -219,7 +219,7 @@ export default function DashboardPage() {
                 })}
               </div>
             ) : (
-              <p className="text-[11px] text-white/15 py-8 text-center">Nessuna sessione oggi</p>
+              <p className="text-[11px] text-white/50 py-8 text-center">Nessuna sessione oggi</p>
             )}
           </div>
 
@@ -235,26 +235,26 @@ export default function DashboardPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-1.5 h-1.5 bg-white/50 animate-pulse" />
-                    <p className="text-[9px] uppercase tracking-[0.2em] text-white/20">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/55">
                       {isToday ? 'Prossima sessione' : 'Prossimo appuntamento'}
                     </p>
                   </div>
                   <p className="text-lg text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                     {nextApt.athleteName.toUpperCase()}
                   </p>
-                  <div className="flex items-center gap-3 text-[10px] text-white/25 mt-1">
+                  <div className="flex items-center gap-3 text-[10px] text-white/60 mt-1">
                     <span className="text-white/50">{nextApt.time}</span>
                     <span>{nextApt.duration} min</span>
                     {sport && <span>{sport.label}</span>}
                   </div>
-                  {nextApt.notes && <p className="text-[10px] text-white/15 mt-2 leading-relaxed">{nextApt.notes}</p>}
+                  {nextApt.notes && <p className="text-[10px] text-white/50 mt-2 leading-relaxed">{nextApt.notes}</p>}
                   <div className="flex items-center gap-px mt-3">
                     <a href="https://zoom.us/j/new" target="_blank" rel="noopener noreferrer"
-                      className="flex-1 py-2 bg-white/[0.04] text-white/30 text-[9px] uppercase tracking-[0.15em] text-center hover:bg-white/[0.08] hover:text-white/50 transition-all flex items-center justify-center gap-1.5">
+                      className="flex-1 py-2 bg-white/[0.04] text-white/60 text-[11px] uppercase tracking-[0.15em] text-center hover:bg-white/[0.08] hover:text-white/50 transition-all flex items-center justify-center gap-1.5">
                       <Video size={10} /> Zoom
                     </a>
                     <Link href={`/dashboard/athletes/${nextApt.athleteId}`}
-                      className="flex-1 py-2 bg-white/[0.04] text-white/30 text-[9px] uppercase tracking-[0.15em] text-center hover:bg-white/[0.08] hover:text-white/50 transition-all flex items-center justify-center gap-1.5">
+                      className="flex-1 py-2 bg-white/[0.04] text-white/60 text-[11px] uppercase tracking-[0.15em] text-center hover:bg-white/[0.08] hover:text-white/50 transition-all flex items-center justify-center gap-1.5">
                       Profilo <ArrowRight size={9} />
                     </Link>
                   </div>
@@ -268,8 +268,8 @@ export default function DashboardPage() {
             {/* Goals */}
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Obiettivi</h3>
-                <Link href="/dashboard/analytics" className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors">
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Obiettivi</h3>
+                <Link href="/dashboard/analytics" className="text-[11px] uppercase tracking-[0.15em] text-white/50 hover:text-white/70 transition-colors">
                   Tutti &rarr;
                 </Link>
               </div>
@@ -280,12 +280,12 @@ export default function DashboardPage() {
                     <div key={goal.id}>
                       <div className="flex items-center justify-between mb-1.5">
                         <p className="text-[11px] text-white/60">{goal.title}</p>
-                        <span className="text-[11px] text-white/40 tabular-nums">{goal.progress}%</span>
+                        <span className="text-[11px] text-white/70 tabular-nums">{goal.progress}%</span>
                       </div>
                       <div className="h-[2px] bg-white/[0.06] overflow-hidden">
                         <div className="h-full bg-white/50 transition-all" style={{ width: `${goal.progress}%` }} />
                       </div>
-                      <p className="text-[9px] text-white/15 mt-1">{athlete?.name} {athlete?.surname[0]}.</p>
+                      <p className="text-[11px] text-white/50 mt-1">{athlete?.name} {athlete?.surname[0]}.</p>
                     </div>
                   );
                 })}
@@ -298,13 +298,13 @@ export default function DashboardPage() {
             {/* Latest Check-in */}
             {latestCheckIn && latestCheckInAthlete && (
               <div>
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-2">Ultimo check-in</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-2">Ultimo check-in</p>
                 <p className="text-[11px] text-white/50">{latestCheckInAthlete.name} {latestCheckInAthlete.surname}</p>
-                <div className="flex items-center gap-4 mt-1.5 text-[10px] text-white/25">
+                <div className="flex items-center gap-4 mt-1.5 text-[10px] text-white/60">
                   <span>Umore {latestCheckIn.mood}/10</span>
                   <span>Energia {latestCheckIn.energy}/10</span>
                 </div>
-                {latestCheckIn.wins && <p className="text-[9px] text-white/15 mt-1.5 italic">{latestCheckIn.wins}</p>}
+                {latestCheckIn.wins && <p className="text-[11px] text-white/50 mt-1.5 italic">{latestCheckIn.wins}</p>}
               </div>
             )}
           </div>
@@ -323,13 +323,13 @@ export default function DashboardPage() {
             const avgGoal = sportGoals.length ? Math.round(sportGoals.reduce((sum, g) => sum + g.progress, 0) / sportGoals.length) : 0;
             return (
               <Link key={s} href={`/dashboard/athletes/sport/${s}`} className="bg-[#0A0A0A] p-4 sm:p-5 hover:bg-white/[0.02] transition-colors group">
-                <p className="text-[11px] uppercase tracking-[0.15em] text-white/40 mb-2">{sport.label}</p>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-2">{sport.label}</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{count}</p>
                 <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-[10px] text-white/30">{active} attivi</span>
-                  <span className="text-[10px] text-white/30">Avg {avgGoal}%</span>
+                  <span className="text-[10px] text-white/60">{active} attivi</span>
+                  <span className="text-[10px] text-white/60">Avg {avgGoal}%</span>
                 </div>
-                <ChevronRight size={11} className="text-white/0 group-hover:text-white/20 transition-colors mt-2" />
+                <ChevronRight size={11} className="text-white/50 sm:text-white/0 sm:group-hover:text-white/55 transition-colors mt-2" />
               </Link>
             );
           })}
@@ -338,8 +338,8 @@ export default function DashboardPage() {
         {/* Roster */}
         <div className="border border-white/[0.06]">
           <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/[0.06]">
-            <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Roster</h3>
-            <Link href="/dashboard/athletes" className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">
+            <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Roster</h3>
+            <Link href="/dashboard/athletes" className="text-[11px] uppercase tracking-[0.15em] text-white/50 hover:text-white/70 transition-colors flex items-center gap-1">
               Tutti <ArrowRight size={9} />
             </Link>
           </div>
@@ -359,25 +359,25 @@ export default function DashboardPage() {
                   href={`/dashboard/athletes/${athlete.id}`}
                   className="flex items-center gap-3 sm:gap-6 px-4 sm:px-6 py-4 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group"
                 >
-                  <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center text-[11px] text-white/40 shrink-0">
+                  <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center text-[11px] text-white/70 shrink-0">
                     {athlete.name[0]}{athlete.surname[0]}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-[13px] text-white/80 group-hover:text-white transition-colors truncate">
                       {athlete.name} {athlete.surname}
                     </p>
-                    <p className="text-[11px] text-white/30 mt-0.5 truncate">
+                    <p className="text-[11px] text-white/60 mt-0.5 truncate">
                       {sport.label} &middot; {athlete.goal}
                     </p>
                   </div>
 
                   {/* Weight */}
                   <div className="hidden sm:block text-right shrink-0 w-16">
-                    <p className="text-[11px] text-white/40 tabular-nums">
-                      {lastM?.weight} <span className="text-white/15">kg</span>
+                    <p className="text-[11px] text-white/70 tabular-nums">
+                      {lastM?.weight} <span className="text-white/50">kg</span>
                     </p>
                     {weightDelta !== null && (
-                      <p className="text-[9px] text-white/20">{weightDelta > 0 ? '+' : ''}{weightDelta}</p>
+                      <p className="text-[11px] text-white/55">{weightDelta > 0 ? '+' : ''}{weightDelta}</p>
                     )}
                   </div>
 
@@ -388,12 +388,12 @@ export default function DashboardPage() {
                         <div className="h-full bg-white/50 transition-all" style={{ width: `${avgGoal}%` }} />
                       </div>
                     </div>
-                    <span className="text-[10px] text-white/30 tabular-nums w-8 text-right">{avgGoal}%</span>
+                    <span className="text-[10px] text-white/60 tabular-nums w-8 text-right">{avgGoal}%</span>
                   </div>
 
                   {/* Day count */}
                   <div className="hidden lg:block text-right shrink-0">
-                    <p className="text-[9px] text-white/15">Day {daysSince}</p>
+                    <p className="text-[11px] text-white/50">Day {daysSince}</p>
                   </div>
 
                   {/* Sparkline */}
@@ -409,7 +409,7 @@ export default function DashboardPage() {
                   </div>
 
                   <span className={`w-1.5 h-1.5 shrink-0 ${athlete.status === 'active' ? 'bg-white/50' : 'bg-white/15'}`} />
-                  <ChevronRight size={13} className="text-white/10 group-hover:text-white/30 transition-colors shrink-0" />
+                  <ChevronRight size={13} className="text-white/50 group-hover:text-white/60 transition-colors shrink-0" />
                 </Link>
               );
             })}

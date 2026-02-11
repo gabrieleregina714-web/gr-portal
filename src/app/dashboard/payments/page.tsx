@@ -113,7 +113,7 @@ export default function PaymentsPage() {
     pending: { label: 'In attesa', style: 'text-yellow-400/70 bg-yellow-400/[0.06]' },
     overdue: { label: 'Scaduto', style: 'text-red-400/70 bg-red-400/[0.06]' },
     refunded: { label: 'Rimborsato', style: 'text-blue-400/70 bg-blue-400/[0.06]' },
-    cancelled: { label: 'Annullato', style: 'text-white/20 bg-white/[0.02]' },
+    cancelled: { label: 'Annullato', style: 'text-white/55 bg-white/[0.02]' },
   };
 
   return (
@@ -123,13 +123,13 @@ export default function PaymentsPage() {
       <div className="relative overflow-hidden" style={{ height: '180px' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">Gestione finanziaria</p>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '36px', lineHeight: 1, letterSpacing: '2px' }} className="text-white">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">Gestione finanziaria</p>
+          <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             PAGAMENTI
           </h1>
         </div>
         <div className="absolute bottom-6 right-6 lg:right-10 z-10 flex items-center gap-3">
-          <span className="text-[10px] text-white/15 uppercase tracking-[0.15em]">
+          <span className="text-[10px] text-white/50 uppercase tracking-[0.15em]">
             MRR €{MRR}
           </span>
         </div>
@@ -145,7 +145,7 @@ export default function PaymentsPage() {
               className={`px-5 py-3 text-[10px] uppercase tracking-[0.2em] transition-colors border-b-2 -mb-px ${
                 activeTab === tab.id
                   ? 'text-white border-white'
-                  : 'text-white/25 border-transparent hover:text-white/50'
+                  : 'text-white/60 border-transparent hover:text-white/50'
               }`}
             >
               {tab.label}
@@ -162,31 +162,31 @@ export default function PaymentsPage() {
             {/* KPI */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Entrate Febbraio</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Entrate Febbraio</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                   €{totalRevenue}
                 </p>
                 {revenueDelta !== 0 && (
                   <div className="flex items-center gap-1 mt-1">
-                    {revenueDelta > 0 ? <ArrowUpRight size={10} className="text-white/40" /> : <ArrowDownRight size={10} className="text-white/20" />}
-                    <span className="text-[9px] text-white/30">{revenueDelta > 0 ? '+' : ''}{revenueDelta}% vs Gennaio</span>
+                    {revenueDelta > 0 ? <ArrowUpRight size={10} className="text-white/70" /> : <ArrowDownRight size={10} className="text-white/55" />}
+                    <span className="text-[11px] text-white/60">{revenueDelta > 0 ? '+' : ''}{revenueDelta}% vs Gennaio</span>
                   </div>
                 )}
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">MRR</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">MRR</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>€{MRR}</p>
-                <p className="text-[9px] text-white/15 mt-1">{activeSubs.length} abbonamenti attivi</p>
+                <p className="text-[11px] text-white/50 mt-1">{activeSubs.length} abbonamenti attivi</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">In sospeso</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">In sospeso</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>€{pendingAmount}</p>
-                <p className="text-[9px] text-white/15 mt-1">{pendingPayments.length} pagamenti</p>
+                <p className="text-[11px] text-white/50 mt-1">{pendingPayments.length} pagamenti</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Media/Atleta</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Media/Atleta</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>€{avgRevenuePerAthlete}</p>
-                <p className="text-[9px] text-white/15 mt-1">mensile</p>
+                <p className="text-[11px] text-white/50 mt-1">mensile</p>
               </div>
             </div>
 
@@ -194,7 +194,7 @@ export default function PaymentsPage() {
             {(pendingPayments.length > 0 || overduePayments.length > 0) && (
               <div className="border border-white/[0.06]">
                 <div className="px-5 py-3 border-b border-white/[0.06]">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 flex items-center gap-2">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 flex items-center gap-2">
                     <AlertCircle size={11} /> Attenzione
                   </p>
                 </div>
@@ -203,10 +203,10 @@ export default function PaymentsPage() {
                     <Clock size={12} className="text-yellow-400/50 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-[12px] text-white/60">{p.athleteName} — {p.planName}</p>
-                      <p className="text-[9px] text-white/20 mt-0.5">{p.notes || `Scadenza: ${p.dueDate}`}</p>
+                      <p className="text-[11px] text-white/55 mt-0.5">{p.notes || `Scadenza: ${p.dueDate}`}</p>
                     </div>
-                    <span className="text-[12px] text-white/40 tabular-nums">€{p.amount}</span>
-                    <ChevronRight size={12} className="text-white/10" />
+                    <span className="text-[12px] text-white/70 tabular-nums">€{p.amount}</span>
+                    <ChevronRight size={12} className="text-white/50" />
                   </Link>
                 ))}
               </div>
@@ -215,7 +215,7 @@ export default function PaymentsPage() {
             {/* Revenue by Month */}
             <div className="grid md:grid-cols-2 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-6">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">Entrate Mensili</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-5">Entrate Mensili</h3>
                 <div className="space-y-3">
                   {monthlyRevenue.map(([month, revenue]) => {
                     const maxRev = Math.max(...monthlyRevenue.map(([, r]) => r));
@@ -225,7 +225,7 @@ export default function PaymentsPage() {
                     return (
                       <div key={month}>
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-[10px] text-white/40">{monthNames[parseInt(m)]} {y}</span>
+                          <span className="text-[10px] text-white/70">{monthNames[parseInt(m)]} {y}</span>
                           <span className="text-[11px] text-white/50 tabular-nums">€{revenue}</span>
                         </div>
                         <div className="h-[3px] bg-white/[0.04]">
@@ -238,43 +238,43 @@ export default function PaymentsPage() {
               </div>
 
               <div className="bg-[#0A0A0A] p-6">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">Entrate per Sport</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-5">Entrate per Sport</h3>
                 <div className="space-y-4">
                   {revenueBySport.map(([sport, revenue]) => {
                     const sportInfo = SPORTS[sport as Sport];
                     const pct = totalRevenue > 0 ? Math.round((revenue / totalRevenue) * 100) : 0;
                     return (
                       <div key={sport} className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-white/[0.04] flex items-center justify-center text-[9px] uppercase tracking-wider text-white/30 shrink-0">
+                        <div className="w-10 h-10 bg-white/[0.04] flex items-center justify-center text-[11px] uppercase tracking-wider text-white/60 shrink-0">
                           {sportInfo?.label.substring(0, 2)}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-1">
                             <span className="text-[11px] text-white/50">{sportInfo?.label}</span>
-                            <span className="text-[11px] text-white/40 tabular-nums">€{revenue}</span>
+                            <span className="text-[11px] text-white/70 tabular-nums">€{revenue}</span>
                           </div>
                           <div className="h-[2px] bg-white/[0.04]">
                             <div className="h-full bg-white/30" style={{ width: `${pct}%` }} />
                           </div>
                         </div>
-                        <span className="text-[10px] text-white/20 tabular-nums w-8 text-right">{pct}%</span>
+                        <span className="text-[10px] text-white/55 tabular-nums w-8 text-right">{pct}%</span>
                       </div>
                     );
                   })}
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-white/[0.04]">
-                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-4">Top Clienti per Valore</h3>
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-4">Top Clienti per Valore</h3>
                   {clientRevenue.slice(0, 4).map(([id, data]) => (
                     <Link key={id} href={`/dashboard/athletes/${id}`} className="flex items-center gap-3 py-2 hover:bg-white/[0.02] transition-colors -mx-2 px-2 group">
-                      <div className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-[9px] text-white/30">
+                      <div className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-[11px] text-white/60">
                         {data.name.split(' ').map(w => w[0]).join('')}
                       </div>
                       <div className="flex-1">
                         <p className="text-[11px] text-white/50 group-hover:text-white/70 transition-colors">{data.name}</p>
-                        <p className="text-[9px] text-white/15">{data.months} mesi</p>
+                        <p className="text-[11px] text-white/50">{data.months} mesi</p>
                       </div>
-                      <span className="text-[11px] text-white/40 tabular-nums">€{data.total}</span>
+                      <span className="text-[11px] text-white/70 tabular-nums">€{data.total}</span>
                     </Link>
                   ))}
                 </div>
@@ -293,7 +293,7 @@ export default function PaymentsPage() {
                   key={s}
                   onClick={() => setFilterStatus(s)}
                   className={`px-4 py-2 text-[10px] uppercase tracking-[0.15em] transition-colors ${
-                    filterStatus === s ? 'bg-white text-black' : 'bg-[#0A0A0A] text-white/30 hover:text-white/50'
+                    filterStatus === s ? 'bg-white text-black' : 'bg-[#0A0A0A] text-white/60 hover:text-white/50'
                   }`}
                 >
                   {s === 'all' ? 'Tutti' : statusMap[s]?.label || s}
@@ -305,13 +305,13 @@ export default function PaymentsPage() {
             <div className="border border-white/[0.06] overflow-x-auto scrollbar-hide">
               <div className="min-w-[700px]">
               <div className="grid grid-cols-12 gap-4 px-5 py-3 border-b border-white/[0.06]">
-                <span className="col-span-3 text-[10px] uppercase tracking-[0.15em] text-white/30">Atleta</span>
-                <span className="col-span-3 text-[10px] uppercase tracking-[0.15em] text-white/30">Piano</span>
-                <span className="col-span-2 text-[10px] uppercase tracking-[0.15em] text-white/30">Data</span>
-                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Importo</span>
-                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Metodo</span>
-                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Stato</span>
-                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/30">Ordine</span>
+                <span className="col-span-3 text-[10px] uppercase tracking-[0.15em] text-white/60">Atleta</span>
+                <span className="col-span-3 text-[10px] uppercase tracking-[0.15em] text-white/60">Piano</span>
+                <span className="col-span-2 text-[10px] uppercase tracking-[0.15em] text-white/60">Data</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/60">Importo</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/60">Metodo</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/60">Stato</span>
+                <span className="col-span-1 text-[10px] uppercase tracking-[0.15em] text-white/60">Ordine</span>
               </div>
               {filteredPayments.map((p) => (
                 <Link
@@ -320,16 +320,16 @@ export default function PaymentsPage() {
                   className="grid grid-cols-12 gap-4 px-5 py-3 border-b border-white/[0.03] last:border-b-0 hover:bg-white/[0.015] transition-colors group"
                 >
                   <span className="col-span-3 text-[12px] text-white/60 group-hover:text-white/80 transition-colors truncate">{p.athleteName}</span>
-                  <span className="col-span-3 text-[11px] text-white/30 truncate">{p.planName}</span>
-                  <span className="col-span-2 text-[11px] text-white/30 tabular-nums">{p.date}</span>
+                  <span className="col-span-3 text-[11px] text-white/60 truncate">{p.planName}</span>
+                  <span className="col-span-2 text-[11px] text-white/60 tabular-nums">{p.date}</span>
                   <span className="col-span-1 text-[12px] text-white/50 tabular-nums">€{p.amount}</span>
-                  <span className="col-span-1 text-[10px] text-white/20 uppercase">{p.method}</span>
+                  <span className="col-span-1 text-[10px] text-white/55 uppercase">{p.method}</span>
                   <span className="col-span-1">
-                    <span className={`text-[9px] uppercase tracking-[0.1em] px-2 py-0.5 ${statusMap[p.status]?.style}`}>
+                    <span className={`text-[11px] uppercase tracking-[0.1em] px-2 py-0.5 ${statusMap[p.status]?.style}`}>
                       {statusMap[p.status]?.label}
                     </span>
                   </span>
-                  <span className="col-span-1 text-[10px] text-white/15 flex items-center gap-1">
+                  <span className="col-span-1 text-[10px] text-white/50 flex items-center gap-1">
                     {p.shopifyOrderId && (
                       <>{p.shopifyOrderId} <ExternalLink size={8} /></>
                     )}
@@ -346,15 +346,15 @@ export default function PaymentsPage() {
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Attivi</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Attivi</p>
                 <p className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{activeSubs.length}</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">In pausa / Annullati</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">In pausa / Annullati</p>
                 <p className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{pausedSubs.length}</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Churn Rate</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Churn Rate</p>
                 <p className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                   {subscriptions.length > 0 ? Math.round((pausedSubs.length / subscriptions.length) * 100) : 0}%
                 </p>
@@ -363,7 +363,7 @@ export default function PaymentsPage() {
 
             <div className="border border-white/[0.06]">
               <div className="px-5 py-3 border-b border-white/[0.06]">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Tutti gli abbonamenti</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Tutti gli abbonamenti</p>
               </div>
               {subscriptions.map((sub) => {
                 const sport = SPORTS[sub.sport as Sport];
@@ -382,26 +382,26 @@ export default function PaymentsPage() {
                     <span className={`w-1.5 h-1.5 shrink-0 ${statusStyles[sub.status]}`} />
                     <div className="flex-1 min-w-0">
                       <p className="text-[13px] text-white/70 group-hover:text-white transition-colors">{sub.athleteName}</p>
-                      <p className="text-[10px] text-white/20 mt-0.5">{sub.planName} &middot; {sport?.label}</p>
+                      <p className="text-[10px] text-white/55 mt-0.5">{sub.planName} &middot; {sport?.label}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <p className="text-[13px] text-white/50 tabular-nums">€{sub.amount}<span className="text-white/15 text-[10px]">/mese</span></p>
+                      <p className="text-[13px] text-white/50 tabular-nums">€{sub.amount}<span className="text-white/50 text-[10px]">/mese</span></p>
                     </div>
                     <div className="text-right shrink-0 w-24">
-                      <p className="text-[10px] text-white/25">Prossimo</p>
-                      <p className="text-[11px] text-white/40 tabular-nums">{sub.nextPayment}</p>
+                      <p className="text-[10px] text-white/60">Prossimo</p>
+                      <p className="text-[11px] text-white/70 tabular-nums">{sub.nextPayment}</p>
                     </div>
                     <div className="shrink-0 w-16 text-right">
-                      <span className={`text-[9px] uppercase tracking-[0.1em] px-2 py-0.5 ${
+                      <span className={`text-[11px] uppercase tracking-[0.1em] px-2 py-0.5 ${
                         sub.status === 'active' ? 'text-white/50 bg-white/[0.04]' :
                         sub.status === 'paused' ? 'text-yellow-400/50 bg-yellow-400/[0.04]' :
-                        'text-white/20 bg-white/[0.02]'
+                        'text-white/55 bg-white/[0.02]'
                       }`}>
                         {sub.status === 'active' ? 'Attivo' : sub.status === 'paused' ? 'Pausa' : 'Stop'}
                       </span>
                     </div>
-                    {sub.autoRenew && <Repeat size={10} className="text-white/10 shrink-0" />}
-                    <ChevronRight size={12} className="text-white/10 group-hover:text-white/25 transition-colors shrink-0" />
+                    {sub.autoRenew && <Repeat size={10} className="text-white/50 shrink-0" />}
+                    <ChevronRight size={12} className="text-white/50 group-hover:text-white/60 transition-colors shrink-0" />
                   </Link>
                 );
               })}
@@ -414,44 +414,44 @@ export default function PaymentsPage() {
           <div className="space-y-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Revenue Totale</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Revenue Totale</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                   €{payments.filter(p => p.status === 'paid').reduce((s, p) => s + p.amount, 0)}
                 </p>
-                <p className="text-[9px] text-white/15 mt-1">da sempre</p>
+                <p className="text-[11px] text-white/50 mt-1">da sempre</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">ARR Proiettato</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">ARR Proiettato</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>€{MRR * 12}</p>
-                <p className="text-[9px] text-white/15 mt-1">annualizzato</p>
+                <p className="text-[11px] text-white/50 mt-1">annualizzato</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">LTV Medio</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">LTV Medio</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                   €{clientRevenue.length > 0 ? Math.round(clientRevenue.reduce((s, [, d]) => s + d.total, 0) / clientRevenue.length) : 0}
                 </p>
-                <p className="text-[9px] text-white/15 mt-1">per cliente</p>
+                <p className="text-[11px] text-white/50 mt-1">per cliente</p>
               </div>
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">Retention Rate</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">Retention Rate</p>
                 <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                   {subscriptions.length > 0 ? Math.round((activeSubs.length / subscriptions.length) * 100) : 0}%
                 </p>
-                <p className="text-[9px] text-white/15 mt-1">{activeSubs.length}/{subscriptions.length} atleti</p>
+                <p className="text-[11px] text-white/50 mt-1">{activeSubs.length}/{subscriptions.length} atleti</p>
               </div>
             </div>
 
             {/* Client Journey */}
             <div className="border border-white/[0.06]">
               <div className="px-5 py-3 border-b border-white/[0.06]">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Customer Journey</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Customer Journey</p>
               </div>
               <div className="grid md:grid-cols-3 gap-px bg-white/[0.06]">
                 {/* New clients */}
                 <div className="bg-[#0A0A0A] p-5">
                   <div className="flex items-center gap-2 mb-3">
-                    <UserPlus size={12} className="text-white/30" />
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Nuovi (ultimi 3 mesi)</p>
+                    <UserPlus size={12} className="text-white/60" />
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Nuovi (ultimi 3 mesi)</p>
                   </div>
                   {athletes.filter((a: Athlete) => {
                     const start = new Date(a.startDate);
@@ -462,7 +462,7 @@ export default function PaymentsPage() {
                     <div key={a.id} className="flex items-center gap-3 py-1.5">
                       <div className="w-1 h-1 bg-white/30" />
                       <p className="text-[11px] text-white/50">{a.name} {a.surname}</p>
-                      <span className="text-[9px] text-white/15">{SPORTS[a.sport].label}</span>
+                      <span className="text-[11px] text-white/50">{SPORTS[a.sport].label}</span>
                     </div>
                   ))}
                 </div>
@@ -470,14 +470,14 @@ export default function PaymentsPage() {
                 {/* Active */}
                 <div className="bg-[#0A0A0A] p-5">
                   <div className="flex items-center gap-2 mb-3">
-                    <Users size={12} className="text-white/30" />
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Attivi</p>
+                    <Users size={12} className="text-white/60" />
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Attivi</p>
                   </div>
                   {athletes.filter((a: Athlete) => a.status === 'active').map((a: Athlete) => (
                     <div key={a.id} className="flex items-center gap-3 py-1.5">
                       <div className="w-1 h-1 bg-white/50" />
                       <p className="text-[11px] text-white/50">{a.name} {a.surname}</p>
-                      <span className="text-[9px] text-white/15">
+                      <span className="text-[11px] text-white/50">
                         {Math.floor((new Date(2026, 1, 10).getTime() - new Date(a.startDate).getTime()) / (1000 * 60 * 60 * 24))} gg
                       </span>
                     </div>
@@ -487,14 +487,14 @@ export default function PaymentsPage() {
                 {/* Churned */}
                 <div className="bg-[#0A0A0A] p-5">
                   <div className="flex items-center gap-2 mb-3">
-                    <UserMinus size={12} className="text-white/30" />
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">In pausa / Persi</p>
+                    <UserMinus size={12} className="text-white/60" />
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">In pausa / Persi</p>
                   </div>
                   {athletes.filter((a: Athlete) => a.status !== 'active').map((a: Athlete) => (
                     <div key={a.id} className="flex items-center gap-3 py-1.5">
                       <div className="w-1 h-1 bg-white/15" />
-                      <p className="text-[11px] text-white/30">{a.name} {a.surname}</p>
-                      <span className="text-[9px] text-white/10">{a.notes?.split('.')[0]}</span>
+                      <p className="text-[11px] text-white/60">{a.name} {a.surname}</p>
+                      <span className="text-[11px] text-white/50">{a.notes?.split('.')[0]}</span>
                     </div>
                   ))}
                 </div>
@@ -503,7 +503,7 @@ export default function PaymentsPage() {
 
             {/* Projections */}
             <div className="border border-white/[0.06] p-6">
-              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-4">Proiezioni</h3>
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-4">Proiezioni</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {[
                   { label: 'Con +1 cliente/mese', value: `€${(MRR + avgRevenuePerAthlete * 3) * 12}`, desc: 'ARR tra 3 mesi' },
@@ -511,9 +511,9 @@ export default function PaymentsPage() {
                   { label: 'Con churn attuale', value: `€${Math.round(MRR * 0.83 * 12)}`, desc: 'ARR se perdi 1/6 clienti' },
                 ].map(p => (
                   <div key={p.label}>
-                    <p className="text-[10px] text-white/20 mb-1">{p.label}</p>
+                    <p className="text-[10px] text-white/55 mb-1">{p.label}</p>
                     <p className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{p.value}</p>
-                    <p className="text-[9px] text-white/15 mt-0.5">{p.desc}</p>
+                    <p className="text-[11px] text-white/50 mt-0.5">{p.desc}</p>
                   </div>
                 ))}
               </div>

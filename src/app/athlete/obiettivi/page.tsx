@@ -27,7 +27,7 @@ export default function AthleteObiettiviPage() {
   const athlete = athletes.find((a: Athlete) => a.id === athleteId);
 
   if (!athlete) {
-    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/20 text-sm">Caricamento...</p></div>;
+    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/55 text-sm">Caricamento...</p></div>;
   }
 
   const sport = SPORTS[athlete.sport];
@@ -48,7 +48,7 @@ export default function AthleteObiettiviPage() {
       <div className="relative overflow-hidden" style={{ height: '180px' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">{sport.label}</p>
           <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             OBIETTIVI
           </h1>
@@ -63,8 +63,8 @@ export default function AthleteObiettiviPage() {
             <button
               key={t.key}
               onClick={() => setActiveTab(t.key)}
-              className={`px-4 py-2.5 text-[9px] uppercase tracking-[0.15em] transition-colors ${
-                activeTab === t.key ? 'bg-white text-black' : 'bg-white/[0.03] text-white/25 hover:text-white/50'
+              className={`px-4 py-2.5 text-[11px] uppercase tracking-[0.15em] transition-colors ${
+                activeTab === t.key ? 'bg-white text-black' : 'bg-white/[0.03] text-white/60 hover:text-white/50'
               }`}
             >
               {t.label}
@@ -85,7 +85,7 @@ export default function AthleteObiettiviPage() {
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <h3 className="text-[16px] text-white/70 mb-1" style={{ fontFamily: 'var(--font-heading)', letterSpacing: '1px' }}>{goal.title}</h3>
-                        <p className="text-[11px] text-white/25">{goal.specific}</p>
+                        <p className="text-[11px] text-white/60">{goal.specific}</p>
                       </div>
                       <div className="text-right shrink-0 ml-4">
                         <p className="text-[28px] text-white/60" style={{ fontFamily: 'var(--font-heading)' }}>{progress}%</p>
@@ -106,9 +106,9 @@ export default function AthleteObiettiviPage() {
                     </div>
 
                     {/* Values */}
-                    <div className="flex items-center justify-between text-[10px] text-white/20 mb-5">
+                    <div className="flex items-center justify-between text-[10px] text-white/55 mb-5">
                       <span>Inizio: {goal.startValue}{goal.unit}</span>
-                      <span className="text-white/40">Attuale: {goal.currentValue}{goal.unit}</span>
+                      <span className="text-white/70">Attuale: {goal.currentValue}{goal.unit}</span>
                       <span>Target: {goal.targetValue}{goal.unit}</span>
                     </div>
 
@@ -117,11 +117,11 @@ export default function AthleteObiettiviPage() {
                       {goal.milestones.map(ms => (
                         <div key={ms.id} className={`flex-1 p-3 ${ms.achieved ? 'bg-white/[0.06]' : 'bg-white/[0.02]'}`}>
                           <div className="flex items-center gap-1.5 mb-1">
-                            {ms.achieved ? <CheckCircle2 size={10} className="text-white/40" /> : <div className="w-2.5 h-2.5 border border-white/10" />}
-                            <p className="text-[10px] text-white/30">{ms.label}</p>
+                            {ms.achieved ? <CheckCircle2 size={10} className="text-white/70" /> : <div className="w-2.5 h-2.5 border border-white/10" />}
+                            <p className="text-[10px] text-white/60">{ms.label}</p>
                           </div>
                           {ms.achievedDate && (
-                            <p className="text-[8px] text-white/10 ml-4">{ms.achievedDate}</p>
+                            <p className="text-[10px] text-white/50 ml-4">{ms.achievedDate}</p>
                           )}
                         </div>
                       ))}
@@ -129,7 +129,7 @@ export default function AthleteObiettiviPage() {
                   </div>
 
                   {/* Footer */}
-                  <div className="px-6 py-3 border-t border-white/[0.04] flex items-center justify-between text-[9px] text-white/15">
+                  <div className="px-6 py-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-white/50">
                     <span>Scadenza: {goal.deadline}</span>
                     <span>{achieved}/{total} milestone raggiunti</span>
                   </div>
@@ -145,21 +145,21 @@ export default function AthleteObiettiviPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-white/[0.06]">
               {myAchievements.map(ach => (
                 <div key={ach.id} className="bg-[#0A0A0A] p-5 flex items-start gap-3">
-                  <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center shrink-0 text-white/30">
+                  <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center shrink-0 text-white/60">
                     {ACHIEVEMENT_ICONS[ach.category] || <Award size={15} />}
                   </div>
                   <div>
                     <p className="text-[13px] text-white/60 font-medium mb-0.5">{ach.title}</p>
-                    <p className="text-[10px] text-white/20 mb-1">{ach.description}</p>
-                    <p className="text-[9px] text-white/10">{ach.unlockedAt}</p>
+                    <p className="text-[10px] text-white/55 mb-1">{ach.description}</p>
+                    <p className="text-[11px] text-white/50">{ach.unlockedAt}</p>
                   </div>
                 </div>
               ))}
             </div>
             {myAchievements.length === 0 && (
               <div className="border border-white/[0.06] py-12 text-center">
-                <Award size={24} className="text-white/10 mx-auto mb-2" />
-                <p className="text-[12px] text-white/15">Nessun achievement ancora</p>
+                <Award size={24} className="text-white/50 mx-auto mb-2" />
+                <p className="text-[12px] text-white/50">Nessun achievement ancora</p>
               </div>
             )}
           </div>
@@ -171,8 +171,8 @@ export default function AthleteObiettiviPage() {
             {myCheckIns.map(ci => (
               <div key={ci.id} className="border border-white/[0.06]">
                 <div className="px-5 py-3 border-b border-white/[0.04] flex items-center justify-between">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/25">Settimana del {ci.date}</p>
-                  {ci.wins && <p className="text-[10px] text-white/15 italic max-w-[50%] truncate">{ci.wins}</p>}
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Settimana del {ci.date}</p>
+                  {ci.wins && <p className="text-[10px] text-white/50 italic max-w-[50%] truncate">{ci.wins}</p>}
                 </div>
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-px bg-white/[0.04]">
                   {[
@@ -183,14 +183,14 @@ export default function AthleteObiettiviPage() {
                     { label: 'Dolore', value: ci.soreness },
                   ].map(item => (
                     <div key={item.label} className="bg-[#0A0A0A] p-3 text-center">
-                      <p className="text-[18px] text-white/40 mb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>{item.value}</p>
-                      <p className="text-[7px] uppercase tracking-[0.15em] text-white/12">{item.label}</p>
+                      <p className="text-[18px] text-white/70 mb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>{item.value}</p>
+                      <p className="text-[10px] uppercase tracking-[0.15em] text-white/50">{item.label}</p>
                     </div>
                   ))}
                 </div>
                 {ci.notes && (
                   <div className="px-5 py-2.5 border-t border-white/[0.03]">
-                    <p className="text-[10px] text-white/15">{ci.notes}</p>
+                    <p className="text-[10px] text-white/50">{ci.notes}</p>
                   </div>
                 )}
               </div>

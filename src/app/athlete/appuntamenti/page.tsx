@@ -16,7 +16,7 @@ export default function AthleteAppuntamentiPage() {
   const athlete = athletes.find((a: Athlete) => a.id === athleteId);
 
   if (!athlete) {
-    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/20 text-sm">Caricamento...</p></div>;
+    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/55 text-sm">Caricamento...</p></div>;
   }
 
   const sport = SPORTS[athlete.sport];
@@ -54,13 +54,13 @@ export default function AthleteAppuntamentiPage() {
       <div className="relative overflow-hidden" style={{ height: '180px' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">{sport.label}</p>
           <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             APPUNTAMENTI
           </h1>
         </div>
         <div className="absolute bottom-6 right-6 lg:right-10 z-10">
-          <div className="flex gap-4 text-[10px] text-white/20">
+          <div className="flex gap-4 text-[10px] text-white/55">
             <span>{upcoming.length} in programma</span>
           </div>
         </div>
@@ -71,23 +71,23 @@ export default function AthleteAppuntamentiPage() {
         {/* Upcoming */}
         <div className="border border-white/[0.06]">
           <div className="px-5 py-3 border-b border-white/[0.06]">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Prossimi</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Prossimi</p>
           </div>
           {upcoming.length > 0 ? (
             <div className="divide-y divide-white/[0.03]">
               {upcoming.map(apt => (
                 <div key={apt.id} className="px-6 py-5 flex items-center gap-5 hover:bg-white/[0.01] transition-colors">
                   <div className="w-14 h-14 bg-white/[0.04] flex flex-col items-center justify-center shrink-0">
-                    <p className="text-[8px] uppercase text-white/15">{new Date(apt.date).toLocaleDateString('it-IT', { weekday: 'short' })}</p>
+                    <p className="text-[10px] uppercase text-white/50">{new Date(apt.date).toLocaleDateString('it-IT', { weekday: 'short' })}</p>
                     <p className="text-[22px] text-white/50" style={{ fontFamily: 'var(--font-heading)' }}>{apt.date.slice(8)}</p>
-                    <p className="text-[8px] text-white/10">{new Date(apt.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
+                    <p className="text-[10px] text-white/50">{new Date(apt.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-[13px] text-white/60 mb-1">{apt.notes}</p>
-                    <div className="flex items-center gap-3 text-[10px] text-white/20">
+                    <div className="flex items-center gap-3 text-[10px] text-white/55">
                       <span className="flex items-center gap-1"><Clock size={9} /> {apt.time}</span>
                       <span>{apt.duration} min</span>
-                      <span className="flex items-center gap-1 px-2 py-0.5 bg-white/[0.04] text-[8px] uppercase tracking-[0.15em]">
+                      <span className="flex items-center gap-1 px-2 py-0.5 bg-white/[0.04] text-[10px] uppercase tracking-[0.15em]">
                         {typeIcons[apt.type]} {typeLabels[apt.type]}
                       </span>
                     </div>
@@ -97,8 +97,8 @@ export default function AthleteAppuntamentiPage() {
             </div>
           ) : (
             <div className="py-12 text-center">
-              <Calendar size={20} className="text-white/10 mx-auto mb-2" />
-              <p className="text-[12px] text-white/15">Nessun appuntamento in programma</p>
+              <Calendar size={20} className="text-white/50 mx-auto mb-2" />
+              <p className="text-[12px] text-white/50">Nessun appuntamento in programma</p>
             </div>
           )}
         </div>
@@ -107,18 +107,18 @@ export default function AthleteAppuntamentiPage() {
         {past.length > 0 && (
           <div className="border border-white/[0.06]">
             <div className="px-5 py-3 border-b border-white/[0.06]">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Completati</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Completati</p>
             </div>
             <div className="divide-y divide-white/[0.03]">
               {past.map(apt => (
                 <div key={apt.id} className="px-6 py-3 flex items-center gap-4 opacity-50">
                   <div className="w-8 h-8 bg-white/[0.03] flex items-center justify-center shrink-0">
-                    <p className="text-[10px] text-white/15">{apt.date.slice(8)}</p>
+                    <p className="text-[10px] text-white/50">{apt.date.slice(8)}</p>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[12px] text-white/30 truncate">{apt.notes}</p>
+                    <p className="text-[12px] text-white/60 truncate">{apt.notes}</p>
                   </div>
-                  <p className="text-[10px] text-white/10 shrink-0">{apt.time} · {apt.duration}min</p>
+                  <p className="text-[10px] text-white/50 shrink-0">{apt.time} · {apt.duration}min</p>
                 </div>
               ))}
             </div>

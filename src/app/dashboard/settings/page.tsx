@@ -23,7 +23,7 @@ export default function SettingsPage() {
   return (
     <div className="space-y-8 max-w-3xl">
       <div>
-        <p className="text-xs uppercase tracking-[0.25em] text-white/30 mb-1">
+        <p className="text-xs uppercase tracking-[0.25em] text-white/60 mb-1">
           Configurazione
         </p>
         <h1 className="nike-h2">SETTINGS</h1>
@@ -32,7 +32,7 @@ export default function SettingsPage() {
       {/* Brand */}
       <div className="nike-card p-4 sm:p-5 md:p-6">
         <div className="flex items-center gap-3 mb-6">
-          <Palette size={16} className="text-white/30" />
+          <Palette size={16} className="text-white/60" />
           <h3 className="nike-h4">BRAND</h3>
         </div>
         <div className="flex items-center gap-4 sm:gap-5 lg:gap-6">
@@ -47,21 +47,21 @@ export default function SettingsPage() {
           </div>
           <div>
             <p className="font-semibold text-sm">GR PERFORM</p>
-            <p className="text-xs text-white/30 mt-1">
+            <p className="text-xs text-white/60 mt-1">
               Athlete Management Terminal
             </p>
             <div className="flex items-center gap-3 mt-3">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-full bg-black border-2 border-white/20" />
-                <span className="text-[10px] text-white/30">Nero</span>
+                <span className="text-[10px] text-white/60">Nero</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-full bg-[#C8102E] border-2 border-white/10" />
-                <span className="text-[10px] text-white/30">Rosso</span>
+                <span className="text-[10px] text-white/60">Rosso</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-full bg-white border-2 border-white/10" />
-                <span className="text-[10px] text-white/30">Bianco</span>
+                <span className="text-[10px] text-white/60">Bianco</span>
               </div>
             </div>
           </div>
@@ -71,12 +71,12 @@ export default function SettingsPage() {
       {/* Profile */}
       <div className="nike-card p-4 sm:p-5 md:p-6">
         <div className="flex items-center gap-3 mb-6">
-          <User size={16} className="text-white/30" />
+          <User size={16} className="text-white/60" />
           <h3 className="nike-h4">PROFILO COACH</h3>
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Nome
             </label>
             <input
@@ -89,7 +89,7 @@ export default function SettingsPage() {
             />
           </div>
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Cognome
             </label>
             <input
@@ -102,7 +102,7 @@ export default function SettingsPage() {
             />
           </div>
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Email
             </label>
             <input
@@ -115,7 +115,7 @@ export default function SettingsPage() {
             />
           </div>
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Telefono
             </label>
             <input
@@ -128,7 +128,7 @@ export default function SettingsPage() {
             />
           </div>
           <div className="sm:col-span-2">
-            <label className="block text-[10px] uppercase tracking-wider text-white/30 mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-white/60 mb-2">
               Ruolo
             </label>
             <input
@@ -146,7 +146,7 @@ export default function SettingsPage() {
       {/* Notifications */}
       <div className="nike-card p-4 sm:p-5 md:p-6">
         <div className="flex items-center gap-3 mb-6">
-          <Bell size={16} className="text-white/30" />
+          <Bell size={16} className="text-white/60" />
           <h3 className="nike-h4">NOTIFICHE</h3>
         </div>
         <div className="space-y-4">
@@ -178,7 +178,7 @@ export default function SettingsPage() {
             >
               <div>
                 <p className="text-sm font-medium">{item.label}</p>
-                <p className="text-xs text-white/30 mt-0.5">{item.desc}</p>
+                <p className="text-xs text-white/60 mt-0.5">{item.desc}</p>
               </div>
               <button
                 onClick={() =>
@@ -205,13 +205,13 @@ export default function SettingsPage() {
       {/* Hosting */}
       <div className="nike-card p-4 sm:p-5 md:p-6">
         <div className="flex items-center gap-3 mb-6">
-          <Globe size={16} className="text-white/30" />
+          <Globe size={16} className="text-white/60" />
           <h3 className="nike-h4">HOSTING</h3>
         </div>
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm font-medium">Vercel</p>
-            <p className="text-xs text-white/30 mt-0.5">
+            <p className="text-xs text-white/60 mt-0.5">
               Deploy automatico su Vercel
             </p>
           </div>

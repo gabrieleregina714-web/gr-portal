@@ -123,26 +123,26 @@ export default function Navbar() {
             <div ref={searchRef} className="relative">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="flex items-center gap-2 px-3 py-2 text-white/40 hover:text-white/70 hover:bg-white/5 transition-all"
+                className="flex items-center gap-2 px-3 py-2 text-white/70 hover:text-white/70 hover:bg-white/5 transition-all"
               >
                 <Search size={14} />
                 <span className="text-[10px] uppercase tracking-wider hidden lg:inline">Cerca</span>
-                <kbd className="hidden lg:inline text-[9px] px-1.5 py-0.5 rounded bg-white/5 text-white/20 font-mono">⌘K</kbd>
+                <kbd className="hidden lg:inline text-[11px] px-1.5 py-0.5 rounded bg-white/5 text-white/55 font-mono">⌘K</kbd>
               </button>
               {searchOpen && (
-                <div className="absolute right-0 top-12 w-[320px] bg-[#141414] border border-white/[0.08] shadow-2xl overflow-hidden z-50">
+                <div className="absolute right-0 top-12 w-[calc(100vw-2rem)] sm:w-[320px] bg-[#141414] border border-white/[0.08] shadow-2xl overflow-hidden z-50">
                   <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06]">
-                    <Search size={14} className="text-white/30 shrink-0" />
+                    <Search size={14} className="text-white/60 shrink-0" />
                     <input
                       ref={inputRef}
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Cerca atleta..."
-                      className="flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/20"
+                      className="flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/55"
                     />
                     {searchQuery && (
-                      <button onClick={() => setSearchQuery('')} className="text-white/20 hover:text-white/50">
+                      <button onClick={() => setSearchQuery('')} className="text-white/55 hover:text-white/50">
                         <X size={12} />
                       </button>
                     )}
@@ -157,23 +157,23 @@ export default function Navbar() {
                             onClick={() => { router.push(`/dashboard/athletes/${a.id}`); setSearchOpen(false); setSearchQuery(''); }}
                             className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors text-left"
                           >
-                            <div className="w-8 h-8 flex items-center justify-center text-[11px] font-bold uppercase shrink-0 bg-white/[0.06] text-white/40">
+                            <div className="w-8 h-8 flex items-center justify-center text-[11px] font-bold uppercase shrink-0 bg-white/[0.06] text-white/70">
                               {a.name[0]}{a.surname[0]}
                             </div>
                             <div className="flex-1 min-w-0">
                               <p className="text-[13px] font-medium text-white/80 truncate">{a.name} {a.surname}</p>
-                              <p className="text-[10px] text-white/25">{sp.label} · {a.status === 'active' ? 'Attivo' : 'In pausa'}</p>
+                              <p className="text-[10px] text-white/60">{sp.label} · {a.status === 'active' ? 'Attivo' : 'In pausa'}</p>
                             </div>
                           </button>
                         );
                       })
                     ) : searchQuery.length >= 1 ? (
                       <div className="px-4 py-6 text-center">
-                        <p className="text-[11px] text-white/20">Nessun risultato</p>
+                        <p className="text-[11px] text-white/55">Nessun risultato</p>
                       </div>
                     ) : (
                       <div className="px-4 py-6 text-center">
-                        <p className="text-[11px] text-white/20">Digita per cercare...</p>
+                        <p className="text-[11px] text-white/55">Digita per cercare...</p>
                       </div>
                     )}
                   </div>
@@ -184,18 +184,18 @@ export default function Navbar() {
             <div ref={notiRef} className="relative">
               <button
                 onClick={() => setNotiOpen(!notiOpen)}
-                className="relative p-2 text-white/40 hover:text-white/70 hover:bg-white/5 transition-all"
+                className="relative p-2 text-white/70 hover:text-white/70 hover:bg-white/5 transition-all"
               >
                 <Bell size={15} />
                 {unreadCount > 0 && (
-                  <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[7px] font-bold flex items-center justify-center">{unreadCount}</span>
+                  <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[10px] font-bold flex items-center justify-center">{unreadCount}</span>
                 )}
               </button>
               {notiOpen && (
-                <div className="absolute right-0 top-12 w-[340px] bg-[#141414] border border-white/[0.08] shadow-2xl overflow-hidden z-50">
+                <div className="absolute right-0 top-12 w-[calc(100vw-2rem)] sm:w-[340px] bg-[#141414] border border-white/[0.08] shadow-2xl overflow-hidden z-50">
                   <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Notifiche</p>
-                    <span className="text-[9px] text-white/20">{unreadCount} nuove</span>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Notifiche</p>
+                    <span className="text-[11px] text-white/55">{unreadCount} nuove</span>
                   </div>
                   <div className="max-h-[320px] overflow-y-auto">
                     {notifications.slice(0, 8).map(n => (
@@ -204,7 +204,7 @@ export default function Navbar() {
                           {!n.read && <div className="w-1 h-1 bg-white/50 mt-1.5 shrink-0" />}
                           <div className="flex-1 min-w-0">
                             <p className="text-[11px] text-white/60 leading-relaxed">{n.message}</p>
-                            <p className="text-[9px] text-white/15 mt-1">{n.createdAt}</p>
+                            <p className="text-[11px] text-white/50 mt-1">{n.createdAt}</p>
                           </div>
                         </div>
                       </div>
@@ -215,11 +215,11 @@ export default function Navbar() {
             </div>
             {/* User + logout */}
             {session?.user?.name && (
-              <span className="text-[10px] uppercase tracking-[0.15em] text-white/20">{session.user.name}</span>
+              <span className="text-[10px] uppercase tracking-[0.15em] text-white/55">{session.user.name}</span>
             )}
             <button
               onClick={() => signOut({ callbackUrl: '/login' })}
-              className="text-xs uppercase tracking-wider text-white/30 hover:text-white transition-colors flex items-center gap-1.5"
+              className="text-xs uppercase tracking-wider text-white/60 hover:text-white transition-colors flex items-center gap-1.5"
             >
               <LogOut size={14} />
               Esci
@@ -231,24 +231,24 @@ export default function Navbar() {
             <div ref={notiRef} className="relative">
               <button
                 onClick={() => setNotiOpen(!notiOpen)}
-                className="relative p-2 text-white/40 hover:text-white/70 transition-all"
+                className="relative p-2 text-white/70 hover:text-white/70 transition-all"
               >
                 <Bell size={18} />
                 {unreadCount > 0 && (
-                  <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[7px] font-bold flex items-center justify-center">{unreadCount}</span>
+                  <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[10px] font-bold flex items-center justify-center">{unreadCount}</span>
                 )}
               </button>
               {notiOpen && (
-                <div className="absolute right-0 top-12 w-[300px] bg-[#141414] border border-white/[0.08] shadow-2xl overflow-hidden z-50">
+                <div className="absolute right-0 top-12 w-[calc(100vw-2rem)] sm:w-[300px] bg-[#141414] border border-white/[0.08] shadow-2xl overflow-hidden z-50">
                   <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
-                    <p className="text-xs uppercase tracking-[0.2em] text-white/40">Notifiche</p>
-                    <span className="text-[10px] text-white/30">{unreadCount} nuove</span>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/70">Notifiche</p>
+                    <span className="text-[10px] text-white/60">{unreadCount} nuove</span>
                   </div>
                   <div className="max-h-[320px] overflow-y-auto">
                     {notifications.slice(0, 8).map(n => (
                       <div key={n.id} className={`px-4 py-3 border-b border-white/[0.02] ${!n.read ? 'bg-white/[0.015]' : ''}`}>
                         <p className="text-xs text-white/60 leading-relaxed">{n.message}</p>
-                        <p className="text-[10px] text-white/25 mt-1">{n.createdAt}</p>
+                        <p className="text-[10px] text-white/60 mt-1">{n.createdAt}</p>
                       </div>
                     ))}
                   </div>
@@ -302,13 +302,13 @@ export default function Navbar() {
             })}
             <div className="pt-4 border-t border-white/5 mt-4 space-y-1">
               {session?.user?.name && (
-                <div className="px-4 py-2 text-xs uppercase tracking-wider text-white/30">
+                <div className="px-4 py-2 text-xs uppercase tracking-wider text-white/60">
                   {session.user.name}
                 </div>
               )}
               <button
                 onClick={() => signOut({ callbackUrl: '/login' })}
-                className="flex items-center gap-2 px-4 py-3 text-sm uppercase tracking-wider text-white/30 w-full text-left"
+                className="flex items-center gap-2 px-4 py-3 text-sm uppercase tracking-wider text-white/60 w-full text-left"
               >
                 <LogOut size={14} /> Esci
               </button>

@@ -65,11 +65,11 @@ export default function AthleteNavbar() {
           {/* Right side */}
           <div className="hidden md:flex items-center gap-3">
             {session?.user?.name && (
-              <span className="text-[10px] uppercase tracking-[0.15em] text-white/20">{session.user.name}</span>
+              <span className="text-[10px] uppercase tracking-[0.15em] text-white/55">{session.user.name}</span>
             )}
             <button
               onClick={() => signOut({ callbackUrl: '/login' })}
-              className="text-xs uppercase tracking-wider text-white/30 hover:text-white transition-colors flex items-center gap-1.5"
+              className="text-xs uppercase tracking-wider text-white/60 hover:text-white transition-colors flex items-center gap-1.5"
             >
               <LogOut size={14} />
               Esci
@@ -111,7 +111,7 @@ export default function AthleteNavbar() {
             <div className="pt-4 border-t border-white/5 mt-4">
               <button
                 onClick={() => signOut({ callbackUrl: '/login' })}
-                className="flex items-center gap-2 px-4 py-3 text-sm uppercase tracking-wider text-white/30 w-full text-left"
+                className="flex items-center gap-2 px-4 py-3 text-sm uppercase tracking-wider text-white/60 w-full text-left"
               >
                 <LogOut size={14} /> Esci
               </button>

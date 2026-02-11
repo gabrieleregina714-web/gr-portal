@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
@@ -92,7 +92,7 @@ export default function AthleteProfilePage() {
   if (!athlete) {
     return (
       <div className="py-20 text-center">
-        <p className="text-white/40">Caricamento...</p>
+        <p className="text-white/70">Caricamento...</p>
         <Link href="/dashboard/athletes" className="nike-btn nike-btn-white mt-4">Torna alla lista</Link>
       </div>
     );
@@ -289,7 +289,7 @@ export default function AthleteProfilePage() {
 
         <Link
           href={`/dashboard/athletes/sport/${athlete.sport}`}
-          className="absolute top-6 left-6 lg:left-10 z-10 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
+          className="absolute top-6 left-6 lg:left-10 z-10 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/70 hover:text-white transition-colors"
         >
           <ArrowLeft size={12} /> {sport.label}
         </Link>
@@ -303,26 +303,26 @@ export default function AthleteProfilePage() {
               {athlete.name.toUpperCase()} {athlete.surname.toUpperCase()}
             </h1>
             <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{sport.label}</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{sport.label}</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">{athlete.goal}</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{athlete.goal}</span>
             <span className="w-px h-3 bg-white/10 hidden sm:block" />
-            <span className="text-[11px] uppercase tracking-[0.15em] text-white/40">Day {daysSinceStart}</span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">Day {daysSinceStart}</span>
           </div>
           </div>
         </div>
 
         <div className="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-1.5">
-          <button onClick={() => setShowEditModal(true)} className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
+          <button onClick={() => setShowEditModal(true)} className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <Edit3 size={13} />
           </button>
-          <a href={`https://wa.me/${athlete.phone?.replace('+', '')}`} target="_blank" rel="noopener noreferrer" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
+          <a href={`https://wa.me/${athlete.phone?.replace('+', '')}`} target="_blank" rel="noopener noreferrer" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <MessageCircle size={13} />
           </a>
-          <a href="https://zoom.us/j/new" target="_blank" rel="noopener noreferrer" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
+          <a href="https://zoom.us/j/new" target="_blank" rel="noopener noreferrer" className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <Video size={13} />
           </a>
-          <a href={`mailto:${athlete.email}`} className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
+          <a href={`mailto:${athlete.email}`} className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all">
             <Mail size={13} />
           </a>
         </div>
@@ -338,7 +338,7 @@ export default function AthleteProfilePage() {
               className={`px-5 py-3.5 text-[10px] uppercase tracking-[0.2em] transition-colors border-b ${
                 activeTab === tab.key
                   ? 'text-white border-white'
-                  : 'text-white/20 border-transparent hover:text-white/40'
+                  : 'text-white/55 border-transparent hover:text-white/70'
               }`}
             >
               {tab.label}
@@ -365,13 +365,13 @@ export default function AthleteProfilePage() {
                 { label: 'Sessioni', value: `${completedSessions}/${totalSessions}`, unit: '' },
               ].map((s) => (
                 <div key={s.label} className="bg-[#0A0A0A] p-5">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-2">{s.label}</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-2">{s.label}</p>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                     {s.value}
-                    {s.unit && <span className="text-xs text-white/20 ml-1 font-normal">{s.unit}</span>}
+                    {s.unit && <span className="text-xs text-white/55 ml-1 font-normal">{s.unit}</span>}
                   </p>
                   {'delta' in s && s.delta !== null && s.delta !== undefined && (
-                    <p className={`text-[10px] mt-1 ${Number(s.delta) < 0 ? 'text-white/50' : 'text-white/30'}`}>
+                    <p className={`text-[10px] mt-1 ${Number(s.delta) < 0 ? 'text-white/50' : 'text-white/60'}`}>
                       {Number(s.delta) > 0 ? '+' : ''}{s.delta}
                     </p>
                   )}
@@ -382,13 +382,13 @@ export default function AthleteProfilePage() {
             {/* Chart + Goals */}
             <div className="grid md:grid-cols-3 gap-px bg-white/[0.06]">
               <div className="md:col-span-2 bg-[#0A0A0A] p-6">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-6">Andamento peso</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-6">Andamento peso</h3>
                 <div className="h-[220px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={weightData}>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
-                      <XAxis dataKey="date" tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} />
-                      <YAxis tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
+                      <XAxis dataKey="date" tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} />
+                      <YAxis tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.2)' }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
                       <Tooltip contentStyle={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0', color: '#fff', fontSize: '11px' }} />
                       <Line type="monotone" dataKey="peso" stroke="#fff" strokeWidth={1.5} dot={{ fill: '#fff', r: 2.5, strokeWidth: 0 }} activeDot={{ r: 4, fill: '#fff', strokeWidth: 0 }} />
                     </LineChart>
@@ -398,8 +398,8 @@ export default function AthleteProfilePage() {
 
               <div className="bg-[#0A0A0A] p-6">
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Obiettivi</h3>
-                  <button onClick={() => setActiveTab('percorso')} className="text-[10px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors">
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Obiettivi</h3>
+                  <button onClick={() => setActiveTab('percorso')} className="text-[10px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors">
                     Tutti &rarr;
                   </button>
                 </div>
@@ -413,12 +413,12 @@ export default function AthleteProfilePage() {
                       <div key={sg.id} className="cursor-pointer group" onClick={() => { setActiveTab('percorso'); setExpandedGoal(sg.id); }}>
                         <div className="flex items-center justify-between mb-1.5">
                           <p className="text-xs text-white/70 group-hover:text-white transition-colors">{sg.title}</p>
-                          <span className="text-xs text-white/40 tabular-nums">{Math.round(clamped)}%</span>
+                          <span className="text-xs text-white/70 tabular-nums">{Math.round(clamped)}%</span>
                         </div>
                         <div className="w-full bg-white/[0.06] h-[2px]">
                           <div className="h-[2px] bg-white/60 transition-all" style={{ width: `${clamped}%` }} />
                         </div>
-                        <p className="text-[9px] text-white/15 mt-1">{sg.currentValue} / {sg.targetValue} {sg.unit}</p>
+                        <p className="text-[11px] text-white/50 mt-1">{sg.currentValue} / {sg.targetValue} {sg.unit}</p>
                       </div>
                     );
                   })}
@@ -426,7 +426,7 @@ export default function AthleteProfilePage() {
                     <div key={goal.id}>
                       <div className="flex items-center justify-between mb-1.5">
                         <p className="text-xs text-white/70">{goal.title}</p>
-                        <span className="text-xs text-white/40 tabular-nums">{goal.progress}%</span>
+                        <span className="text-xs text-white/70 tabular-nums">{goal.progress}%</span>
                       </div>
                       <div className="w-full bg-white/[0.06] h-[2px]">
                         <div className="h-[2px] bg-white/60 transition-all" style={{ width: `${goal.progress}%` }} />
@@ -438,8 +438,8 @@ export default function AthleteProfilePage() {
                   const latest = athleteCheckIns[athleteCheckIns.length - 1];
                   return (
                     <div className="mt-5 pt-4 border-t border-white/[0.06] cursor-pointer" onClick={() => setActiveTab('percorso')}>
-                      <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1">Ultimo check-in</p>
-                      <div className="flex items-center gap-4 text-[10px] text-white/30">
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1">Ultimo check-in</p>
+                      <div className="flex items-center gap-4 text-[10px] text-white/60">
                         <span>Umore {latest.mood}/10</span>
                         <span>Energia {latest.energy}/10</span>
                       </div>
@@ -454,16 +454,16 @@ export default function AthleteProfilePage() {
               <div key={plan.id} className="border border-white/[0.06]">
                 <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
                   <div>
-                    <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">{plan.name}</h3>
-                    <p className="text-[9px] text-white/15 mt-0.5">{plan.duration} &mdash; {plan.category} &mdash; {plan.difficulty}</p>
+                    <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">{plan.name}</h3>
+                    <p className="text-[11px] text-white/50 mt-0.5">{plan.duration} &mdash; {plan.category} &mdash; {plan.difficulty}</p>
                   </div>
                 </div>
                 <div>
                   {plan.sessions.map((session, idx) => (
                     <div key={idx} className="flex items-center gap-6 px-6 py-3 border-b border-white/[0.03] last:border-b-0">
-                      <span className="text-[9px] uppercase tracking-[0.2em] text-white/15 w-14 shrink-0">{session.day}</span>
+                      <span className="text-[11px] uppercase tracking-[0.2em] text-white/50 w-14 shrink-0">{session.day}</span>
                       <span className="text-[13px] text-white/60">{session.name}</span>
-                      <span className="text-[9px] text-white/15 ml-auto">{session.exercises.length} ex.</span>
+                      <span className="text-[11px] text-white/50 ml-auto">{session.exercises.length} ex.</span>
                     </div>
                   ))}
                 </div>
@@ -473,8 +473,8 @@ export default function AthleteProfilePage() {
             {/* Info */}
             <div className="border border-white/[0.06]">
               <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Informazioni</h3>
-                <button onClick={() => setShowEditModal(true)} className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">
+                <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Informazioni</h3>
+                <button onClick={() => setShowEditModal(true)} className="text-[11px] uppercase tracking-[0.15em] text-white/50 hover:text-white/70 transition-colors flex items-center gap-1">
                   <Edit3 size={10} /> Modifica
                 </button>
               </div>
@@ -488,15 +488,15 @@ export default function AthleteProfilePage() {
                   { l: 'Avg. Obiettivi', v: athleteGoals.length > 0 ? `${Math.round(athleteGoals.reduce((s, g) => s + g.progress, 0) / athleteGoals.length)}%` : '—' },
                 ].map((r) => (
                   <div key={r.l} className="flex justify-between px-6 py-3 border-b border-white/[0.03]">
-                    <span className="text-[11px] text-white/20">{r.l}</span>
+                    <span className="text-[11px] text-white/55">{r.l}</span>
                     <span className="text-[11px] text-white/60">{r.v}</span>
                   </div>
                 ))}
               </div>
               {athlete.notes && (
                 <div className="px-6 py-4">
-                  <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-1.5">Note</p>
-                  <p className="text-[11px] text-white/30 leading-relaxed">{athlete.notes}</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-1.5">Note</p>
+                  <p className="text-[11px] text-white/60 leading-relaxed">{athlete.notes}</p>
                 </div>
               )}
             </div>
@@ -508,12 +508,12 @@ export default function AthleteProfilePage() {
           <div className="space-y-8 page-enter">
             <div className="border border-white/[0.06]">
               <div className="px-6 py-5">
-                <p className="text-[9px] uppercase tracking-[0.3em] text-white/20 mb-1">Il tuo percorso</p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '28px', lineHeight: 1, letterSpacing: '1px' }} className="text-white">
+                <p className="text-[11px] uppercase tracking-[0.3em] text-white/55 mb-1">Il tuo percorso</p>
+                <h2 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '1px' }} className="text-white text-[22px] sm:text-[28px]">
                   {athlete.name.toUpperCase()}, CONTINUA COS&Igrave;.
                 </h2>
               </div>
-              <div className="grid grid-cols-3 border-t border-white/[0.06]">
+              <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-white/[0.06]">
                 {[
                   { value: daysSinceStart, label: 'Giorni attivi' },
                   { value: athleteSmartGoals.length, label: 'Obiettivi' },
@@ -521,12 +521,12 @@ export default function AthleteProfilePage() {
                 ].map((stat) => (
                   <div key={stat.label} className="px-6 py-5 border-r border-white/[0.06] last:border-r-0">
                     <p className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>{stat.value}</p>
-                    <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mt-1">{stat.label}</p>
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mt-1">{stat.label}</p>
                   </div>
                 ))}
               </div>
               <div className="px-6 py-4 border-t border-white/[0.06]">
-                <div className="flex items-center justify-between text-[9px] text-white/15 mb-2">
+                <div className="flex items-center justify-between text-[11px] text-white/50 mb-2">
                   <span>{athlete.startDate}</span>
                   <span>Giorno {daysSinceStart}</span>
                 </div>
@@ -539,8 +539,8 @@ export default function AthleteProfilePage() {
             {/* SMART Goals */}
             <div>
               <div className="flex items-center justify-between mb-5">
-                <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Obiettivi S.M.A.R.T.</h2>
-                <button onClick={() => { setEditingGoal({ title: '', target: '', current: '', progress: 0, deadline: '', status: 'in-progress' }); setShowGoalModal(true); }} className="text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors flex items-center gap-1">
+                <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Obiettivi S.M.A.R.T.</h2>
+                <button onClick={() => { setEditingGoal({ title: '', target: '', current: '', progress: 0, deadline: '', status: 'in-progress' }); setShowGoalModal(true); }} className="text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors flex items-center gap-1">
                   <Plus size={11} /> Nuovo
                 </button>
               </div>
@@ -557,21 +557,21 @@ export default function AthleteProfilePage() {
                       <div className="px-6 py-5 cursor-pointer hover:bg-white/[0.015] transition-colors" onClick={() => setExpandedGoal(isExpanded ? null : sg.id)}>
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-3">
-                            <div className="text-white/20">{METRIC_ICONS[sg.metric] || <Target size={14} />}</div>
+                            <div className="text-white/55">{METRIC_ICONS[sg.metric] || <Target size={14} />}</div>
                             <div>
                               <h3 className="text-[13px] text-white/80">{sg.title}</h3>
-                              <p className="text-[9px] text-white/15 mt-0.5">{daysLeft > 0 ? `${daysLeft} giorni rimanenti` : 'Scaduto'}</p>
+                              <p className="text-[11px] text-white/50 mt-0.5">{daysLeft > 0 ? `${daysLeft} giorni rimanenti` : 'Scaduto'}</p>
                             </div>
                           </div>
                           <div className="flex items-center gap-4">
                             <span className="text-lg text-white/80 tabular-nums" style={{ fontFamily: 'var(--font-heading)' }}>{Math.round(clampedProgress)}%</span>
-                            <ChevronRight size={14} className={`text-white/15 transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} />
+                            <ChevronRight size={14} className={`text-white/50 transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} />
                           </div>
                         </div>
                         <div className="h-[2px] bg-white/[0.06] overflow-hidden">
                           <div className="h-full bg-white/50 transition-all duration-700" style={{ width: `${clampedProgress}%` }} />
                         </div>
-                        <div className="flex items-center justify-between text-[9px] text-white/15 mt-2">
+                        <div className="flex items-center justify-between text-[11px] text-white/50 mt-2">
                           <span>{sg.startValue} {sg.unit}</span>
                           <span>{sg.targetValue} {sg.unit}</span>
                         </div>
@@ -580,34 +580,34 @@ export default function AthleteProfilePage() {
                         <div className="px-6 pb-6 border-t border-white/[0.04] pt-5 space-y-5">
                           <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.06]">
                             <div className="bg-[#0A0A0A] p-4 text-center">
-                              <p className="text-[8px] uppercase tracking-[0.2em] text-white/15">Partenza</p>
-                              <p className="text-lg text-white/30 mt-1" style={{ fontFamily: 'var(--font-heading)' }}>{sg.startValue}</p>
+                              <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">Partenza</p>
+                              <p className="text-lg text-white/60 mt-1" style={{ fontFamily: 'var(--font-heading)' }}>{sg.startValue}</p>
                             </div>
                             <div className="bg-[#0A0A0A] p-4 text-center">
-                              <p className="text-[8px] uppercase tracking-[0.2em] text-white/15">Attuale</p>
+                              <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">Attuale</p>
                               <p className="text-lg text-white mt-1" style={{ fontFamily: 'var(--font-heading)' }}>{sg.currentValue}</p>
                             </div>
                             <div className="bg-[#0A0A0A] p-4 text-center">
-                              <p className="text-[8px] uppercase tracking-[0.2em] text-white/15">Target</p>
-                              <p className="text-lg text-white/30 mt-1" style={{ fontFamily: 'var(--font-heading)' }}>{sg.targetValue}</p>
+                              <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">Target</p>
+                              <p className="text-lg text-white/60 mt-1" style={{ fontFamily: 'var(--font-heading)' }}>{sg.targetValue}</p>
                             </div>
                           </div>
                           <div>
-                            <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-3">Milestones</p>
+                            <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-3">Milestones</p>
                             <div className="grid grid-cols-2 gap-px bg-white/[0.04]">
                               {sg.milestones.map((ms) => (
                                 <div key={ms.id} className="flex items-center gap-2 p-3 bg-[#0A0A0A]">
                                   {ms.achieved ? <CheckCircle2 size={12} className="text-white/50" /> : <div className="w-3 h-3 border border-white/10" />}
                                   <div>
-                                    <p className={`text-[11px] ${ms.achieved ? 'text-white/60' : 'text-white/20'}`}>{ms.label}</p>
-                                    {ms.achievedDate && <p className="text-[8px] text-white/15">{ms.achievedDate}</p>}
+                                    <p className={`text-[11px] ${ms.achieved ? 'text-white/60' : 'text-white/55'}`}>{ms.label}</p>
+                                    {ms.achievedDate && <p className="text-[10px] text-white/50">{ms.achievedDate}</p>}
                                   </div>
                                 </div>
                               ))}
                             </div>
                           </div>
                           <div>
-                            <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-3">Metodo S.M.A.R.T.</p>
+                            <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-3">Metodo S.M.A.R.T.</p>
                             <div className="space-y-px">
                               {[
                                 { letter: 'S', label: 'Specific', text: sg.specific },
@@ -617,16 +617,16 @@ export default function AthleteProfilePage() {
                                 { letter: 'T', label: 'Time-bound', text: sg.timeBound },
                               ].map((s) => (
                                 <div key={s.letter} className="flex gap-4 py-2.5 border-b border-white/[0.03] last:border-b-0">
-                                  <span className="text-[11px] font-bold text-white/30 w-4 shrink-0">{s.letter}</span>
+                                  <span className="text-[11px] font-bold text-white/60 w-4 shrink-0">{s.letter}</span>
                                   <div>
-                                    <p className="text-[8px] uppercase tracking-[0.2em] text-white/15">{s.label}</p>
-                                    <p className="text-[11px] text-white/40 mt-0.5">{s.text}</p>
+                                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">{s.label}</p>
+                                    <p className="text-[11px] text-white/70 mt-0.5">{s.text}</p>
                                   </div>
                                 </div>
                               ))}
                             </div>
                           </div>
-                          <div className="flex items-center justify-between text-[9px] text-white/10 pt-2">
+                          <div className="flex items-center justify-between text-[11px] text-white/50 pt-2">
                             <span>Creato: {sg.createdAt}</span>
                             <span>Scadenza: {sg.deadline}</span>
                           </div>
@@ -641,8 +641,8 @@ export default function AthleteProfilePage() {
             {/* Check-in */}
             <div>
               <div className="flex items-center justify-between mb-5">
-                <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Check-in Settimanale</h2>
-                <button onClick={() => setShowCheckInModal(true)} className="text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors flex items-center gap-1">
+                <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Check-in Settimanale</h2>
+                <button onClick={() => setShowCheckInModal(true)} className="text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors flex items-center gap-1">
                   <Plus size={11} /> Check-in
                 </button>
               </div>
@@ -657,15 +657,15 @@ export default function AthleteProfilePage() {
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" />
-                      <XAxis dataKey="date" tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
-                      <YAxis domain={[0, 10]} tick={{ fontSize: 9, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
+                      <XAxis dataKey="date" tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
+                      <YAxis domain={[0, 10]} tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.15)' }} axisLine={false} tickLine={false} />
                       <Tooltip contentStyle={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0', fontSize: '10px' }} />
                       <Area type="monotone" dataKey="Umore" stroke="#fff" fill="url(#lineGrad)" strokeWidth={1.5} />
                       <Area type="monotone" dataKey="Energia" stroke="rgba(255,255,255,0.4)" fill="none" strokeWidth={1} strokeDasharray="4 4" />
                       <Area type="monotone" dataKey="Motivazione" stroke="rgba(255,255,255,0.25)" fill="none" strokeWidth={1} strokeDasharray="2 2" />
                     </AreaChart>
                   </ResponsiveContainer>
-                  <div className="flex items-center justify-center gap-6 mt-3 text-[9px] text-white/20">
+                  <div className="flex items-center justify-center gap-6 mt-3 text-[11px] text-white/55">
                     <span className="flex items-center gap-1.5"><span className="w-3 h-px bg-white" /> Umore</span>
                     <span className="flex items-center gap-1.5"><span className="w-3 h-px bg-white/40" /> Energia</span>
                     <span className="flex items-center gap-1.5"><span className="w-3 h-px bg-white/25" /> Motivazione</span>
@@ -677,7 +677,7 @@ export default function AthleteProfilePage() {
                 return (
                   <div className="border border-white/[0.06]">
                     <div className="px-6 py-3 border-b border-white/[0.04] flex items-center justify-between">
-                      <p className="text-[9px] uppercase tracking-[0.2em] text-white/15">Ultimo check-in &mdash; {latest.date}</p>
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-white/50">Ultimo check-in &mdash; {latest.date}</p>
                     </div>
                     <div className="grid grid-cols-3 sm:grid-cols-5">
                       {[
@@ -689,14 +689,14 @@ export default function AthleteProfilePage() {
                       ].map((item) => (
                         <div key={item.label} className="px-4 py-5 text-center border-r border-white/[0.04] last:border-r-0">
                           <p className="text-xl text-white" style={{ fontFamily: 'var(--font-heading)' }}>{item.value}</p>
-                          <p className="text-[8px] uppercase tracking-[0.2em] text-white/15 mt-1">{item.label}</p>
+                          <p className="text-[10px] uppercase tracking-[0.2em] text-white/50 mt-1">{item.label}</p>
                         </div>
                       ))}
                     </div>
                     {latest.wins && (
                       <div className="px-6 py-3 border-t border-white/[0.04]">
-                        <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-1">Win</p>
-                        <p className="text-[11px] text-white/40">{latest.wins}</p>
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-1">Win</p>
+                        <p className="text-[11px] text-white/70">{latest.wins}</p>
                       </div>
                     )}
                   </div>
@@ -707,13 +707,13 @@ export default function AthleteProfilePage() {
             {/* Achievements */}
             <div>
               <div className="flex items-center justify-between mb-5">
-                <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Traguardi</h2>
-                <button onClick={() => setShowNewAchievement(true)} className="text-[9px] uppercase tracking-[0.2em] text-white/30 hover:text-white/60 flex items-center gap-1"><Plus size={11} /> Aggiungi</button>
+                <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Traguardi</h2>
+                <button onClick={() => setShowNewAchievement(true)} className="text-[11px] uppercase tracking-[0.2em] text-white/60 hover:text-white/60 flex items-center gap-1"><Plus size={11} /> Aggiungi</button>
               </div>
               {showNewAchievement && (
                 <div className="border border-white/[0.06] bg-[#111] p-5 mb-4 space-y-3">
-                  <input value={newAchTitle} onChange={(e) => setNewAchTitle(e.target.value)} placeholder="Titolo traguardo" className="w-full bg-transparent border border-white/[0.06] px-3 py-2 text-[12px] text-white/80 placeholder:text-white/20 outline-none" />
-                  <input value={newAchDesc} onChange={(e) => setNewAchDesc(e.target.value)} placeholder="Descrizione" className="w-full bg-transparent border border-white/[0.06] px-3 py-2 text-[12px] text-white/80 placeholder:text-white/20 outline-none" />
+                  <input value={newAchTitle} onChange={(e) => setNewAchTitle(e.target.value)} placeholder="Titolo traguardo" className="w-full bg-transparent border border-white/[0.06] px-3 py-2 text-[12px] text-white/80 placeholder:text-white/55 outline-none" />
+                  <input value={newAchDesc} onChange={(e) => setNewAchDesc(e.target.value)} placeholder="Descrizione" className="w-full bg-transparent border border-white/[0.06] px-3 py-2 text-[12px] text-white/80 placeholder:text-white/55 outline-none" />
                   <select value={newAchCategory} onChange={(e) => setNewAchCategory(e.target.value as any)} className="w-full bg-[#111] border border-white/[0.06] px-3 py-2 text-[12px] text-white/80 outline-none">
                     <option value="milestone">Milestone</option>
                     <option value="streak">Streak</option>
@@ -723,17 +723,17 @@ export default function AthleteProfilePage() {
                   </select>
                   <div className="flex gap-2">
                     <button onClick={handleAddAchievement} className="nike-btn nike-btn-white text-[10px]">Salva</button>
-                    <button onClick={() => setShowNewAchievement(false)} className="nike-btn text-[10px] text-white/40">Annulla</button>
+                    <button onClick={() => setShowNewAchievement(false)} className="nike-btn text-[10px] text-white/70">Annulla</button>
                   </div>
                 </div>
               )}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/[0.06]">
                 {athleteAchievements.map((ach) => (
                   <div key={ach.id} className="bg-[#0A0A0A] p-5 group hover:bg-white/[0.02] transition-colors">
-                    <div className="text-white/20 mb-3">{ACHIEVEMENT_ICONS[ach.category] || <Star size={15} />}</div>
+                    <div className="text-white/55 mb-3">{ACHIEVEMENT_ICONS[ach.category] || <Star size={15} />}</div>
                     <p className="text-[11px] text-white/60 font-medium">{ach.title}</p>
-                    <p className="text-[9px] text-white/15 mt-1">{ach.description}</p>
-                    {ach.unlockedAt && <p className="text-[8px] text-white/10 mt-2">{ach.unlockedAt}</p>}
+                    <p className="text-[11px] text-white/50 mt-1">{ach.description}</p>
+                    {ach.unlockedAt && <p className="text-[10px] text-white/50 mt-2">{ach.unlockedAt}</p>}
                   </div>
                 ))}
                 {Array.from({ length: Math.max(0, 4 - athleteAchievements.length) }).map((_, i) => (
@@ -747,7 +747,7 @@ export default function AthleteProfilePage() {
 
             {/* Quote */}
             <div className="border-t border-b border-white/[0.06] py-10 text-center">
-              <p className="text-[13px] text-white/25 italic leading-relaxed max-w-md mx-auto">{sportQuote}</p>
+              <p className="text-[13px] text-white/60 italic leading-relaxed max-w-md mx-auto">{sportQuote}</p>
             </div>
           </div>
         )}
@@ -756,13 +756,13 @@ export default function AthleteProfilePage() {
         {activeTab === 'appointments' && (
           <div className="space-y-8 page-enter">
             <div className="flex items-center justify-between">
-              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Appuntamenti</h2>
-              <button onClick={() => setShowNewAppointment(true)} className="text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors flex items-center gap-1">
+              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Appuntamenti</h2>
+              <button onClick={() => setShowNewAppointment(true)} className="text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors flex items-center gap-1">
                 <Plus size={11} /> Nuovo
               </button>
             </div>
             <div>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-3">Prossimi</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-3">Prossimi</p>
               <div className="space-y-px">
                 {athleteAppointments.filter((a) => a.status === 'scheduled').map((apt) => {
                   const aptType = APPOINTMENT_TYPES[apt.type];
@@ -770,26 +770,26 @@ export default function AthleteProfilePage() {
                     <div key={apt.id} className="flex items-center gap-6 px-6 py-4 border border-white/[0.06] hover:bg-white/[0.015] transition-colors">
                       <div className="w-10 text-center shrink-0">
                         <p className="text-lg text-white" style={{ fontFamily: 'var(--font-heading)' }}>{new Date(apt.date).getDate()}</p>
-                        <p className="text-[8px] uppercase tracking-[0.15em] text-white/15">{new Date(apt.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
+                        <p className="text-[10px] uppercase tracking-[0.15em] text-white/50">{new Date(apt.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
                       </div>
                       <div className="w-px h-8 bg-white/[0.06]" />
                       <div className="flex-1 min-w-0">
                         <p className="text-[13px] text-white/70">{aptType?.label || apt.type}</p>
-                        <p className="text-[10px] text-white/20 mt-0.5">{apt.time} &middot; {apt.duration} min &middot; {apt.notes}</p>
+                        <p className="text-[10px] text-white/55 mt-0.5">{apt.time} &middot; {apt.duration} min &middot; {apt.notes}</p>
                       </div>
-                      <button className="w-7 h-7 border border-white/10 flex items-center justify-center text-white/15 hover:text-white/40 transition-colors">
+                      <button className="w-7 h-7 border border-white/10 flex items-center justify-center text-white/50 hover:text-white/70 transition-colors">
                         <Edit3 size={11} />
                       </button>
                     </div>
                   );
                 })}
                 {athleteAppointments.filter((a) => a.status === 'scheduled').length === 0 && (
-                  <p className="text-[11px] text-white/15 py-8 text-center">Nessun appuntamento in programma</p>
+                  <p className="text-[11px] text-white/50 py-8 text-center">Nessun appuntamento in programma</p>
                 )}
               </div>
             </div>
             <div>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-3">Completati</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-3">Completati</p>
               <div className="space-y-px">
                 {athleteAppointments.filter((a) => a.status === 'completed').map((apt) => {
                   const aptType = APPOINTMENT_TYPES[apt.type];
@@ -797,13 +797,13 @@ export default function AthleteProfilePage() {
                     <div key={apt.id} className="flex items-center gap-6 px-6 py-3 border border-white/[0.03] opacity-40">
                       <div className="w-10 text-center shrink-0">
                         <p className="text-sm text-white" style={{ fontFamily: 'var(--font-heading)' }}>{new Date(apt.date).getDate()}</p>
-                        <p className="text-[8px] uppercase tracking-[0.15em] text-white/15">{new Date(apt.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
+                        <p className="text-[10px] uppercase tracking-[0.15em] text-white/50">{new Date(apt.date).toLocaleDateString('it-IT', { month: 'short' })}</p>
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-[11px] text-white/60">{aptType?.label || apt.type}</p>
-                        <p className="text-[9px] text-white/15">{apt.time} &middot; {apt.notes}</p>
+                        <p className="text-[11px] text-white/50">{apt.time} &middot; {apt.notes}</p>
                       </div>
-                      <Check size={12} className="text-white/30 shrink-0" />
+                      <Check size={12} className="text-white/60 shrink-0" />
                     </div>
                   );
                 })}
@@ -816,19 +816,19 @@ export default function AthleteProfilePage() {
         {activeTab === 'gallery' && (
           <div className="space-y-6 page-enter">
             <div className="flex items-center justify-between">
-              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Galleria Progressi</h2>
+              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Galleria Progressi</h2>
               <div className="flex items-center gap-1.5">
-                <button onClick={() => { setCompareMode(!compareMode); setComparePhotos([]); }} className={`px-3 py-1.5 text-[9px] uppercase tracking-[0.15em] transition-colors border ${compareMode ? 'bg-white text-black border-white' : 'border-white/10 text-white/20 hover:text-white/40'}`}>
+                <button onClick={() => { setCompareMode(!compareMode); setComparePhotos([]); }} className={`px-3 py-1.5 text-[11px] uppercase tracking-[0.15em] transition-colors border ${compareMode ? 'bg-white text-black border-white' : 'border-white/10 text-white/55 hover:text-white/70'}`}>
                   Confronta
                 </button>
-                <button className="px-3 py-1.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black flex items-center gap-1">
+                <button className="px-3 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black flex items-center gap-1">
                   <Upload size={11} /> Carica
                 </button>
               </div>
             </div>
             {compareMode && comparePhotos.length === 2 && (
               <div className="border border-white/[0.06] p-6">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/15 mb-4">Confronto</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-4">Confronto</p>
                 <div className="grid grid-cols-2 gap-px bg-white/[0.06]">
                   {comparePhotos.map((id) => {
                     const photo = MOCK_PHOTOS.find((p) => p.id === id)!;
@@ -837,7 +837,7 @@ export default function AthleteProfilePage() {
                         <img src={photo.url} alt={photo.label} className="w-full aspect-[3/4] object-cover" />
                         <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
                           <p className="text-[10px] uppercase tracking-[0.15em] text-white/80">{photo.label}</p>
-                          <p className="text-[8px] text-white/30">{photo.date}</p>
+                          <p className="text-[10px] text-white/60">{photo.date}</p>
                         </div>
                       </div>
                     );
@@ -846,15 +846,15 @@ export default function AthleteProfilePage() {
               </div>
             )}
             {compareMode && comparePhotos.length < 2 && (
-              <p className="text-[10px] text-white/15 text-center py-3">Seleziona {2 - comparePhotos.length} foto per confrontare</p>
+              <p className="text-[10px] text-white/50 text-center py-3">Seleziona {2 - comparePhotos.length} foto per confrontare</p>
             )}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/[0.06]">
               {MOCK_PHOTOS.map((photo) => (
                 <div key={photo.id} onClick={() => compareMode ? toggleComparePhoto(photo.id) : setLightboxPhoto(photo.id)} className={`relative group cursor-pointer aspect-[3/4] bg-[#0A0A0A] ${compareMode && comparePhotos.includes(photo.id) ? 'ring-1 ring-white' : ''}`}>
                   <img src={photo.url} alt={photo.label} className="w-full h-full object-cover group-hover:opacity-80 transition-opacity" />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                     <p className="text-[10px] text-white/80">{photo.label}</p>
-                    <p className="text-[8px] text-white/30">{photo.date}</p>
+                    <p className="text-[10px] text-white/60">{photo.date}</p>
                   </div>
                   {compareMode && comparePhotos.includes(photo.id) && (
                     <div className="absolute top-3 right-3 w-5 h-5 bg-white flex items-center justify-center">
@@ -864,8 +864,8 @@ export default function AthleteProfilePage() {
                 </div>
               ))}
               <div className="aspect-[3/4] flex flex-col items-center justify-center gap-2 border border-dashed border-white/[0.06] cursor-pointer hover:border-white/15 transition-colors bg-[#0A0A0A]">
-                <Upload size={16} className="text-white/10" />
-                <p className="text-[8px] uppercase tracking-[0.2em] text-white/10">Carica</p>
+                <Upload size={16} className="text-white/50" />
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">Carica</p>
               </div>
             </div>
           </div>
@@ -879,10 +879,10 @@ export default function AthleteProfilePage() {
           return (
           <div className="space-y-6 page-enter">
             <div className="flex items-center justify-between">
-              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Documenti &amp; Schede</h2>
+              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Documenti &amp; Schede</h2>
               <div>
                 <input ref={docInputRef} type="file" onChange={handleDocUpload} className="hidden" accept=".pdf,.doc,.docx,.xlsx,.xls,.jpg,.jpeg,.png" />
-                <button onClick={() => docInputRef.current?.click()} className="px-3 py-1.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black flex items-center gap-1">
+                <button onClick={() => docInputRef.current?.click()} className="px-3 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black flex items-center gap-1">
                   <Upload size={11} /> Allega file
                 </button>
               </div>
@@ -894,8 +894,8 @@ export default function AthleteProfilePage() {
                 const count = f === 'all' ? athleteDocs.length : athleteDocs.filter(d => d.type === f).length;
                 if (f !== 'all' && count === 0) return null;
                 return (
-                  <button key={f} className={`px-3 py-2 text-[9px] uppercase tracking-[0.15em] transition-colors ${f === 'all' ? 'bg-white text-black' : 'bg-white/[0.03] text-white/20 hover:text-white/40'}`}>
-                    {DOC_FILTER_LABELS[f]} <span className="text-[7px] ml-1 opacity-40">{count}</span>
+                  <button key={f} className={`px-3 py-2 text-[11px] uppercase tracking-[0.15em] transition-colors ${f === 'all' ? 'bg-white text-black' : 'bg-white/[0.03] text-white/55 hover:text-white/70'}`}>
+                    {DOC_FILTER_LABELS[f]} <span className="text-[10px] ml-1 opacity-40">{count}</span>
                   </button>
                 );
               })}
@@ -907,39 +907,39 @@ export default function AthleteProfilePage() {
                 {athleteDocs.map((doc) => (
                   <div key={doc.id} className="flex items-center gap-4 px-6 py-4 border border-white/[0.06] hover:bg-white/[0.015] transition-colors group">
                     <div className={`w-8 h-8 flex items-center justify-center shrink-0 ${
-                      doc.type === 'training-plan' ? 'bg-white/[0.08] text-white/40' : 'bg-white/[0.04] text-white/15'
+                      doc.type === 'training-plan' ? 'bg-white/[0.08] text-white/70' : 'bg-white/[0.04] text-white/50'
                     }`}>
                       <FileText size={14} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-[13px] text-white/60 truncate">{doc.name}</p>
-                      <p className="text-[9px] text-white/15 mt-0.5">
-                        <span className={`inline-block px-1.5 py-0.5 mr-2 text-[7px] uppercase tracking-[0.15em] ${
-                          doc.type === 'training-plan' ? 'bg-white/[0.08] text-white/40' : 'bg-white/[0.03] text-white/20'
+                      <p className="text-[11px] text-white/50 mt-0.5">
+                        <span className={`inline-block px-1.5 py-0.5 mr-2 text-[10px] uppercase tracking-[0.15em] ${
+                          doc.type === 'training-plan' ? 'bg-white/[0.08] text-white/70' : 'bg-white/[0.03] text-white/55'
                         }`}>{DOC_TYPE_LABELS[doc.type] || doc.type}</span>
                         {doc.size} &middot; {doc.uploadedAt} &middot; {doc.uploadedBy}
                       </p>
                     </div>
-                    <div className="flex items-center gap-px opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
-                      <a href={doc.url} target="_blank" rel="noopener noreferrer" className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-white/50 transition-colors"><Eye size={11} /></a>
-                      <a href={doc.url} download className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-white/50 transition-colors"><Download size={11} /></a>
-                      <button onClick={() => handleDeleteDoc(doc.id)} className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-red-400/40 transition-colors"><Trash2 size={11} /></button>
+                    <div className="flex items-center gap-px sm:opacity-0 sm:group-hover:opacity-100 transition-opacity shrink-0">
+                      <a href={doc.url} target="_blank" rel="noopener noreferrer" className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/55 hover:text-white/50 transition-colors"><Eye size={11} /></a>
+                      <a href={doc.url} download className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/55 hover:text-white/50 transition-colors"><Download size={11} /></a>
+                      <button onClick={() => handleDeleteDoc(doc.id)} className="w-7 h-7 bg-white/[0.04] flex items-center justify-center text-white/55 hover:text-red-400/40 transition-colors"><Trash2 size={11} /></button>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
               <div className="border border-white/[0.06] py-10 text-center">
-                <FileText size={20} className="text-white/10 mx-auto mb-2" />
-                <p className="text-[11px] text-white/20">Nessun documento allegato</p>
+                <FileText size={20} className="text-white/50 mx-auto mb-2" />
+                <p className="text-[11px] text-white/55">Nessun documento allegato</p>
               </div>
             )}
 
             {/* Drop zone */}
             <div onClick={() => docInputRef.current?.click()} className="border border-dashed border-white/[0.06] py-12 flex flex-col items-center justify-center gap-2 hover:border-white/15 transition-colors cursor-pointer">
-              <Upload size={16} className="text-white/10" />
-              <p className="text-[11px] text-white/15">Trascina file qui per allegarli</p>
-              <p className="text-[9px] text-white/[0.08]">Schede, piani alimentari, referti, contratti &mdash; PDF, XLSX, DOC, IMG</p>
+              <Upload size={16} className="text-white/50" />
+              <p className="text-[11px] text-white/50">Trascina file qui per allegarli</p>
+              <p className="text-[11px] text-white/[0.08]">Schede, piani alimentari, referti, contratti &mdash; PDF, XLSX, DOC, IMG</p>
             </div>
           </div>
           );
@@ -950,7 +950,7 @@ export default function AthleteProfilePage() {
           <div className="space-y-6 page-enter">
             {/* New note form */}
             <div className="border border-white/[0.06] p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-3">Nuova nota</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-3">Nuova nota</p>
               <textarea
                 value={noteContent}
                 onChange={(e) => setNoteContent(e.target.value)}
@@ -964,8 +964,8 @@ export default function AthleteProfilePage() {
                     <button
                       key={cat}
                       onClick={() => setNoteCategory(cat)}
-                      className={`px-3 py-1.5 text-[8px] uppercase tracking-[0.15em] transition-colors ${
-                        noteCategory === cat ? 'bg-white text-black' : 'bg-white/[0.03] text-white/20 hover:text-white/40'
+                      className={`px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] transition-colors ${
+                        noteCategory === cat ? 'bg-white text-black' : 'bg-white/[0.03] text-white/55 hover:text-white/70'
                       }`}
                     >
                       {cat === 'general' ? 'Generale' : cat === 'performance' ? 'Performance' : cat === 'injury' ? 'Infortunio' : cat === 'nutrition' ? 'Nutrizione' : cat === 'mental' ? 'Mentale' : 'Admin'}
@@ -977,8 +977,8 @@ export default function AthleteProfilePage() {
                     <button
                       key={p}
                       onClick={() => setNotePriority(p)}
-                      className={`px-3 py-1.5 text-[8px] uppercase tracking-[0.15em] transition-colors ${
-                        notePriority === p ? 'bg-white text-black' : 'bg-white/[0.03] text-white/20 hover:text-white/40'
+                      className={`px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] transition-colors ${
+                        notePriority === p ? 'bg-white text-black' : 'bg-white/[0.03] text-white/55 hover:text-white/70'
                       }`}
                     >
                       {p === 'low' ? 'Bassa' : p === 'medium' ? 'Media' : 'Alta'}
@@ -988,7 +988,7 @@ export default function AthleteProfilePage() {
                 <button
                   onClick={handleAddNote}
                   disabled={!noteContent.trim()}
-                  className="ml-auto px-4 py-1.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black font-medium disabled:opacity-30"
+                  className="ml-auto px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium disabled:opacity-30"
                 >
                   Aggiungi nota
                 </button>
@@ -998,7 +998,7 @@ export default function AthleteProfilePage() {
             {/* Pinned notes */}
             {athleteNotesFiltered.filter(n => n.pinned).length > 0 && (
               <div>
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-3">Fissate</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-3">Fissate</p>
                 <div className="space-y-px">
                   {athleteNotesFiltered.filter(n => n.pinned).map(note => {
                     const categoryLabels: Record<string, string> = { general: 'Generale', performance: 'Performance', injury: 'Infortunio', nutrition: 'Nutrizione', mental: 'Mentale', admin: 'Admin' };
@@ -1007,13 +1007,13 @@ export default function AthleteProfilePage() {
                         <div className="w-1 shrink-0 mt-1" style={{ backgroundColor: note.priority === 'high' ? 'rgba(239,68,68,0.5)' : note.priority === 'medium' ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)' }} />
                         <div className="flex-1 min-w-0">
                           <p className="text-[12px] text-white/65 leading-relaxed">{note.content}</p>
-                          <div className="flex items-center gap-3 mt-2 text-[9px] text-white/15">
+                          <div className="flex items-center gap-3 mt-2 text-[11px] text-white/50">
                             <span>{note.authorName}</span>
                             <span>{new Date(note.createdAt).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
-                            <span className="px-1.5 py-0.5 bg-white/[0.03] text-[8px] uppercase tracking-wider">{categoryLabels[note.category]}</span>
+                            <span className="px-1.5 py-0.5 bg-white/[0.03] text-[10px] uppercase tracking-wider">{categoryLabels[note.category]}</span>
                           </div>
                         </div>
-                        <Star size={10} className="text-white/30 shrink-0 mt-1" />
+                        <Star size={10} className="text-white/60 shrink-0 mt-1" />
                       </div>
                     );
                   })}
@@ -1023,7 +1023,7 @@ export default function AthleteProfilePage() {
 
             {/* All notes */}
             <div>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-3">Tutte le note ({athleteNotesFiltered.length})</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-3">Tutte le note ({athleteNotesFiltered.length})</p>
               <div className="space-y-px">
                 {athleteNotesFiltered.filter(n => !n.pinned).map(note => {
                   const categoryLabels: Record<string, string> = { general: 'Generale', performance: 'Performance', injury: 'Infortunio', nutrition: 'Nutrizione', mental: 'Mentale', admin: 'Admin' };
@@ -1032,15 +1032,15 @@ export default function AthleteProfilePage() {
                       <div className="w-1 shrink-0 mt-1" style={{ backgroundColor: note.priority === 'high' ? 'rgba(239,68,68,0.4)' : note.priority === 'medium' ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.04)' }} />
                       <div className="flex-1 min-w-0">
                         <p className="text-[12px] text-white/55 leading-relaxed">{note.content}</p>
-                        <div className="flex items-center gap-3 mt-2 text-[9px] text-white/15">
+                        <div className="flex items-center gap-3 mt-2 text-[11px] text-white/50">
                           <span>{note.authorName}</span>
                           <span>{new Date(note.createdAt).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
-                          <span className="px-1.5 py-0.5 bg-white/[0.03] text-[8px] uppercase tracking-wider">{categoryLabels[note.category]}</span>
+                          <span className="px-1.5 py-0.5 bg-white/[0.03] text-[10px] uppercase tracking-wider">{categoryLabels[note.category]}</span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-px opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
-                        <button onClick={() => handleTogglePinNote(note)} className="w-6 h-6 bg-white/[0.03] flex items-center justify-center text-white/15 hover:text-white/40 transition-colors"><Star size={9} /></button>
-                        <button onClick={() => handleDeleteNote(note.id)} className="w-6 h-6 bg-white/[0.03] flex items-center justify-center text-white/15 hover:text-white/40 transition-colors"><Trash2 size={9} /></button>
+                      <div className="flex items-center gap-px sm:opacity-0 sm:group-hover:opacity-100 transition-opacity shrink-0">
+                        <button onClick={() => handleTogglePinNote(note)} className="w-6 h-6 bg-white/[0.03] flex items-center justify-center text-white/50 hover:text-white/70 transition-colors"><Star size={9} /></button>
+                        <button onClick={() => handleDeleteNote(note.id)} className="w-6 h-6 bg-white/[0.03] flex items-center justify-center text-white/50 hover:text-white/70 transition-colors"><Trash2 size={9} /></button>
                       </div>
                     </div>
                   );
@@ -1054,10 +1054,10 @@ export default function AthleteProfilePage() {
         {activeTab === 'measurements' && (
           <div className="space-y-6 page-enter">
             <div className="flex items-center justify-between">
-              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/30">Storico misurazioni</h2>
+              <h2 className="text-[10px] uppercase tracking-[0.2em] text-white/60">Storico misurazioni</h2>
               <button
                 onClick={() => setShowNewMeasurement(!showNewMeasurement)}
-                className="px-3 py-1.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black flex items-center gap-1"
+                className="px-3 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black flex items-center gap-1"
               >
                 <Plus size={11} /> Nuova
               </button>
@@ -1066,66 +1066,66 @@ export default function AthleteProfilePage() {
             {/* New measurement form */}
             {showNewMeasurement && (
               <div className="border border-white/[0.06] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-4">Nuova Misurazione</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-4">Nuova Misurazione</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                   <div>
-                    <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Data</label>
+                    <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Data</label>
                     <input type="date" value={newMeasurement.date || ''} onChange={(e) => setNewMeasurement({ ...newMeasurement, date: e.target.value })} className="nike-input" />
                   </div>
                   <div>
-                    <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Peso (kg)</label>
+                    <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Peso (kg)</label>
                     <input type="number" step="0.1" placeholder="76.5" onChange={(e) => setNewMeasurement({ ...newMeasurement, weight: e.target.value })} className="nike-input" />
                   </div>
                   <div>
-                    <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Body Fat (%)</label>
+                    <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Body Fat (%)</label>
                     <input type="number" step="0.1" placeholder="13" onChange={(e) => setNewMeasurement({ ...newMeasurement, bodyFat: e.target.value })} className="nike-input" />
                   </div>
                   {(athlete.sport === 'boxing') && (
                     <div>
-                      <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Punch Power (u)</label>
+                      <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Punch Power (u)</label>
                       <input type="number" placeholder="88" onChange={(e) => setNewMeasurement({ ...newMeasurement, punchPower: e.target.value })} className="nike-input" />
                     </div>
                   )}
                   {(athlete.sport === 'gym' || athlete.sport === 'boxing') && (
                     <div>
-                      <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Bench Press (kg)</label>
+                      <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Bench Press (kg)</label>
                       <input type="number" placeholder="95" onChange={(e) => setNewMeasurement({ ...newMeasurement, benchPress: e.target.value })} className="nike-input" />
                     </div>
                   )}
                   {(athlete.sport === 'gym' || athlete.sport === 'football') && (
                     <div>
-                      <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Squat (kg)</label>
+                      <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Squat (kg)</label>
                       <input type="number" placeholder="125" onChange={(e) => setNewMeasurement({ ...newMeasurement, squat: e.target.value })} className="nike-input" />
                     </div>
                   )}
                   {(athlete.sport === 'gym') && (
                     <div>
-                      <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Deadlift (kg)</label>
+                      <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Deadlift (kg)</label>
                       <input type="number" placeholder="145" onChange={(e) => setNewMeasurement({ ...newMeasurement, deadlift: e.target.value })} className="nike-input" />
                     </div>
                   )}
                   {(athlete.sport === 'football' || athlete.sport === 'basketball' || athlete.sport === 'boxing') && (
                     <div>
-                      <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Sprint 100m (s)</label>
+                      <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Sprint 100m (s)</label>
                       <input type="number" step="0.1" placeholder="11.3" onChange={(e) => setNewMeasurement({ ...newMeasurement, sprintTime: e.target.value })} className="nike-input" />
                     </div>
                   )}
                   {(athlete.sport === 'football') && (
                     <div>
-                      <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">VO2max (ml/kg/min)</label>
+                      <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">VO2max (ml/kg/min)</label>
                       <input type="number" step="0.1" placeholder="56" onChange={(e) => setNewMeasurement({ ...newMeasurement, vo2max: e.target.value })} className="nike-input" />
                     </div>
                   )}
                   {(athlete.sport === 'basketball') && (
                     <div>
-                      <label className="text-[8px] uppercase tracking-[0.15em] text-white/15 mb-1 block">Salto Verticale (cm)</label>
+                      <label className="text-[10px] uppercase tracking-[0.15em] text-white/50 mb-1 block">Salto Verticale (cm)</label>
                       <input type="number" placeholder="68" onChange={(e) => setNewMeasurement({ ...newMeasurement, verticalJump: e.target.value })} className="nike-input" />
                     </div>
                   )}
                 </div>
                 <div className="flex justify-end mt-4 gap-2">
-                  <button onClick={() => setShowNewMeasurement(false)} className="px-4 py-1.5 text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/40 transition-colors">Annulla</button>
-                  <button onClick={handleSaveMeasurement} className="px-4 py-1.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black font-medium">Salva</button>
+                  <button onClick={() => setShowNewMeasurement(false)} className="px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/70 transition-colors">Annulla</button>
+                  <button onClick={handleSaveMeasurement} className="px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium">Salva</button>
                 </div>
               </div>
             )}
@@ -1136,17 +1136,17 @@ export default function AthleteProfilePage() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-white/[0.06]">
-                      <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Data</th>
-                      <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Peso</th>
-                      {athlete.measurements.some(m => m.bodyFat) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Body Fat</th>}
-                      {athlete.measurements.some(m => m.punchPower) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Punch Power</th>}
-                      {athlete.measurements.some(m => m.benchPress) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Bench Press</th>}
-                      {athlete.measurements.some(m => m.squat) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Squat</th>}
-                      {athlete.measurements.some(m => m.deadlift) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Deadlift</th>}
-                      {athlete.measurements.some(m => m.sprintTime) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Sprint</th>}
-                      {athlete.measurements.some(m => m.vo2max) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">VO2max</th>}
-                      {athlete.measurements.some(m => m.verticalJump) && <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Salto V.</th>}
-                      <th className="text-left px-4 py-3 text-[8px] uppercase tracking-[0.15em] text-white/20">Δ Peso</th>
+                      <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Data</th>
+                      <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Peso</th>
+                      {athlete.measurements.some(m => m.bodyFat) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Body Fat</th>}
+                      {athlete.measurements.some(m => m.punchPower) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Punch Power</th>}
+                      {athlete.measurements.some(m => m.benchPress) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Bench Press</th>}
+                      {athlete.measurements.some(m => m.squat) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Squat</th>}
+                      {athlete.measurements.some(m => m.deadlift) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Deadlift</th>}
+                      {athlete.measurements.some(m => m.sprintTime) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Sprint</th>}
+                      {athlete.measurements.some(m => m.vo2max) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">VO2max</th>}
+                      {athlete.measurements.some(m => m.verticalJump) && <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Salto V.</th>}
+                      <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.15em] text-white/55">Δ Peso</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1155,19 +1155,19 @@ export default function AthleteProfilePage() {
                       const wDelta = prev ? +(m.weight - prev.weight).toFixed(1) : null;
                       return (
                         <tr key={m.date} className="border-b border-white/[0.02] last:border-b-0 hover:bg-white/[0.01] transition-colors">
-                          <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.date}</td>
+                          <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.date}</td>
                           <td className="px-4 py-3 text-[11px] text-white/60 tabular-nums">{m.weight} kg</td>
-                          {athlete.measurements.some(x => x.bodyFat) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.bodyFat ? `${m.bodyFat}%` : '—'}</td>}
-                          {athlete.measurements.some(x => x.punchPower) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.punchPower ?? '—'}</td>}
-                          {athlete.measurements.some(x => x.benchPress) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.benchPress ? `${m.benchPress} kg` : '—'}</td>}
-                          {athlete.measurements.some(x => x.squat) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.squat ? `${m.squat} kg` : '—'}</td>}
-                          {athlete.measurements.some(x => x.deadlift) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.deadlift ? `${m.deadlift} kg` : '—'}</td>}
-                          {athlete.measurements.some(x => x.sprintTime) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.sprintTime ? `${m.sprintTime}s` : '—'}</td>}
-                          {athlete.measurements.some(x => x.vo2max) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.vo2max ?? '—'}</td>}
-                          {athlete.measurements.some(x => x.verticalJump) && <td className="px-4 py-3 text-[11px] text-white/40 tabular-nums">{m.verticalJump ? `${m.verticalJump} cm` : '—'}</td>}
+                          {athlete.measurements.some(x => x.bodyFat) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.bodyFat ? `${m.bodyFat}%` : '—'}</td>}
+                          {athlete.measurements.some(x => x.punchPower) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.punchPower ?? '—'}</td>}
+                          {athlete.measurements.some(x => x.benchPress) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.benchPress ? `${m.benchPress} kg` : '—'}</td>}
+                          {athlete.measurements.some(x => x.squat) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.squat ? `${m.squat} kg` : '—'}</td>}
+                          {athlete.measurements.some(x => x.deadlift) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.deadlift ? `${m.deadlift} kg` : '—'}</td>}
+                          {athlete.measurements.some(x => x.sprintTime) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.sprintTime ? `${m.sprintTime}s` : '—'}</td>}
+                          {athlete.measurements.some(x => x.vo2max) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.vo2max ?? '—'}</td>}
+                          {athlete.measurements.some(x => x.verticalJump) && <td className="px-4 py-3 text-[11px] text-white/70 tabular-nums">{m.verticalJump ? `${m.verticalJump} cm` : '—'}</td>}
                           <td className="px-4 py-3 text-[10px] tabular-nums">
                             {wDelta !== null ? (
-                              <span className={wDelta < 0 ? 'text-white/40' : wDelta > 0 ? 'text-white/25' : 'text-white/15'}>
+                              <span className={wDelta < 0 ? 'text-white/70' : wDelta > 0 ? 'text-white/60' : 'text-white/50'}>
                                 {wDelta > 0 ? '+' : ''}{wDelta}
                               </span>
                             ) : '—'}
@@ -1183,7 +1183,7 @@ export default function AthleteProfilePage() {
             {/* Charts */}
             <div className="grid md:grid-cols-2 gap-px bg-white/[0.06]">
               <div className="bg-[#0A0A0A] p-5">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-4">Andamento Peso</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-4">Andamento Peso</p>
                 <ResponsiveContainer width="100%" height={160}>
                   <AreaChart data={athlete.measurements.map(m => ({ date: m.date.slice(5), value: m.weight }))}>
                     <defs>
@@ -1192,8 +1192,8 @@ export default function AthleteProfilePage() {
                         <stop offset="100%" stopColor="#fff" stopOpacity={0} />
                       </linearGradient>
                     </defs>
-                    <XAxis dataKey="date" tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 9 }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fill: 'rgba(255,255,255,0.1)', fontSize: 9 }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
+                    <XAxis dataKey="date" tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fill: 'rgba(255,255,255,0.1)', fontSize: 11 }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
                     <Tooltip contentStyle={{ backgroundColor: '#111', border: '1px solid rgba(255,255,255,0.06)', fontSize: 10, color: '#fff' }} />
                     <Area type="monotone" dataKey="value" stroke="rgba(255,255,255,0.4)" fill="url(#weightFill)" strokeWidth={1.5} dot={{ r: 2, fill: 'rgba(255,255,255,0.5)' }} />
                   </AreaChart>
@@ -1201,7 +1201,7 @@ export default function AthleteProfilePage() {
               </div>
               {athlete.measurements.some(m => m.bodyFat) && (
                 <div className="bg-[#0A0A0A] p-5">
-                  <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-4">Body Fat %</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-4">Body Fat %</p>
                   <ResponsiveContainer width="100%" height={160}>
                     <AreaChart data={athlete.measurements.filter(m => m.bodyFat).map(m => ({ date: m.date.slice(5), value: m.bodyFat }))}>
                       <defs>
@@ -1210,8 +1210,8 @@ export default function AthleteProfilePage() {
                           <stop offset="100%" stopColor="#fff" stopOpacity={0} />
                         </linearGradient>
                       </defs>
-                      <XAxis dataKey="date" tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 9 }} axisLine={false} tickLine={false} />
-                      <YAxis tick={{ fill: 'rgba(255,255,255,0.1)', fontSize: 9 }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
+                      <XAxis dataKey="date" tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }} axisLine={false} tickLine={false} />
+                      <YAxis tick={{ fill: 'rgba(255,255,255,0.1)', fontSize: 11 }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
                       <Tooltip contentStyle={{ backgroundColor: '#111', border: '1px solid rgba(255,255,255,0.06)', fontSize: 10, color: '#fff' }} />
                       <Area type="monotone" dataKey="value" stroke="rgba(255,255,255,0.4)" fill="url(#bfFill)" strokeWidth={1.5} dot={{ r: 2, fill: 'rgba(255,255,255,0.5)' }} />
                     </AreaChart>
@@ -1226,15 +1226,15 @@ export default function AthleteProfilePage() {
       {/* LIGHTBOX */}
       {lightboxPhoto && (
         <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-6" onClick={() => setLightboxPhoto(null)}>
-          <button className="absolute top-6 right-6 text-white/30 hover:text-white transition-colors" onClick={() => setLightboxPhoto(null)}><X size={20} /></button>
+          <button className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors" onClick={() => setLightboxPhoto(null)}><X size={20} /></button>
           <div onClick={(e) => e.stopPropagation()} className="relative max-w-2xl w-full">
             <img src={MOCK_PHOTOS.find((p) => p.id === lightboxPhoto)?.url} alt="" className="w-full" />
             <div className="absolute bottom-4 left-4 bg-black/70 px-4 py-2">
               <p className="text-[10px] text-white/80">{MOCK_PHOTOS.find((p) => p.id === lightboxPhoto)?.label}</p>
-              <p className="text-[8px] text-white/30">{MOCK_PHOTOS.find((p) => p.id === lightboxPhoto)?.date}</p>
+              <p className="text-[10px] text-white/60">{MOCK_PHOTOS.find((p) => p.id === lightboxPhoto)?.date}</p>
             </div>
-            <button onClick={() => { const idx = MOCK_PHOTOS.findIndex((p) => p.id === lightboxPhoto); if (idx > 0) setLightboxPhoto(MOCK_PHOTOS[idx - 1].id); }} className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 flex items-center justify-center text-white/40 hover:text-white"><ChevronLeft size={16} /></button>
-            <button onClick={() => { const idx = MOCK_PHOTOS.findIndex((p) => p.id === lightboxPhoto); if (idx < MOCK_PHOTOS.length - 1) setLightboxPhoto(MOCK_PHOTOS[idx + 1].id); }} className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 flex items-center justify-center text-white/40 hover:text-white"><ChevronRight size={16} /></button>
+            <button onClick={() => { const idx = MOCK_PHOTOS.findIndex((p) => p.id === lightboxPhoto); if (idx > 0) setLightboxPhoto(MOCK_PHOTOS[idx - 1].id); }} className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 flex items-center justify-center text-white/70 hover:text-white"><ChevronLeft size={16} /></button>
+            <button onClick={() => { const idx = MOCK_PHOTOS.findIndex((p) => p.id === lightboxPhoto); if (idx < MOCK_PHOTOS.length - 1) setLightboxPhoto(MOCK_PHOTOS[idx + 1].id); }} className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 flex items-center justify-center text-white/70 hover:text-white"><ChevronRight size={16} /></button>
           </div>
         </div>
       )}
@@ -1244,30 +1244,30 @@ export default function AthleteProfilePage() {
         <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-6" onClick={() => setShowEditModal(false)}>
           <div onClick={(e) => e.stopPropagation()} className="bg-[#111] border border-white/[0.08] w-full max-w-lg max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/40">Modifica atleta</h3>
-              <button onClick={() => setShowEditModal(false)} className="text-white/20 hover:text-white transition-colors"><X size={16} /></button>
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/70">Modifica atleta</h3>
+              <button onClick={() => setShowEditModal(false)} className="text-white/55 hover:text-white transition-colors"><X size={16} /></button>
             </div>
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Nome</label><input type="text" value={editFormData.name || ''} onChange={(e) => setEditFormData({...editFormData, name: e.target.value})} className="nike-input" /></div>
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Cognome</label><input type="text" value={editFormData.surname || ''} onChange={(e) => setEditFormData({...editFormData, surname: e.target.value})} className="nike-input" /></div>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Nome</label><input type="text" value={editFormData.name || ''} onChange={(e) => setEditFormData({...editFormData, name: e.target.value})} className="nike-input" /></div>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Cognome</label><input type="text" value={editFormData.surname || ''} onChange={(e) => setEditFormData({...editFormData, surname: e.target.value})} className="nike-input" /></div>
               </div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Email</label><input type="email" value={editFormData.email || ''} onChange={(e) => setEditFormData({...editFormData, email: e.target.value})} className="nike-input" /></div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Telefono</label><input type="tel" value={editFormData.phone || ''} onChange={(e) => setEditFormData({...editFormData, phone: e.target.value})} className="nike-input" /></div>
-              <div className="grid grid-cols-3 gap-4">
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Età</label><input type="number" value={editFormData.age || ''} onChange={(e) => setEditFormData({...editFormData, age: Number(e.target.value)})} className="nike-input" /></div>
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Altezza</label><input type="number" value={editFormData.height || ''} onChange={(e) => setEditFormData({...editFormData, height: Number(e.target.value)})} className="nike-input" /></div>
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Peso</label><input type="number" value={editFormData.weight || ''} onChange={(e) => setEditFormData({...editFormData, weight: Number(e.target.value)})} className="nike-input" /></div>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Email</label><input type="email" value={editFormData.email || ''} onChange={(e) => setEditFormData({...editFormData, email: e.target.value})} className="nike-input" /></div>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Telefono</label><input type="tel" value={editFormData.phone || ''} onChange={(e) => setEditFormData({...editFormData, phone: e.target.value})} className="nike-input" /></div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Età</label><input type="number" value={editFormData.age || ''} onChange={(e) => setEditFormData({...editFormData, age: Number(e.target.value)})} className="nike-input" /></div>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Altezza</label><input type="number" value={editFormData.height || ''} onChange={(e) => setEditFormData({...editFormData, height: Number(e.target.value)})} className="nike-input" /></div>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Peso</label><input type="number" value={editFormData.weight || ''} onChange={(e) => setEditFormData({...editFormData, weight: Number(e.target.value)})} className="nike-input" /></div>
               </div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Obiettivo</label><input type="text" value={editFormData.goal || ''} onChange={(e) => setEditFormData({...editFormData, goal: e.target.value})} className="nike-input" /></div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Stato</label>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Obiettivo</label><input type="text" value={editFormData.goal || ''} onChange={(e) => setEditFormData({...editFormData, goal: e.target.value})} className="nike-input" /></div>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Stato</label>
                 <select value={editFormData.status || 'active'} onChange={(e) => setEditFormData({...editFormData, status: e.target.value})} className="nike-input"><option value="active">Attivo</option><option value="paused">In pausa</option><option value="completed">Completato</option></select>
               </div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Note</label><textarea value={editFormData.notes || ''} onChange={(e) => setEditFormData({...editFormData, notes: e.target.value})} rows={3} className="nike-input resize-none" /></div>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Note</label><textarea value={editFormData.notes || ''} onChange={(e) => setEditFormData({...editFormData, notes: e.target.value})} rows={3} className="nike-input resize-none" /></div>
             </div>
             <div className="px-6 py-5 border-t border-white/[0.06] flex items-center justify-end gap-3">
-              <button onClick={() => setShowEditModal(false)} className="px-4 py-2 text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors">Annulla</button>
-              <button onClick={handleSaveAthlete} className="px-5 py-2.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black font-medium">Salva modifiche</button>
+              <button onClick={() => setShowEditModal(false)} className="px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors">Annulla</button>
+              <button onClick={handleSaveAthlete} className="px-5 py-2.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium">Salva modifiche</button>
             </div>
           </div>
         </div>
@@ -1278,31 +1278,31 @@ export default function AthleteProfilePage() {
         <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-6" onClick={() => { setShowGoalModal(false); setEditingGoal(null); }}>
           <div onClick={(e) => e.stopPropagation()} className="bg-[#111] border border-white/[0.08] w-full max-w-md">
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/40">{editingGoal.id ? 'Modifica obiettivo' : 'Nuovo obiettivo'}</h3>
-              <button onClick={() => { setShowGoalModal(false); setEditingGoal(null); }} className="text-white/20 hover:text-white transition-colors"><X size={16} /></button>
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/70">{editingGoal.id ? 'Modifica obiettivo' : 'Nuovo obiettivo'}</h3>
+              <button onClick={() => { setShowGoalModal(false); setEditingGoal(null); }} className="text-white/55 hover:text-white transition-colors"><X size={16} /></button>
             </div>
             <div className="p-6 space-y-4">
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Titolo</label>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Titolo</label>
                 <input type="text" value={editingGoal.title} onChange={(e) => setEditingGoal({ ...editingGoal, title: e.target.value })} placeholder="es. Aumentare bench press" className="nike-input" />
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Attuale</label>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Attuale</label>
                   <input type="text" value={editingGoal.current} onChange={(e) => setEditingGoal({ ...editingGoal, current: e.target.value })} placeholder="es. 80 kg" className="nike-input" />
                 </div>
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Target</label>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Target</label>
                   <input type="text" value={editingGoal.target} onChange={(e) => setEditingGoal({ ...editingGoal, target: e.target.value })} placeholder="es. 100 kg" className="nike-input" />
                 </div>
               </div>
               <div>
-                <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-2 block">Progresso &mdash; {editingGoal.progress}%</label>
+                <label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-2 block">Progresso &mdash; {editingGoal.progress}%</label>
                 <input type="range" min={0} max={100} value={editingGoal.progress} onChange={(e) => setEditingGoal({ ...editingGoal, progress: Number(e.target.value) })}
                   className="w-full h-[2px] bg-white/[0.06] appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer" />
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Scadenza</label>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Scadenza</label>
                   <input type="date" value={editingGoal.deadline} onChange={(e) => setEditingGoal({ ...editingGoal, deadline: e.target.value })} className="nike-input" />
                 </div>
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Stato</label>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Stato</label>
                   <select value={editingGoal.status} onChange={(e) => setEditingGoal({ ...editingGoal, status: e.target.value as 'in-progress' | 'achieved' | 'missed' })} className="nike-input">
                     <option value="in-progress">In corso</option><option value="achieved">Raggiunto</option><option value="missed">Non raggiunto</option>
                   </select>
@@ -1310,10 +1310,10 @@ export default function AthleteProfilePage() {
               </div>
             </div>
             <div className="px-6 py-5 border-t border-white/[0.06] flex items-center justify-between">
-              <div>{editingGoal.id && <button onClick={handleDeleteGoal} className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1"><Trash2 size={10} /> Elimina</button>}</div>
+              <div>{editingGoal.id && <button onClick={handleDeleteGoal} className="text-[11px] uppercase tracking-[0.15em] text-white/50 hover:text-white/70 transition-colors flex items-center gap-1"><Trash2 size={10} /> Elimina</button>}</div>
               <div className="flex items-center gap-3">
-                <button onClick={() => { setShowGoalModal(false); setEditingGoal(null); }} className="px-4 py-2 text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors">Annulla</button>
-                <button onClick={handleSaveGoal} className="px-5 py-2.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black font-medium">{editingGoal.id ? 'Salva' : 'Crea'}</button>
+                <button onClick={() => { setShowGoalModal(false); setEditingGoal(null); }} className="px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors">Annulla</button>
+                <button onClick={handleSaveGoal} className="px-5 py-2.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium">{editingGoal.id ? 'Salva' : 'Crea'}</button>
               </div>
             </div>
           </div>
@@ -1325,11 +1325,11 @@ export default function AthleteProfilePage() {
         <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-6" onClick={() => setShowCheckInModal(false)}>
           <div onClick={(e) => e.stopPropagation()} className="bg-[#111] border border-white/[0.08] w-full max-w-md max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/40">Check-in settimanale</h3>
-              <button onClick={() => setShowCheckInModal(false)} className="text-white/20 hover:text-white transition-colors"><X size={16} /></button>
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/70">Check-in settimanale</h3>
+              <button onClick={() => setShowCheckInModal(false)} className="text-white/55 hover:text-white transition-colors"><X size={16} /></button>
             </div>
             <div className="p-6 space-y-5">
-              <p className="text-[10px] text-white/20">Valuta da 1 a 10.</p>
+              <p className="text-[10px] text-white/55">Valuta da 1 a 10.</p>
               {[
                 { key: 'mood', label: 'Umore' },
                 { key: 'energy', label: 'Energia' },
@@ -1339,7 +1339,7 @@ export default function AthleteProfilePage() {
               ].map((field) => (
                 <div key={field.key}>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] text-white/40">{field.label}</span>
+                    <span className="text-[10px] text-white/70">{field.label}</span>
                     <span className="text-sm text-white tabular-nums" style={{ fontFamily: 'var(--font-heading)' }}>{(checkInValues as Record<string, number | string>)[field.key] || 5}</span>
                   </div>
                   <input type="range" min={1} max={10} value={(checkInValues as Record<string, number | string>)[field.key] as number || 5}
@@ -1347,16 +1347,16 @@ export default function AthleteProfilePage() {
                     className="w-full h-[2px] bg-white/[0.06] appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer" />
                 </div>
               ))}
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Win</label>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Win</label>
                 <input type="text" value={checkInValues.wins} onChange={(e) => setCheckInValues(prev => ({ ...prev, wins: e.target.value }))} placeholder="Cosa è andato bene?" className="nike-input" />
               </div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Note</label>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Note</label>
                 <textarea value={checkInValues.notes} onChange={(e) => setCheckInValues(prev => ({ ...prev, notes: e.target.value }))} rows={2} placeholder="Come ti senti..." className="nike-input resize-none" />
               </div>
             </div>
             <div className="px-6 py-5 border-t border-white/[0.06] flex items-center justify-end gap-3">
-              <button onClick={() => setShowCheckInModal(false)} className="px-4 py-2 text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors">Annulla</button>
-              <button onClick={handleSaveCheckIn} className="px-5 py-2.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black font-medium">Salva</button>
+              <button onClick={() => setShowCheckInModal(false)} className="px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors">Annulla</button>
+              <button onClick={handleSaveCheckIn} className="px-5 py-2.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium">Salva</button>
             </div>
           </div>
         </div>
@@ -1367,26 +1367,26 @@ export default function AthleteProfilePage() {
         <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-6" onClick={() => setShowNewAppointment(false)}>
           <div onClick={(e) => e.stopPropagation()} className="bg-[#111] border border-white/[0.08] w-full max-w-md">
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/40">Nuovo appuntamento</h3>
-              <button onClick={() => setShowNewAppointment(false)} className="text-white/20 hover:text-white transition-colors"><X size={16} /></button>
+              <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/70">Nuovo appuntamento</h3>
+              <button onClick={() => setShowNewAppointment(false)} className="text-white/55 hover:text-white transition-colors"><X size={16} /></button>
             </div>
             <div className="p-6 space-y-4">
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Tipo</label>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Tipo</label>
                 <select value={newApt.type} onChange={(e) => setNewApt({ ...newApt, type: e.target.value as 'training' })} className="nike-input">
                   <option value="training">Allenamento</option><option value="call">Chiamata</option><option value="assessment">Valutazione</option><option value="review">Review</option>
                 </select>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Data</label><input type="date" value={newApt.date} onChange={(e) => setNewApt({ ...newApt, date: e.target.value })} className="nike-input" /></div>
-                <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Ora</label><input type="time" value={newApt.time} onChange={(e) => setNewApt({ ...newApt, time: e.target.value })} className="nike-input" /></div>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Data</label><input type="date" value={newApt.date} onChange={(e) => setNewApt({ ...newApt, date: e.target.value })} className="nike-input" /></div>
+                <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Ora</label><input type="time" value={newApt.time} onChange={(e) => setNewApt({ ...newApt, time: e.target.value })} className="nike-input" /></div>
               </div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Durata (min)</label><input type="number" value={newApt.duration} onChange={(e) => setNewApt({ ...newApt, duration: Number(e.target.value) })} className="nike-input" /></div>
-              <div><label className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 block">Note</label><textarea rows={2} value={newApt.notes} onChange={(e) => setNewApt({ ...newApt, notes: e.target.value })} placeholder="Dettagli..." className="nike-input resize-none" /></div>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Durata (min)</label><input type="number" value={newApt.duration} onChange={(e) => setNewApt({ ...newApt, duration: Number(e.target.value) })} className="nike-input" /></div>
+              <div><label className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1.5 block">Note</label><textarea rows={2} value={newApt.notes} onChange={(e) => setNewApt({ ...newApt, notes: e.target.value })} placeholder="Dettagli..." className="nike-input resize-none" /></div>
             </div>
             <div className="px-6 py-5 border-t border-white/[0.06] flex items-center justify-end gap-3">
-              <button onClick={() => setShowNewAppointment(false)} className="px-4 py-2 text-[9px] uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors">Annulla</button>
+              <button onClick={() => setShowNewAppointment(false)} className="px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-white/50 transition-colors">Annulla</button>
               <button onClick={() => { if (!newApt.date || !newApt.time) return; addAppointment({ athleteId: athlete.id, athleteName: `${athlete.name} ${athlete.surname}`, type: newApt.type, date: newApt.date, time: newApt.time, duration: newApt.duration, notes: newApt.notes, status: 'scheduled', sport: athlete.sport }); setNewApt({ type: 'training', date: '', time: '', duration: 60, notes: '' }); setShowNewAppointment(false); }}
-                className="px-5 py-2.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black font-medium">Crea</button>
+                className="px-5 py-2.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium">Crea</button>
             </div>
           </div>
         </div>

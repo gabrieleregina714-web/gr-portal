@@ -19,7 +19,7 @@ export default function AthleteProgressiPage() {
   const athlete = athletes.find((a: Athlete) => a.id === athleteId);
 
   if (!athlete) {
-    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/20 text-sm">Caricamento...</p></div>;
+    return <div className="flex items-center justify-center min-h-[60vh]"><p className="text-white/55 text-sm">Caricamento...</p></div>;
   }
 
   const sport = SPORTS[athlete.sport];
@@ -52,7 +52,7 @@ export default function AthleteProgressiPage() {
       <div className="relative overflow-hidden" style={{ height: '180px' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute bottom-6 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label}</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">{sport.label}</p>
           <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white text-[28px] sm:text-[36px]">
             I TUOI PROGRESSI
           </h1>
@@ -70,13 +70,13 @@ export default function AthleteProgressiPage() {
             const positive = metric.lowerIsBetter ? (delta !== null && delta < 0) : (delta !== null && delta > 0);
             return (
               <div key={metric.key} className="bg-[#0A0A0A] p-5">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-white/40 mb-2">{metric.label}</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/70 mb-2">{metric.label}</p>
                 <div className="flex items-end gap-2">
                   <p className="text-3xl font-bold text-white/70" style={{ fontFamily: 'var(--font-heading)' }}>
                     {current}{metric.unit}
                   </p>
                   {delta !== null && delta !== 0 && (
-                    <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/40' : 'text-white/25'}`}>
+                    <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/70' : 'text-white/60'}`}>
                       {positive ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                       {delta > 0 ? '+' : ''}{delta}{metric.unit}
                     </span>
@@ -97,13 +97,13 @@ export default function AthleteProgressiPage() {
               const positive = metric.lowerIsBetter ? (delta !== null && delta < 0) : (delta !== null && delta > 0);
               return (
                 <div key={metric.key} className="bg-[#0A0A0A] p-5">
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/40 mb-2">{metric.label}</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/70 mb-2">{metric.label}</p>
                   <div className="flex items-end gap-2">
                     <p className="text-3xl font-bold text-white/70" style={{ fontFamily: 'var(--font-heading)' }}>
                       {current}{metric.unit}
                     </p>
                     {delta !== null && delta !== 0 && (
-                      <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/30' : 'text-white/15'}`}>
+                      <span className={`text-[10px] mb-1 flex items-center gap-0.5 ${positive ? 'text-white/60' : 'text-white/50'}`}>
                         {positive ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                         {delta > 0 ? '+' : ''}{delta}{metric.unit}
                       </span>
@@ -122,7 +122,7 @@ export default function AthleteProgressiPage() {
           return (
             <div key={metric.key} className="border border-white/[0.06]">
               <div className="px-5 py-3 border-b border-white/[0.06]">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">{metric.label} nel tempo</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">{metric.label} nel tempo</p>
               </div>
               <div className="p-5" style={{ height: 220 }}>
                 <ResponsiveContainer width="100%" height="100%">
@@ -134,8 +134,8 @@ export default function AthleteProgressiPage() {
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" />
-                    <XAxis dataKey="date" tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 9 }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 9 }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
+                    <XAxis dataKey="date" tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fill: 'rgba(255,255,255,0.15)', fontSize: 11 }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
                     <Tooltip
                       contentStyle={{ background: '#1a1a1a', border: '1px solid rgba(255,255,255,0.08)', fontSize: '11px', color: 'rgba(255,255,255,0.6)' }}
                       labelStyle={{ color: 'rgba(255,255,255,0.3)' }}
@@ -158,24 +158,24 @@ export default function AthleteProgressiPage() {
         {/* Measurements table */}
         <div className="border border-white/[0.06]">
           <div className="px-5 py-3 border-b border-white/[0.06]">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Storico misurazioni</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Storico misurazioni</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/[0.06]">
-                  <th className="text-left px-5 py-3 text-[9px] uppercase tracking-[0.15em] text-white/30">Data</th>
+                  <th className="text-left px-5 py-3 text-[11px] uppercase tracking-[0.15em] text-white/60">Data</th>
                   {metricConfigs.map(m => (
-                    <th key={m.key} className="text-center px-3 py-3 text-[9px] uppercase tracking-[0.15em] text-white/25">{m.label}</th>
+                    <th key={m.key} className="text-center px-3 py-3 text-[11px] uppercase tracking-[0.15em] text-white/60">{m.label}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {[...measurements].reverse().map((m, i) => (
                   <tr key={i} className="border-b border-white/[0.02] last:border-b-0">
-                    <td className="px-5 py-3 text-[11px] text-white/40">{m.date}</td>
+                    <td className="px-5 py-3 text-[11px] text-white/70">{m.date}</td>
                     {metricConfigs.map(mc => (
-                      <td key={mc.key} className="px-3 py-3 text-[11px] text-white/30 text-center">
+                      <td key={mc.key} className="px-3 py-3 text-[11px] text-white/60 text-center">
                         {(m as any)[mc.key] !== undefined ? `${(m as any)[mc.key]}${mc.unit}` : '–'}
                       </td>
                     ))}

@@ -30,7 +30,7 @@ export default function SportAthletesPage() {
   if (!sport) {
     return (
       <div className="py-20 text-center">
-        <p className="text-white/40">Sport non trovato.</p>
+        <p className="text-white/70">Sport non trovato.</p>
         <Link href="/dashboard/athletes" className="nike-btn nike-btn-white mt-4">
           Torna indietro
         </Link>
@@ -63,7 +63,7 @@ export default function SportAthletesPage() {
 
         <Link
           href="/dashboard/athletes"
-          className="absolute top-6 left-6 lg:left-10 z-10 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
+          className="absolute top-6 left-6 lg:left-10 z-10 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/70 hover:text-white transition-colors"
         >
           <ArrowLeft size={12} /> Atleti
         </Link>
@@ -73,18 +73,18 @@ export default function SportAthletesPage() {
             {sport.label.toUpperCase()}
           </h1>
           <div className="flex items-center gap-4 mt-2">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{allSportAthletes.length} atleti</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/60">{allSportAthletes.length} atleti</span>
             <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{activeCount} attivi</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/60">{activeCount} attivi</span>
             <span className="w-px h-3 bg-white/10" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">{pausedCount} in pausa</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/60">{pausedCount} in pausa</span>
           </div>
         </div>
 
         <div className="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-1.5">
           <Link
             href="/dashboard/athletes/new"
-            className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all"
+            className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all"
           >
             <Plus size={13} />
           </Link>
@@ -102,7 +102,7 @@ export default function SportAthletesPage() {
                 className={`px-5 py-2.5 text-[10px] uppercase tracking-[0.2em] transition-colors border-b ${
                   statusFilter === s
                     ? 'text-white border-white'
-                    : 'text-white/20 border-transparent hover:text-white/40'
+                    : 'text-white/55 border-transparent hover:text-white/70'
                 }`}
               >
                 {s === 'all' ? `Tutti (${allSportAthletes.length})` : s === 'active' ? `Attivi (${activeCount})` : `Pausa (${pausedCount})`}
@@ -111,13 +111,13 @@ export default function SportAthletesPage() {
           </div>
 
           <div className="relative w-full sm:max-w-[220px]">
-            <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/15" />
+            <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50" />
             <input
               type="text"
               placeholder="Cerca..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-white/[0.04] border border-white/[0.06] py-2 pl-8 pr-3 text-[11px] text-white placeholder:text-white/15 outline-none focus:border-white/15 transition-colors"
+              className="w-full bg-white/[0.04] border border-white/[0.06] py-2 pl-8 pr-3 text-[11px] text-white placeholder:text-white/50 outline-none focus:border-white/15 transition-colors"
             />
           </div>
         </div>
@@ -129,13 +129,13 @@ export default function SportAthletesPage() {
         {/* Stats Row */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.06] mb-8">
           {[
-            { label: 'Totale atleti', value: `${allSportAthletes.length}`, icon: <Users size={14} className="text-white/15" /> },
-            { label: 'Attivi', value: `${activeCount}`, icon: <UserCheck size={14} className="text-white/15" /> },
-            { label: 'In pausa', value: `${pausedCount}`, icon: <UserX size={14} className="text-white/15" /> },
+            { label: 'Totale atleti', value: `${allSportAthletes.length}`, icon: <Users size={14} className="text-white/50" /> },
+            { label: 'Attivi', value: `${activeCount}`, icon: <UserCheck size={14} className="text-white/50" /> },
+            { label: 'In pausa', value: `${pausedCount}`, icon: <UserX size={14} className="text-white/50" /> },
           ].map((s) => (
             <div key={s.label} className="bg-[#0A0A0A] p-5">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25">{s.label}</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">{s.label}</p>
                 {s.icon}
               </div>
               <p className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
@@ -162,7 +162,7 @@ export default function SportAthletesPage() {
                 className="flex items-center gap-6 px-6 py-4 border border-white/[0.06] hover:bg-white/[0.015] transition-colors group"
               >
                 {/* Avatar */}
-                <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center text-[11px] font-semibold text-white/40 shrink-0">
+                <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center text-[11px] font-semibold text-white/70 shrink-0">
                   {athlete.name[0]}{athlete.surname[0]}
                 </div>
 
@@ -171,14 +171,14 @@ export default function SportAthletesPage() {
                   <p className="text-[13px] text-white/80 font-medium tracking-wide truncate group-hover:text-white transition-colors">
                     {athlete.name} {athlete.surname}
                   </p>
-                  <p className="text-[10px] text-white/20 mt-0.5 truncate">
+                  <p className="text-[10px] text-white/55 mt-0.5 truncate">
                     {athlete.goal}
                   </p>
                 </div>
 
                 {/* Days */}
                 <div className="hidden md:block text-right shrink-0">
-                  <p className="text-[10px] text-white/15">Day {daysSinceStart}</p>
+                  <p className="text-[10px] text-white/50">Day {daysSinceStart}</p>
                 </div>
 
                 {/* Progress */}
@@ -191,12 +191,12 @@ export default function SportAthletesPage() {
                       />
                     </div>
                   </div>
-                  <span className="text-[11px] text-white/30 w-8 text-right tabular-nums">{avgProg}%</span>
+                  <span className="text-[11px] text-white/60 w-8 text-right tabular-nums">{avgProg}%</span>
                 </div>
 
                 {/* Weight */}
                 <div className="hidden lg:block text-right shrink-0 w-16">
-                  <p className="text-[11px] text-white/40 tabular-nums">{lastM?.weight || '—'} <span className="text-white/15">kg</span></p>
+                  <p className="text-[11px] text-white/70 tabular-nums">{lastM?.weight || '—'} <span className="text-white/50">kg</span></p>
                 </div>
 
                 {/* Status */}
@@ -206,7 +206,7 @@ export default function SportAthletesPage() {
                   }`}
                 />
 
-                <ChevronRight size={13} className="text-white/10 group-hover:text-white/30 transition-colors shrink-0" />
+                <ChevronRight size={13} className="text-white/50 group-hover:text-white/60 transition-colors shrink-0" />
               </Link>
             );
           })}
@@ -214,10 +214,10 @@ export default function SportAthletesPage() {
 
         {sportAthletes.length === 0 && (
           <div className="py-20 text-center border border-white/[0.06]">
-            <p className="text-white/20 text-[11px] uppercase tracking-[0.2em] mb-6">Nessun atleta trovato</p>
+            <p className="text-white/55 text-[11px] uppercase tracking-[0.2em] mb-6">Nessun atleta trovato</p>
             <Link
               href="/dashboard/athletes/new"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 text-[9px] uppercase tracking-[0.15em] bg-white text-black font-medium"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-medium"
             >
               <Plus size={12} /> Aggiungi atleta
             </Link>

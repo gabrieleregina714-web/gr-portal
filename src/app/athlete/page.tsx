@@ -22,7 +22,7 @@ export default function AthleteHomePage() {
   if (!athlete) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-white/20 text-sm">Caricamento...</p>
+        <p className="text-white/55 text-sm">Caricamento...</p>
       </div>
     );
   }
@@ -56,17 +56,17 @@ export default function AthleteHomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#111] to-[#0A0A0A]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
         <div className="absolute bottom-8 left-6 lg:left-10 z-10">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/20 mb-2">{sport.label} · Giorno {daysSinceStart}</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 mb-2">{sport.label} · Giorno {daysSinceStart}</p>
           <h1 style={{ fontFamily: 'var(--font-heading)', lineHeight: 1, letterSpacing: '2px' }} className="text-white mb-3 text-[30px] sm:text-[40px] md:text-[48px]">
             CIAO, {athlete.name.toUpperCase()}
           </h1>
-          <p className="text-[12px] text-white/25 max-w-md italic">&ldquo;{sportQuote}&rdquo;</p>
+          <p className="text-[12px] text-white/60 max-w-md italic">&ldquo;{sportQuote}&rdquo;</p>
         </div>
         {/* Streak badge */}
         <div className="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-2">
           <div className="flex items-center gap-2 px-4 py-2 bg-white/[0.04] border border-white/[0.06]">
-            <Flame size={14} className="text-white/40" />
-            <span className="text-[11px] text-white/40">{streak} settimane</span>
+            <Flame size={14} className="text-white/70" />
+            <span className="text-[11px] text-white/70">{streak} settimane</span>
           </div>
         </div>
       </div>
@@ -76,30 +76,30 @@ export default function AthleteHomePage() {
         {/* Quick Actions Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06]">
           <Link href="/athlete/scheda" className="bg-[#0A0A0A] p-5 hover:bg-white/[0.015] transition-colors group">
-            <FileText size={16} className="text-white/15 mb-3" />
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-1">La tua scheda</p>
+            <FileText size={16} className="text-white/50 mb-3" />
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-1">La tua scheda</p>
             <p className="text-[13px] text-white/60 group-hover:text-white/80 transition-colors">{athletePlan?.name || 'Nessuna'}</p>
           </Link>
           <Link href="/athlete/appuntamenti" className="bg-[#0A0A0A] p-5 hover:bg-white/[0.015] transition-colors group">
-            <Calendar size={16} className="text-white/15 mb-3" />
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-1">Prossimo</p>
+            <Calendar size={16} className="text-white/50 mb-3" />
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-1">Prossimo</p>
             {nextAppointment ? (
               <p className="text-[13px] text-white/60 group-hover:text-white/80 transition-colors">{nextAppointment.date.slice(5)} · {nextAppointment.time}</p>
             ) : (
-              <p className="text-[13px] text-white/25">Nessuno</p>
+              <p className="text-[13px] text-white/60">Nessuno</p>
             )}
           </Link>
           <Link href="/athlete/obiettivi" className="bg-[#0A0A0A] p-5 hover:bg-white/[0.015] transition-colors group">
-            <Target size={16} className="text-white/15 mb-3" />
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-1">Obiettivi attivi</p>
+            <Target size={16} className="text-white/50 mb-3" />
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-1">Obiettivi attivi</p>
             <p className="text-[13px] text-white/60 group-hover:text-white/80 transition-colors">{athleteGoals.filter((g: SmartGoal) => g.status === 'in-progress').length} in corso</p>
           </Link>
           <Link href="/athlete/progressi" className="bg-[#0A0A0A] p-5 hover:bg-white/[0.015] transition-colors group">
-            <TrendingUp size={16} className="text-white/15 mb-3" />
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 mb-1">Peso attuale</p>
+            <TrendingUp size={16} className="text-white/50 mb-3" />
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-1">Peso attuale</p>
             <p className="text-[13px] text-white/60 group-hover:text-white/80 transition-colors">
               {lastM.weight} kg
-              {prevM && <span className="text-[10px] ml-1 text-white/20">({lastM.weight - prevM.weight > 0 ? '+' : ''}{(lastM.weight - prevM.weight).toFixed(1)})</span>}
+              {prevM && <span className="text-[10px] ml-1 text-white/55">({lastM.weight - prevM.weight > 0 ? '+' : ''}{(lastM.weight - prevM.weight).toFixed(1)})</span>}
             </p>
           </Link>
         </div>
@@ -114,20 +114,20 @@ export default function AthleteHomePage() {
             {nextAppointment && (
               <div className="border border-white/[0.06]">
                 <div className="px-5 py-3 border-b border-white/[0.06]">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Prossimo appuntamento</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Prossimo appuntamento</p>
                 </div>
                 <div className="p-5">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-white/[0.04] flex flex-col items-center justify-center shrink-0">
-                      <p className="text-[9px] uppercase text-white/20">{new Date(nextAppointment.date).toLocaleDateString('it-IT', { weekday: 'short' })}</p>
+                      <p className="text-[11px] uppercase text-white/55">{new Date(nextAppointment.date).toLocaleDateString('it-IT', { weekday: 'short' })}</p>
                       <p className="text-[18px] text-white/60" style={{ fontFamily: 'var(--font-heading)' }}>{nextAppointment.date.slice(8)}</p>
                     </div>
                     <div className="flex-1">
                       <p className="text-[13px] text-white/60 mb-1">{nextAppointment.notes}</p>
-                      <div className="flex items-center gap-3 text-[10px] text-white/20">
+                      <div className="flex items-center gap-3 text-[10px] text-white/55">
                         <span className="flex items-center gap-1"><Clock size={9} /> {nextAppointment.time}</span>
                         <span>{nextAppointment.duration} min</span>
-                        <span className="px-2 py-0.5 bg-white/[0.04] text-[8px] uppercase tracking-[0.15em]">
+                        <span className="px-2 py-0.5 bg-white/[0.04] text-[10px] uppercase tracking-[0.15em]">
                           {nextAppointment.type === 'training' ? 'Allenamento' : nextAppointment.type === 'assessment' ? 'Valutazione' : nextAppointment.type === 'call' ? 'Chiamata' : 'Review'}
                         </span>
                       </div>
@@ -140,8 +140,8 @@ export default function AthleteHomePage() {
             {/* Goals progress */}
             <div className="border border-white/[0.06]">
               <div className="px-5 py-3 border-b border-white/[0.06] flex items-center justify-between">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Obiettivi</p>
-                <Link href="/athlete/obiettivi" className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Obiettivi</p>
+                <Link href="/athlete/obiettivi" className="text-[11px] uppercase tracking-[0.15em] text-white/50 hover:text-white/70 transition-colors flex items-center gap-1">
                   Vedi tutti <ChevronRight size={10} />
                 </Link>
               </div>
@@ -152,7 +152,7 @@ export default function AthleteHomePage() {
                     <div key={goal.id} className="px-5 py-4">
                       <div className="flex items-center justify-between mb-2">
                         <p className="text-[12px] text-white/50">{goal.title}</p>
-                        <p className="text-[11px] text-white/30">{goal.currentValue}{goal.unit} / {goal.targetValue}{goal.unit}</p>
+                        <p className="text-[11px] text-white/60">{goal.currentValue}{goal.unit} / {goal.targetValue}{goal.unit}</p>
                       </div>
                       <div className="w-full h-1 bg-white/[0.04]">
                         <div className="h-full bg-white/30" style={{ width: `${Math.min(progress, 100)}%` }} />
@@ -171,15 +171,15 @@ export default function AthleteHomePage() {
             {latestAchievement && (
               <div className="border border-white/[0.06]">
                 <div className="px-5 py-3 border-b border-white/[0.06]">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Ultimo achievement</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Ultimo achievement</p>
                 </div>
                 <div className="p-5 flex items-center gap-4">
                   <div className="w-10 h-10 bg-white/[0.06] flex items-center justify-center shrink-0">
-                    <Award size={18} className="text-white/40" />
+                    <Award size={18} className="text-white/70" />
                   </div>
                   <div>
                     <p className="text-[13px] text-white/60 font-medium">{latestAchievement.title}</p>
-                    <p className="text-[10px] text-white/20 mt-0.5">{latestAchievement.description} · {latestAchievement.unlockedAt}</p>
+                    <p className="text-[10px] text-white/55 mt-0.5">{latestAchievement.description} · {latestAchievement.unlockedAt}</p>
                   </div>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export default function AthleteHomePage() {
             {lastCheckIn && (
               <div className="border border-white/[0.06]">
                 <div className="px-5 py-3 border-b border-white/[0.06]">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Ultimo check-in · {lastCheckIn.date}</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Ultimo check-in · {lastCheckIn.date}</p>
                 </div>
                 <div className="p-5">
                   <div className="grid grid-cols-3 sm:grid-cols-5 gap-px bg-white/[0.04]">
@@ -202,12 +202,12 @@ export default function AthleteHomePage() {
                     ].map(item => (
                       <div key={item.label} className="bg-[#0A0A0A] p-3 text-center">
                         <p className="text-[18px] text-white/50 mb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>{item.value}</p>
-                        <p className="text-[7px] uppercase tracking-[0.15em] text-white/15">{item.label}</p>
+                        <p className="text-[10px] uppercase tracking-[0.15em] text-white/50">{item.label}</p>
                       </div>
                     ))}
                   </div>
                   {lastCheckIn.wins && (
-                    <p className="text-[11px] text-white/25 mt-3 italic">&ldquo;{lastCheckIn.wins}&rdquo;</p>
+                    <p className="text-[11px] text-white/60 mt-3 italic">&ldquo;{lastCheckIn.wins}&rdquo;</p>
                   )}
                 </div>
               </div>
@@ -217,19 +217,19 @@ export default function AthleteHomePage() {
             {sub && (
               <div className="border border-white/[0.06]">
                 <div className="px-5 py-3 border-b border-white/[0.06]">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Abbonamento</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Abbonamento</p>
                 </div>
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-[13px] text-white/50">{sub.planName}</p>
-                    <span className={`px-2 py-0.5 text-[8px] uppercase tracking-[0.15em] ${
-                      sub.status === 'active' ? 'bg-white/[0.06] text-white/40' : 'bg-red-400/10 text-red-400/40'
+                    <span className={`px-2 py-0.5 text-[10px] uppercase tracking-[0.15em] ${
+                      sub.status === 'active' ? 'bg-white/[0.06] text-white/70' : 'bg-red-400/10 text-red-400/40'
                     }`}>{sub.status === 'active' ? 'Attivo' : sub.status === 'paused' ? 'In pausa' : sub.status}</span>
                   </div>
-                  <div className="flex items-center gap-4 text-[10px] text-white/15">
+                  <div className="flex items-center gap-4 text-[10px] text-white/50">
                     <span>€{sub.amount}/mese</span>
                     <span>Prossimo: {sub.nextPayment}</span>
-                    {sub.autoRenew && <span className="text-white/10">Rinnovo auto</span>}
+                    {sub.autoRenew && <span className="text-white/50">Rinnovo auto</span>}
                   </div>
                 </div>
               </div>
@@ -241,8 +241,8 @@ export default function AthleteHomePage() {
         {athleteAppointments.length > 1 && (
           <div className="border border-white/[0.06]">
             <div className="px-5 py-3 border-b border-white/[0.06] flex items-center justify-between">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">Prossimi appuntamenti</p>
-              <Link href="/athlete/appuntamenti" className="text-[9px] uppercase tracking-[0.15em] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Prossimi appuntamenti</p>
+              <Link href="/athlete/appuntamenti" className="text-[11px] uppercase tracking-[0.15em] text-white/50 hover:text-white/70 transition-colors flex items-center gap-1">
                 Vedi tutti <ChevronRight size={10} />
               </Link>
             </div>
@@ -250,12 +250,12 @@ export default function AthleteHomePage() {
               {athleteAppointments.slice(0, 4).map(apt => (
                 <div key={apt.id} className="px-5 py-3 flex items-center gap-4">
                   <div className="w-8 h-8 bg-white/[0.03] flex items-center justify-center shrink-0">
-                    <p className="text-[10px] text-white/20">{apt.date.slice(8)}</p>
+                    <p className="text-[10px] text-white/55">{apt.date.slice(8)}</p>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[12px] text-white/40 truncate">{apt.notes}</p>
+                    <p className="text-[12px] text-white/70 truncate">{apt.notes}</p>
                   </div>
-                  <p className="text-[10px] text-white/15 shrink-0">{apt.time} · {apt.duration}min</p>
+                  <p className="text-[10px] text-white/50 shrink-0">{apt.time} · {apt.duration}min</p>
                 </div>
               ))}
             </div>
