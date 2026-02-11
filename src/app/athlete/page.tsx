@@ -52,7 +52,7 @@ export default function AthleteHomePage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* Hero Header */}
-      <div className="relative overflow-hidden h-[220px] sm:h-[280px] md:h-[380px]">
+      <div className="relative overflow-hidden h-[260px] sm:h-[320px] md:h-[420px]">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="https://cdn.shopify.com/videos/c/o/v/4e1c6acfb7834b46aea4d169fd262d61.mp4" type="video/mp4" />
         </video>

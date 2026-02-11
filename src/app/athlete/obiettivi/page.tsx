@@ -45,7 +45,7 @@ export default function AthleteObiettiviPage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* Header */}
-      <div className="relative overflow-hidden h-[220px] sm:h-[280px] md:h-[380px]">
+      <div className="relative overflow-hidden h-[260px] sm:h-[320px] md:h-[420px]">
         <img
           src="https://cdn.shopify.com/s/files/1/0969/1801/2243/files/renith-r-MLU_X1d3ofQ-unsplash.jpg?v=1768050398"
           alt=""

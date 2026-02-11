@@ -45,7 +45,7 @@ export default function AthleteProfiloPage() {
     <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 -mt-5 sm:-mt-6 md:-mt-8">
 
       {/* Header */}
-      <div className="relative overflow-hidden h-[220px] sm:h-[280px] md:h-[380px]">
+      <div className="relative overflow-hidden h-[260px] sm:h-[320px] md:h-[420px]">
         {athlete.coverPhoto ? (
           <img src={athlete.coverPhoto} alt="" className="absolute inset-0 w-full h-full object-cover" />
         ) : (
