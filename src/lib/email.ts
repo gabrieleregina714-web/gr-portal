@@ -28,14 +28,6 @@ const TYPE_LABEL: Record<NotificationType, string> = {
   system: 'SISTEMA',
 };
 
-const TYPE_EMOJI: Record<NotificationType, string> = {
-  document: '📄',
-  appointment: '📅',
-  goal: '🎯',
-  message: '💬',
-  system: '⚙️',
-};
-
 export async function sendNotificationEmail({
   to,
   athleteName,
@@ -50,7 +42,6 @@ export async function sendNotificationEmail({
     return false;
   }
 
-  const emoji = TYPE_EMOJI[type] || '🔔';
   const label = TYPE_LABEL[type] || 'NOTIFICA';
   const portalUrl = process.env.NEXTAUTH_URL || 'https://gr-perform.vercel.app';
   const finalCtaUrl = ctaUrl ? `${portalUrl}${ctaUrl}` : `${portalUrl}/athlete`;
@@ -60,157 +51,137 @@ export async function sendNotificationEmail({
 
   const html = `
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark">
-  <meta name="supported-color-schemes" content="dark">
-  <!--[if mso]><style>*{font-family:Arial,sans-serif!important;}</style><![endif]-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="dark only">
+<meta name="supported-color-schemes" content="dark only">
+<title>GR Perform</title>
+<style>
+:root{color-scheme:dark only}
+html,body{margin:0!important;padding:0!important;width:100%!important;background:#0A0A0A!important}
+*{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+table,td{mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse}
+div[style*="margin:16px 0"]{margin:0!important}
+u+.body .full-wrap{width:100%!important;min-width:100vw!important}
+u+#body,u+.body{background:#0A0A0A!important}
+#MessageViewBody,#MessageWebViewDiv{background:#0A0A0A!important}
+.dark-bg{background:#0A0A0A!important;background-color:#0A0A0A!important}
+</style>
 </head>
-<body style="margin:0;padding:0;background-color:#0A0A0A;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;">
+<body id="body" class="body dark-bg" bgcolor="#0A0A0A" style="margin:0;padding:0;word-spacing:normal;background-color:#0A0A0A;">
+<div role="article" aria-roledescription="email" lang="it" class="dark-bg" style="font-size:medium;font-size:max(16px,1rem);background-color:#0A0A0A;">
+<!--[if mso]><table role="presentation" align="center" width="600" style="width:600px;" bgcolor="#0A0A0A"><tr><td bgcolor="#0A0A0A"><![endif]-->
+<table class="full-wrap dark-bg" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0A0A0A" style="margin:0;padding:0;background:#0A0A0A;background-color:#0A0A0A;">
+<tr><td class="dark-bg" bgcolor="#0A0A0A" align="center" valign="top" style="background:#0A0A0A;background-color:#0A0A0A;padding:0;">
 
-  <!-- Wrapper -->
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0A0A0A;">
-    <tr><td align="center" style="padding:0;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" bgcolor="#0A0A0A" style="max-width:600px;width:100%;margin:0 auto;background:#0A0A0A;background-color:#0A0A0A;">
 
-      <!-- Container -->
-      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:48px;background:#0A0A0A;">&zwnj;</td></tr>
 
-        <!-- Top accent bar -->
-        <tr><td style="height:3px;background:linear-gradient(90deg,#C8102E 0%,#C8102E 40%,#222222 100%);font-size:0;line-height:0;">&nbsp;</td></tr>
+<!-- Logo -->
+<tr><td bgcolor="#0A0A0A" align="center" style="padding:0 40px;background:#0A0A0A;">
+<img src="https://cdn.shopify.com/s/files/1/0969/1801/2243/files/Black_White_Bold_Modern_Clothing_Brand_Logo_97389bbf-665b-4465-82ec-d71a0fa4b35e.png?v=1758700090" alt="GR Perform" width="90" style="display:block;border:0;outline:none;" />
+</td></tr>
 
-        <!-- Spacer -->
-        <tr><td style="height:40px;background-color:#0A0A0A;font-size:0;">&nbsp;</td></tr>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:40px;background:#0A0A0A;">&zwnj;</td></tr>
 
-        <!-- Logo row -->
-        <tr>
-          <td align="center" style="padding:0 32px;background-color:#0A0A0A;">
-            <img src="https://cdn.shopify.com/s/files/1/0969/1801/2243/files/Black_White_Bold_Modern_Clothing_Brand_Logo_97389bbf-665b-4465-82ec-d71a0fa4b35e.png?v=1758700090" alt="GR Perform" width="100" style="display:block;border:0;" />
-          </td>
-        </tr>
+<!-- Type label -->
+<tr><td bgcolor="#0A0A0A" align="center" style="padding:0 40px;background:#0A0A0A;">
+<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#555555;font-weight:600;">
+${label}
+</p>
+</td></tr>
 
-        <!-- Spacer -->
-        <tr><td style="height:32px;background-color:#0A0A0A;font-size:0;">&nbsp;</td></tr>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:24px;background:#0A0A0A;">&zwnj;</td></tr>
 
-        <!-- Main card -->
-        <tr>
-          <td style="padding:0 24px;background-color:#0A0A0A;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#141414;border:1px solid #222222;">
+<!-- Title -->
+<tr><td bgcolor="#0A0A0A" align="center" style="padding:0 40px;background:#0A0A0A;">
+<h1 style="margin:0;font-family:Impact,'Arial Black',Arial,sans-serif;font-size:36px;font-weight:400;text-transform:uppercase;letter-spacing:1px;line-height:1;color:#FFFFFF;mso-line-height-rule:exactly;">
+${title}
+</h1>
+</td></tr>
 
-              <!-- Card top accent line -->
-              <tr><td style="height:2px;background-color:#C8102E;font-size:0;line-height:0;">&nbsp;</td></tr>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:20px;background:#0A0A0A;">&zwnj;</td></tr>
 
-              <!-- Card content -->
-              <tr>
-                <td style="padding:32px 32px 36px 32px;">
+<!-- Thin line -->
+<tr><td bgcolor="#0A0A0A" style="padding:0 40px;background:#0A0A0A;">
+<div style="height:1px;background-color:#222222;font-size:1px;line-height:1px;">&nbsp;</div>
+</td></tr>
 
-                  <!-- Date + Type row -->
-                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#777777;font-weight:500;">
-                        ${dateStr}
-                      </td>
-                      <td align="right">
-                        <span style="display:inline-block;background-color:#1E1E1E;color:#A0A0A0;font-size:10px;text-transform:uppercase;letter-spacing:2px;padding:5px 12px;font-weight:600;">
-                          ${emoji}&nbsp; ${label}
-                        </span>
-                      </td>
-                    </tr>
-                  </table>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:20px;background:#0A0A0A;">&zwnj;</td></tr>
 
-                  <!-- Divider -->
-                  <div style="height:1px;background-color:#222222;margin:20px 0;"></div>
+<!-- Greeting -->
+<tr><td bgcolor="#0A0A0A" align="center" style="padding:0 40px;background:#0A0A0A;">
+<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#666666;font-weight:500;">
+Ciao ${athleteName}
+</p>
+</td></tr>
 
-                  <!-- Greeting -->
-                  <p style="color:#777777;font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:500;margin:0 0 16px 0;">
-                    Ciao ${athleteName}
-                  </p>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:16px;background:#0A0A0A;">&zwnj;</td></tr>
 
-                  <!-- Title -->
-                  <h1 style="color:#F5F5F5;font-family:'Bebas Neue','Impact','Arial Black',sans-serif;font-size:32px;font-weight:400;text-transform:uppercase;letter-spacing:1px;line-height:1;margin:0 0 20px 0;">
-                    ${title}
-                  </h1>
+<!-- Message -->
+<tr><td bgcolor="#0A0A0A" align="center" style="padding:0 40px;background:#0A0A0A;">
+<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;color:#999999;font-weight:400;">
+${message}
+</p>
+</td></tr>
 
-                  <!-- Message -->
-                  <p style="color:#A0A0A0;font-size:14px;line-height:1.7;margin:0 0 32px 0;font-weight:400;">
-                    ${message}
-                  </p>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:36px;background:#0A0A0A;">&zwnj;</td></tr>
 
-                  <!-- CTA Button -->
-                  <table role="presentation" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td style="background-color:#FFFFFF;">
-                        <a href="${finalCtaUrl}" target="_blank" style="display:inline-block;background-color:#FFFFFF;color:#0A0A0A;text-decoration:none;font-size:11px;text-transform:uppercase;letter-spacing:2.5px;font-weight:600;padding:14px 32px;line-height:1;">
-                          ${btnLabel}&nbsp;&nbsp;→
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
+<!-- CTA Button -->
+<tr><td bgcolor="#0A0A0A" align="center" style="padding:0 40px;background:#0A0A0A;">
+<table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td bgcolor="#FFFFFF" style="background:#FFFFFF;">
+<a href="${finalCtaUrl}" target="_blank" style="display:inline-block;padding:14px 36px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#000000;text-decoration:none;background:#FFFFFF;mso-padding-alt:14px 36px;">
+${btnLabel}
+</a>
+</td>
+</tr>
+</table>
+</td></tr>
 
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:56px;background:#0A0A0A;">&zwnj;</td></tr>
 
-        <!-- Spacer -->
-        <tr><td style="height:24px;background-color:#0A0A0A;font-size:0;">&nbsp;</td></tr>
+<!-- Footer line -->
+<tr><td bgcolor="#0A0A0A" style="padding:0 40px;background:#0A0A0A;">
+<div style="height:1px;background-color:#1A1A1A;font-size:1px;line-height:1px;">&nbsp;</div>
+</td></tr>
 
-        <!-- Secondary info strip -->
-        <tr>
-          <td style="padding:0 24px;background-color:#0A0A0A;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#111111;border:1px solid #1A1A1A;">
-              <tr>
-                <td style="padding:20px 28px;">
-                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td width="50%" style="vertical-align:top;">
-                        <p style="color:#555555;font-size:9px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin:0 0 4px 0;">Portale</p>
-                        <a href="${portalUrl}" style="color:#A0A0A0;font-size:12px;text-decoration:none;font-weight:500;">gr-perform.vercel.app</a>
-                      </td>
-                      <td width="50%" style="vertical-align:top;text-align:right;">
-                        <p style="color:#555555;font-size:9px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin:0 0 4px 0;">Coach</p>
-                        <p style="color:#A0A0A0;font-size:12px;margin:0;font-weight:500;">GR Perform Team</p>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+<!-- Spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:24px;background:#0A0A0A;">&zwnj;</td></tr>
 
-        <!-- Spacer -->
-        <tr><td style="height:32px;background-color:#0A0A0A;font-size:0;">&nbsp;</td></tr>
+<!-- Footer text -->
+<tr><td bgcolor="#0A0A0A" align="center" style="padding:0 40px;background:#0A0A0A;">
+<p style="margin:0 0 4px 0;font-family:Arial,Helvetica,sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#444444;font-weight:600;">
+GR Perform
+</p>
+<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#333333;line-height:18px;">
+<a href="${portalUrl}" style="color:#444444;text-decoration:none;">gr-perform.vercel.app</a>
+</p>
+</td></tr>
 
-        <!-- Footer -->
-        <tr>
-          <td align="center" style="padding:0 32px;background-color:#0A0A0A;">
-            <!-- Accent dot -->
-            <div style="width:4px;height:4px;background-color:#C8102E;margin:0 auto 16px auto;"></div>
-            <p style="color:#555555;font-size:9px;text-transform:uppercase;letter-spacing:3px;font-weight:600;margin:0 0 8px 0;">
-              GR Perform · Performance Coaching
-            </p>
-            <p style="color:#333333;font-size:10px;margin:0 0 6px 0;line-height:1.5;">
-              Ricevi questa email perché sei registrato su GR Perform.
-            </p>
-            <p style="color:#333333;font-size:10px;margin:0;">
-              <a href="${portalUrl}/athlete" style="color:#555555;text-decoration:underline;">Accedi al portale</a>
-            </p>
-          </td>
-        </tr>
+<!-- Bottom spacer -->
+<tr><td bgcolor="#0A0A0A" style="height:48px;background:#0A0A0A;">&zwnj;</td></tr>
 
-        <!-- Bottom spacer -->
-        <tr><td style="height:40px;background-color:#0A0A0A;font-size:0;">&nbsp;</td></tr>
+</table>
 
-        <!-- Bottom accent bar -->
-        <tr><td style="height:2px;background:linear-gradient(90deg,#222222 0%,#C8102E 60%,#C8102E 100%);font-size:0;line-height:0;">&nbsp;</td></tr>
-
-      </table>
-    </td></tr>
-  </table>
-
+</td></tr>
+</table>
+<!--[if mso]></td></tr></table><![endif]-->
+</div>
 </body>
 </html>`;
 
@@ -218,7 +189,7 @@ export async function sendNotificationEmail({
     await transporter.sendMail({
       from: `"GR Perform" <${process.env.GMAIL_USER}>`,
       to,
-      subject: `${emoji} ${title} — GR Perform`,
+      subject: `${title} — GR Perform`,
       html,
     });
     console.log(`[Email] Sent to ${to}: ${title}`);
