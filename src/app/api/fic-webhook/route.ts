@@ -4,6 +4,9 @@ import crypto from 'crypto';
 const FIC_TOKEN   = process.env.FIC_ACCESS_TOKEN!;
 const FIC_COMPANY = process.env.FIC_COMPANY_ID || '1581421';
 const SHOPIFY_WEBHOOK_SECRET = process.env.SHOPIFY_WEBHOOK_SECRET || '';
+const SHOPIFY_ADMIN_TOKEN    = process.env.SHOPIFY_ADMIN_TOKEN || process.env.SHOPIFY_TOKEN || '';
+const SHOPIFY_STORE          = 'grperform.myshopify.com';
+const SHOPIFY_API            = '2024-01';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────
 async function ficRequest(method: string, path: string, payload?: object): Promise<{ status: number; body: any }> {
@@ -16,6 +19,15 @@ async function ficRequest(method: string, path: string, payload?: object): Promi
       ...(payload ? { 'Content-Type': 'application/json' } : {}),
     },
     ...(payload ? { body: JSON.stringify(payload) } : {}),
+  });
+  let body: any;
+  try { body = await res.json(); } catch { body = await res.text(); }
+  return { status: res.status, body };
+}
+
+async function shopifyRequest(path: string): Promise<{ status: number; body: any }> {
+  const res = await fetch(`https://${SHOPIFY_STORE}/admin/api/${SHOPIFY_API}${path}`, {
+    headers: { 'X-Shopify-Access-Token': SHOPIFY_ADMIN_TOKEN, 'Accept': 'application/json' },
   });
   let body: any;
   try { body = await res.json(); } catch { body = await res.text(); }
@@ -51,11 +63,27 @@ export async function POST(req: NextRequest) {
   try {
     // 1. Estrai dati cliente
     const billing = order.billing_address || order.shipping_address || {};
-    // Fallback su order.customer se billing_address non ha nome (ordini digitali/ebook)
     const firstName = billing.first_name || order.customer?.first_name || '';
     const lastName  = billing.last_name  || order.customer?.last_name  || '';
-    const customerName = (billing.company || `${firstName} ${lastName}`.trim() || order.email || order.customer?.email || 'Cliente').trim();
     const email = order.email || order.contact_email || order.customer?.email || '';
+
+    // Fallback finale: credit_card_name dalle transazioni Shopify (nome sulla carta)
+    // Necessario per ordini digitali guest dove Shopify non raccoglie nome/email
+    let cardName = order.payment_details?.credit_card_name || '';
+    if (!firstName && !lastName && !cardName && order.id) {
+      const txRes = await shopifyRequest(`/orders/${order.id}/transactions.json?fields=payment_details`);
+      if (txRes.status === 200 && txRes.body.transactions?.length > 0) {
+        cardName = txRes.body.transactions[0]?.payment_details?.credit_card_name || '';
+      }
+    }
+
+    const customerName = (
+      billing.company ||
+      `${firstName} ${lastName}`.trim() ||
+      cardName ||
+      email ||
+      'Cliente'
+    ).trim();
 
     const cf = (order.note_attributes || []).find((a: any) => a.name === 'Codice Fiscale')?.value || '';
 

@@ -88,9 +88,24 @@ async function main() {
   // Fallback su order.customer se billing_address non ha nome (ordini digitali/ebook)
   const firstName = billing.first_name || order.customer?.first_name || '';
   const lastName  = billing.last_name  || order.customer?.last_name  || '';
+
+  // Ultimo fallback: credit_card_name dalla prima transazione (nome sulla carta)
+  let cardName = '';
+  if (!firstName && !lastName) {
+    const txRes = await httpsGet(
+      SHOPIFY_STORE,
+      `/admin/api/${SHOPIFY_API}/orders/${order.id}/transactions.json?fields=payment_details`,
+      { 'X-Shopify-Access-Token': SHOPIFY_TOKEN }
+    );
+    if (txRes.status === 200 && txRes.body.transactions?.length > 0) {
+      cardName = txRes.body.transactions[0]?.payment_details?.credit_card_name || '';
+      if (cardName) console.log(`   (nome dalla carta: ${cardName})`);
+    }
+  }
+
   const customerName = billing.company
     ? billing.company
-    : (`${firstName} ${lastName}`.trim() || order.email || 'Cliente').trim();
+    : (`${firstName} ${lastName}`.trim() || cardName || order.email || 'Cliente').trim();
 
   console.log(`   Cliente: ${customerName}`);
   console.log(`   CF: ${cf || '(non trovato)'}`);
